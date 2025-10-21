@@ -1,6 +1,8 @@
+import senilLogo from "@assets/SENIL_WHITE_1761080366041.png";
+
 export default function ContactFooter() {
   return (
-    <footer className="bg-secondary text-secondary-foreground py-16" id="contact" data-testid="footer-contact">
+    <footer className="bg-secondary text-secondary-foreground py-16 relative" id="contact" data-testid="footer-contact">
       <div className="max-w-[1200px] mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div>
@@ -57,6 +59,15 @@ export default function ContactFooter() {
             Marketed in collaboration with Engel & Völkers Paros
           </p>
         </div>
+      </div>
+
+      <div className="absolute bottom-8 right-8 opacity-20 hover:opacity-40 transition-opacity duration-300">
+        <img 
+          src={senilLogo} 
+          alt="SENIL Logo" 
+          className="h-16 w-auto"
+          data-testid="footer-logo"
+        />
       </div>
     </footer>
   );
