@@ -23,18 +23,6 @@ const lifestyleImages = [
   rooms3,
 ];
 
-const amenities = [
-  "Private infinity pools",
-  "Sea-view terraces",
-  "Outdoor dining pavilions",
-  "Landscaped gardens",
-  "Wine cellars",
-  "Home cinema rooms",
-  "Fitness facilities",
-  "Staff quarters",
-  "Secure parking",
-];
-
 export default function LifestyleSection() {
   const duplicatedImages = [...lifestyleImages, ...lifestyleImages, ...lifestyleImages];
 
@@ -52,7 +40,7 @@ export default function LifestyleSection() {
           Lifestyle & Amenities
         </motion.h2>
 
-        <div className="relative mb-16 overflow-hidden">
+        <div className="relative overflow-hidden">
           <div 
             className="flex gap-6"
             style={{
@@ -71,7 +59,7 @@ export default function LifestyleSection() {
               >
                 <div 
                   className="relative w-full overflow-hidden"
-                  style={{ paddingTop: '56.25%' }}
+                  style={{ paddingTop: '112.5%' }}
                 >
                   <img
                     src={img}
@@ -82,18 +70,6 @@ export default function LifestyleSection() {
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {amenities.map((amenity, index) => (
-            <div
-              key={index}
-              className="bg-card p-4 rounded-lg border border-card-border text-center"
-              data-testid={`amenity-${index}`}
-            >
-              <span className="text-sm">{amenity}</span>
-            </div>
-          ))}
         </div>
       </div>
 
