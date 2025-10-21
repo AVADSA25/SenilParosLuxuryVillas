@@ -29,19 +29,6 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       data-testid="section-hero"
     >
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            className="fixed top-0 right-0 z-40 w-16 h-16 bg-graphite border border-ash/20"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            data-testid="menu-icon-background"
-          />
-        )}
-      </AnimatePresence>
-
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         className="fixed top-0 right-0 z-50 bg-transparent border-0 p-0"
@@ -58,28 +45,40 @@ export default function Hero() {
 
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.nav
-            className="fixed top-16 right-0 z-50 bg-graphite border border-ash/20 overflow-hidden"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            data-testid="dropdown-menu"
-          >
-            <div className="py-3 px-4">
-              {navItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-right py-2 text-ash hover:text-white transition-colors"
-                  data-testid={`nav-${item.label.toLowerCase()}`}
-                  style={{ color: "var(--ash)" }}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </motion.nav>
+          <>
+            <motion.div
+              className="fixed top-0 right-0 z-40 bg-graphite border border-ash/20"
+              style={{ width: "160px", height: "64px" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              data-testid="menu-icon-background"
+            />
+            <motion.nav
+              className="fixed top-16 right-0 z-50 bg-graphite border border-ash/20 overflow-hidden"
+              style={{ width: "160px" }}
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              data-testid="dropdown-menu"
+            >
+              <div className="py-3 px-4">
+                {navItems.map((item) => (
+                  <button
+                    key={item.href}
+                    onClick={() => scrollToSection(item.href)}
+                    className="block w-full text-right py-2 text-ash hover:text-white transition-colors"
+                    data-testid={`nav-${item.label.toLowerCase()}`}
+                    style={{ color: "var(--ash)" }}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </motion.nav>
+          </>
         )}
       </AnimatePresence>
       <div
