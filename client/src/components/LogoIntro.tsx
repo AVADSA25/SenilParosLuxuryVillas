@@ -7,34 +7,31 @@ const WORDMARK = "https://i.imgur.com/nLRvGQ0_d.png";
 
 export default function LogoIntro({ onComplete }: { onComplete: () => void }) {
   const [show, setShow] = useState(false);
+  const [shouldSkip, setShouldSkip] = useState(false);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const seen = localStorage.getItem(FLAG);
     
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion || seen) {
+      setShouldSkip(true);
       onComplete();
       return;
     }
 
-    const seen = localStorage.getItem(FLAG);
-    if (!seen) {
-      setShow(true);
-      const timer = setTimeout(() => {
-        localStorage.setItem(FLAG, "1");
-        setShow(false);
-        setTimeout(onComplete, 240); // Wait for exit animation
-      }, 900);
-      return () => clearTimeout(timer);
-    } else {
-      onComplete();
-    }
+    // Only show intro if not seen before
+    setShow(true);
+    const timer = setTimeout(() => {
+      localStorage.setItem(FLAG, "1");
+      setShow(false);
+      setTimeout(onComplete, 240); // Wait for exit animation
+    }, 900);
+    
+    return () => clearTimeout(timer);
   }, [onComplete]);
 
-  const prefersReducedMotion = typeof window !== "undefined" 
-    ? window.matchMedia("(prefers-reduced-motion: reduce)").matches 
-    : false;
-    
-  if (prefersReducedMotion) return null;
+  // Don't render anything if we should skip
+  if (shouldSkip) return null;
 
   return (
     <AnimatePresence>

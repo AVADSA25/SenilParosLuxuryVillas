@@ -57,6 +57,7 @@ export default function Home() {
       <LogoIntro onComplete={() => setShowContent(true)} />
       {showContent && (
         <div className="min-h-screen">
+          <a id="top" />
           <Header />
           <Hero />
           <HorizonVideo />
