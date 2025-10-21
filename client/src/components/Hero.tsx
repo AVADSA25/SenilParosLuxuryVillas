@@ -84,7 +84,7 @@ export default function Hero() {
         <video
           autoPlay
           loop
-          muted
+          muted={true}
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
           data-testid="hero-video"
