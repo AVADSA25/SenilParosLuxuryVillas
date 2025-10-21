@@ -63,7 +63,7 @@ export default function IntroSection() {
             }}
             data-testid="text-intro-heading"
           >
-            Three villas by award-winning Aristides Dallas on a quiet hillside in Isterni, Paros.
+            Three luxurious villas by award-winning Aristides Dallas on a quiet hillside in Isterni, Paros.
           </motion.h2>
 
           <motion.p
