@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import exterior from "@assets/02-senil-villas-paros-estate3_1761078697987.png";
 import interior1 from "@assets/05-senil-villa-interior-_1761078737080.jpg";
 import interior2 from "@assets/05-senil-villa-interior-3_1761078744243.png";
@@ -25,6 +26,39 @@ const lifestyleImages = [
 
 export default function LifestyleSection() {
   const duplicatedImages = [...lifestyleImages, ...lifestyleImages, ...lifestyleImages];
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [translateX, setTranslateX] = useState(0);
+  const [currentTranslate, setCurrentTranslate] = useState(0);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setStartX(e.pageX);
+    
+    if (scrollRef.current) {
+      const style = window.getComputedStyle(scrollRef.current);
+      const matrix = new WebKitCSSMatrix(style.transform);
+      setCurrentTranslate(matrix.m41);
+      setTranslateX(matrix.m41);
+    }
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX;
+    const diff = x - startX;
+    setTranslateX(currentTranslate + diff);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
 
   return (
     <section className="py-24 bg-accent overflow-hidden" data-testid="section-lifestyle">
@@ -40,11 +74,20 @@ export default function LifestyleSection() {
           Lifestyle & Amenities
         </motion.h2>
 
-        <div className="relative overflow-hidden">
+        <div 
+          className="relative overflow-hidden select-none"
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+        >
           <div 
+            ref={scrollRef}
             className="flex gap-6"
             style={{
-              animation: 'scroll 40s linear infinite',
+              animation: isDragging ? 'none' : 'scroll 27s linear infinite',
+              cursor: isDragging ? 'grabbing' : 'grab',
+              transform: isDragging ? `translateX(${translateX}px)` : undefined,
             }}
           >
             {duplicatedImages.map((img, index) => (
@@ -64,7 +107,8 @@ export default function LifestyleSection() {
                   <img
                     src={img}
                     alt={`Villa lifestyle ${(index % lifestyleImages.length) + 1}`}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                    draggable={false}
                   />
                 </div>
               </div>
