@@ -2,6 +2,7 @@ import { useState } from "react";
 import LogoIntro from "@/components/LogoIntro";
 import Hero from "@/components/Hero";
 import IntroSection from "@/components/IntroSection";
+import ParallaxSection from "@/components/ParallaxSection";
 import KeyFactsBand from "@/components/KeyFactsBand";
 import VillaCard from "@/components/VillaCard";
 import DesignSection from "@/components/DesignSection";
@@ -59,6 +60,7 @@ export default function Home() {
           <a id="top" />
           <Hero />
           <IntroSection />
+          <ParallaxSection />
           <KeyFactsBand />
 
           <section className="py-24 bg-background" id="villas" data-testid="section-villas">
