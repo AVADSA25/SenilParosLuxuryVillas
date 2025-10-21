@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import logoImage from "@assets/SENIL_WHITE_1761051060324.png";
+import { WordmarkImage } from "./WordmarkImage";
+import logoImage from "@assets/beige_1761047146946.png";
 
 const FLAG = "senil:intro_seen";
+const WORDMARK = logoImage;
 
 export default function LogoIntro({ onComplete }: { onComplete: () => void }) {
   const [show, setShow] = useState(false);
@@ -18,24 +20,25 @@ export default function LogoIntro({ onComplete }: { onComplete: () => void }) {
       return;
     }
 
+    // Only show intro if not seen before
     setShow(true);
     const timer = setTimeout(() => {
       localStorage.setItem(FLAG, "1");
       setShow(false);
-      setTimeout(onComplete, 240);
+      setTimeout(onComplete, 240); // Wait for exit animation
     }, 900);
     
     return () => clearTimeout(timer);
   }, [onComplete]);
 
+  // Don't render anything if we should skip
   if (shouldSkip) return null;
 
   return (
     <AnimatePresence>
       {show && (
         <motion.div
-          className="fixed inset-0 z-[9999] flex items-center justify-center"
-          style={{ backgroundColor: "#000000" }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-background"
           initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -43,15 +46,7 @@ export default function LogoIntro({ onComplete }: { onComplete: () => void }) {
           aria-hidden="true"
           data-testid="logo-intro-overlay"
         >
-          <motion.img
-            src={logoImage}
-            alt="SENIL"
-            className="w-[600px] max-w-[85vw]"
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.18, ease: "easeOut" }}
-            data-testid="logo-intro-image"
-          />
+          <WordmarkImage src={WORDMARK} />
         </motion.div>
       )}
     </AnimatePresence>
