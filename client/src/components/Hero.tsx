@@ -30,7 +30,7 @@ export default function Hero() {
         <motion.img 
           src={logoImage}
           alt="SENIL"
-          className="mx-auto mb-2 w-[500px] max-w-[85vw]"
+          className="mx-auto mb-1 w-[500px] max-w-[85vw]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}

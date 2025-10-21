@@ -22,12 +22,12 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 z-40"
+      className="sticky top-0 z-40 bg-transparent"
       role="banner"
       data-testid="header-main"
     >
       <div className="max-w-[1200px] mx-auto px-8">
-        <div className="h-16 flex items-center justify-end">
+        <div className="h-16 flex items-center justify-end bg-transparent">
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
             className="bg-transparent border-0 p-0"
@@ -55,12 +55,12 @@ export default function Header() {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               data-testid="mobile-menu-dropdown"
             >
-              <div className="py-4 border-t border-border/30">
+              <div className="py-4 border-t border-white/30">
                 {navItems.map((item) => (
                   <button
                     key={item.href}
                     onClick={() => scrollToSection(item.href)}
-                    className="block w-full text-left px-0 py-3 text-foreground/70 hover:text-foreground transition-colors"
+                    className="block w-full text-left px-0 py-3 text-white/70 hover:text-white transition-colors"
                     data-testid={`mobile-nav-${item.label.toLowerCase()}`}
                   >
                     {item.label}
