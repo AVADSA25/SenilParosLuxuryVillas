@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import villaAerial from "@assets/02-senil-villas-paros-estate2_1761075580986.jpg";
+import villaNight from "@assets/03b-senil-villa-night4_1761075658399.jpg";
 
 const blocks = [
   {
@@ -10,7 +11,7 @@ const blocks = [
     reverse: false,
   },
   {
-    image: "https://i.imgur.com/mNH8pLq.jpg",
+    image: villaNight,
     title: "Material Integrity",
     description:
       "Natural limestone, indigenous timber, and hand-finished plaster create tactile warmth. Every surface speaks to the island's geological heritage while meeting exacting modern standards.",
