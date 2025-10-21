@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import waveIcon from "@assets/ChatGPT Image Oct 21, 2025, 12_56_10 PM (1)_1761049770147.png";
-import logoImage from "@assets/ChatGPT Image Oct 21, 2025, 02_42_29 PM (1)_1761050658007.png";
+import logoImage from "@assets/ChatGPT Image Oct 21, 2025, 02_42_29 PM (1)-2_1761050848641.png";
 
 const HERO_IMAGE = "https://i.imgur.com/NgkAQhs.png";
 
