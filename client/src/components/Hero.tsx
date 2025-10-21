@@ -30,7 +30,7 @@ export default function Hero() {
     >
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="fixed top-2 right-2 z-50 bg-transparent border-0 p-0"
+        className="fixed top-0 right-0 z-50 bg-transparent border-0 p-0"
         aria-label="Toggle menu"
         data-testid="burger-menu-button"
       >
@@ -45,19 +45,19 @@ export default function Hero() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.nav
-            className="fixed top-20 right-2 z-50 bg-graphite rounded-md overflow-hidden"
+            className="fixed top-16 right-0 z-50 bg-graphite overflow-hidden"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             data-testid="dropdown-menu"
           >
-            <div className="py-4 px-6 min-w-[200px]">
+            <div className="py-3 px-4">
               {navItems.map((item) => (
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left py-3 text-ash hover:text-white transition-colors"
+                  className="block w-full text-right py-2 text-ash hover:text-white transition-colors"
                   data-testid={`nav-${item.label.toLowerCase()}`}
                   style={{ color: "var(--ash)" }}
                 >
