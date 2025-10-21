@@ -26,9 +26,7 @@ export default function Header() {
       role="banner"
       data-testid="header-main"
     >
-      <div className={`max-w-[1200px] mx-auto px-8 transition-all duration-300 ${
-        isMenuOpen ? "bg-graphite" : ""
-      }`}>
+      <div className="max-w-[1200px] mx-auto px-8">
         <div className="h-16 flex items-center justify-end">
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
@@ -42,7 +40,6 @@ export default function Header() {
               width={64} 
               height={64}
               className="block"
-              style={{ background: 'transparent' }}
               data-testid="wave-icon"
             />
           </button>
@@ -51,7 +48,7 @@ export default function Header() {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.nav
-              className="overflow-hidden"
+              className={`overflow-hidden bg-graphite`}
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}

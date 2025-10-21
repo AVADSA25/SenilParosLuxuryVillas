@@ -26,18 +26,18 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      <div className="relative z-10 max-w-[1200px] mx-auto px-8 text-center text-white flex flex-col justify-end h-screen pb-12">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-8 text-center text-white flex flex-col justify-end h-screen pb-4">
         <motion.img 
           src={logoImage}
           alt="SENIL"
-          className="mx-auto mb-4 w-[500px] max-w-[85vw]"
+          className="mx-auto mb-2 w-[500px] max-w-[85vw]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           data-testid="logo-hero"
         />
         <p
-          className="text-xl md:text-2xl mb-6 text-white/90 font-light max-w-2xl mx-auto"
+          className="text-xl md:text-2xl mb-3 text-white/90 font-light max-w-2xl mx-auto"
           data-testid="text-hero-subtitle"
         >
           Luxurious villas in Isterni, Paros
