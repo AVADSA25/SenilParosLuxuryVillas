@@ -25,7 +25,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative w-full h-screen flex items-center justify-center overflow-hidden"
       data-testid="section-hero"
     >
       <button
@@ -80,13 +80,14 @@ export default function Hero() {
           </>
         )}
       </AnimatePresence>
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 w-full h-full">
         <video
           autoPlay
           loop
           muted={true}
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover"
+          style={{ objectFit: 'cover' }}
           data-testid="hero-video"
         >
           <source src={heroVideo} type="video/mp4" />
