@@ -12,7 +12,7 @@ import LocationSection from "@/components/LocationSection";
 import OwnershipTimeline from "@/components/OwnershipTimeline";
 import BrochureGate from "@/components/BrochureGate";
 import ContactFooter from "@/components/ContactFooter";
-import villa1Floorplan from "@assets/07-senil-villas1-floorplan_1761076701153.png";
+import villa1Floorplan from "@assets/07-senil-villas1-floorplan_1761076882136.png";
 
 const villas = [
   {
