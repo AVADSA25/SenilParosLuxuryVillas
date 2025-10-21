@@ -11,20 +11,20 @@ export default function IntroSection() {
   return (
     <section 
       id="intro"
-      className="relative border-y w-full py-10 md:py-14" 
+      className="relative border-y w-full py-6 md:py-8" 
       style={{ 
         backgroundColor: 'var(--ash)',
         borderColor: '#CFCBC3'
       }}
       data-testid="section-intro"
     >
-      <div className="max-w-3xl mx-auto px-6 md:px-8">
+      <div className="max-w-[1200px] mx-auto px-8 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.28, ease: "easeOut" }}
-          className="rounded-2xl bg-white/6 backdrop-blur-sm px-6 py-8 md:px-8 md:py-9"
+          className="rounded-2xl bg-white/6 backdrop-blur-sm px-8 py-6 md:px-10 md:py-7"
           style={{
             boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.05)'
           }}
@@ -69,7 +69,7 @@ export default function IntroSection() {
           </motion.p>
 
           <div 
-            className="my-6 h-px"
+            className="my-4 h-px"
             style={{ backgroundColor: 'rgba(0,0,0,0.1)' }}
           />
 
