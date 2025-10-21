@@ -114,18 +114,6 @@ export default function DesignSection() {
             </div>
           ))}
         </div>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-20 text-center"
-        >
-          <p className="text-sm text-muted-foreground">
-            Architect: Aristides Dallas Architects
-          </p>
-        </motion.div>
       </div>
     </section>
   );
