@@ -102,7 +102,8 @@ export default function Hero() {
           data-testid="logo-hero"
         />
         <p
-          className="text-xl md:text-2xl mb-3 text-white/90 font-light max-w-2xl mx-auto"
+          className="text-xl md:text-2xl mb-3 font-display font-light max-w-2xl mx-auto"
+          style={{ color: 'var(--ash)' }}
           data-testid="text-hero-subtitle"
         >
           Luxurious villas in Paros
