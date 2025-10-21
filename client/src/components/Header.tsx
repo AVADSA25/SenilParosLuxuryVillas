@@ -22,13 +22,13 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-40 transition-all duration-300 ${
-        isMenuOpen ? "bg-graphite" : ""
-      }`}
+      className="sticky top-0 z-40"
       role="banner"
       data-testid="header-main"
     >
-      <div className="max-w-[1200px] mx-auto px-8">
+      <div className={`max-w-[1200px] mx-auto px-8 transition-all duration-300 ${
+        isMenuOpen ? "bg-graphite" : ""
+      }`}>
         <div className="h-16 flex items-center justify-end">
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
