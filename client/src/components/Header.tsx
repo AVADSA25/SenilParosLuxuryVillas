@@ -40,21 +40,19 @@ export default function Header() {
       data-testid="header-main"
     >
       <div className="max-w-[1200px] mx-auto px-8">
-        <div className="h-16 flex items-center justify-between">
-          <div className="font-serif text-xl">SENIL</div>
-          
+        <div className="h-16 flex items-center justify-end">
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
-            className="ml-auto p-2 bg-transparent"
+            className={`p-3 transition-colors ${isMenuOpen ? 'bg-background' : 'bg-graphite'}`}
             aria-label="Toggle menu"
             data-testid="wave-menu-button"
           >
             <img 
               src={WAVE} 
               alt="Menu" 
-              width={48} 
-              height={48}
-              className="block mix-blend-multiply dark:mix-blend-lighten opacity-80"
+              width={40} 
+              height={40}
+              className="block"
               data-testid="wave-icon"
             />
           </button>
