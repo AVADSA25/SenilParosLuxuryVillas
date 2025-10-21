@@ -29,6 +29,19 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       data-testid="section-hero"
     >
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            className="fixed top-0 right-0 z-40 w-16 h-16 bg-graphite border border-ash/20"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            data-testid="menu-icon-background"
+          />
+        )}
+      </AnimatePresence>
+
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         className="fixed top-0 right-0 z-50 bg-transparent border-0 p-0"
@@ -46,7 +59,7 @@ export default function Hero() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.nav
-            className="fixed top-16 right-0 z-50 bg-graphite overflow-hidden"
+            className="fixed top-16 right-0 z-50 bg-graphite border border-ash/20 overflow-hidden"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
