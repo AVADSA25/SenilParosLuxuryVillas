@@ -86,20 +86,22 @@ export default function Hero() {
           loop
           muted={true}
           playsInline
-          className="w-full h-full"
           style={{
-            objectFit: 'cover',
-            width: '100%',
-            height: '100%',
             position: 'absolute',
-            top: 0,
-            left: 0
+            top: '50%',
+            left: '50%',
+            minWidth: '100vw',
+            minHeight: '100vh',
+            width: 'auto',
+            height: 'auto',
+            transform: 'translate(-50%, -50%)',
+            objectFit: 'cover'
           }}
           data-testid="hero-video"
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-black/20 z-10" />
       </div>
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-8 text-center text-white flex flex-col justify-end h-screen pb-12">
