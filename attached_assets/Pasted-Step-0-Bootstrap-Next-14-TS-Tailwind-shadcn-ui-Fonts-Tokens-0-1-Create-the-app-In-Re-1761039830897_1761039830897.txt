@@ -1,0 +1,198 @@
+Step 0 — Bootstrap (Next 14 + TS + Tailwind + shadcn/ui + Fonts + Tokens)
+0.1 Create the app
+# In Replit shell
+npx create-next-app@latest senil \
+  --typescript --eslint --app --src-dir false --tailwind false \
+  --import-alias "@/*"
+
+cd senil
+
+0.2 Install deps
+# Tailwind toolchain
+npm i -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+# UI & utilities
+npm i framer-motion lenis class-variance-authority tailwind-merge clsx \
+      next-themes lucide-react
+
+# shadcn/ui
+npx shadcn@latest init -d
+# (accept defaults; it will create components.json)
+
+# Minimal components we’ll actually use
+npx shadcn@latest add button card dialog input label form
+
+0.3 Tailwind config
+
+tailwind.config.ts
+
+import type { Config } from "tailwindcss"
+
+const config: Config = {
+  darkMode: ["class"],
+  content: [
+    "./app/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./ui/**/*.{ts,tsx}",
+  ],
+  theme: {
+    container: { center: true, padding: "1rem", screens: { "2xl": "1200px" } },
+    extend: {
+      colors: {
+        ash: "var(--ash)",           // Ash Stone #D8D5CC
+        olive: "var(--olive)",       // Olive Slate #75776A
+        graphite: "var(--graphite)", // Deep Graphite #1E1E1C
+        pine: "var(--pine)",         // Optional deep olive #4f6e47
+        border: "var(--border)",
+        card: "var(--card)",
+        muted: "var(--muted)",
+      },
+      fontFamily: {
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        display: ["var(--font-lora)", "serif"],
+      },
+      borderRadius: { lg: "12px", xl: "16px", pill: "999px" },
+      boxShadow: { card: "0 8px 24px rgba(30,30,28,0.08)" },
+    },
+  },
+  plugins: [],
+}
+export default config
+
+0.4 Global styles & brand tokens
+
+app/globals.css
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Brand tokens */
+:root{
+  --ash: #D8D5CC;        /* primary light */
+  --olive: #75776A;      /* accents */
+  --graphite: #1E1E1C;   /* text on light / dark bg */
+  --pine: #4f6e47;       /* your stronger green (optional) */
+
+  --border: #CFCBC2;     /* ash -15% */
+  --card: #F2F1EE;       /* ash +6% white */
+  --muted: #E6E4DD;      /* lighter ash for sections */
+}
+
+/* Base look */
+html, body { height: 100% }
+body { @apply bg-ash text-graphite antialiased; }
+
+a { @apply underline-offset-4 decoration-olive hover:text-olive; }
+
+/* Focus ring (keyboard) */
+:focus-visible {
+  outline: 2px solid var(--olive);
+  outline-offset: 2px;
+}
+
+0.5 Fonts (Inter + Lora)
+
+app/fonts.ts
+
+import { Inter, Lora } from "next/font/google"
+
+export const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+})
+
+export const lora = Lora({
+  weight: ["400","500","700"],
+  subsets: ["latin"],
+  variable: "--font-lora",
+  display: "swap",
+})
+
+0.6 Base layout
+
+app/layout.tsx
+
+import "./globals.css"
+import { inter, lora } from "./fonts"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "SENIL — Luxurious Paros Villas | Price on Request",
+  description: "Three villas, one horizon. Isterni, Paros — viewings by appointment.",
+}
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} ${lora.variable} font-sans min-h-screen bg-ash text-graphite`}>
+        <div id="root">{children}</div>
+      </body>
+    </html>
+  )
+}
+
+
+app/page.tsx
+
+export default function Page() {
+  return (
+    <main className="container py-24">
+      <div className="rounded-xl bg-card p-10 shadow-card">
+        <h1 className="font-display text-4xl md:text-6xl tracking-tight">SENIL — Bootstrapped</h1>
+        <p className="mt-4 text-lg">Brand tokens, fonts, and Tailwind are wired. Proceed to Step 1 (Entry Animation + Header).</p>
+      </div>
+    </main>
+  )
+}
+
+0.7 Next config (allow external images during dev)
+
+next.config.mjs
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "i.imgur.com" },
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "lh3.googleusercontent.com" },
+    ],
+  },
+}
+export default nextConfig
+
+0.8 TypeScript strict
+
+tsconfig.json (ensure these are true)
+
+{
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "baseUrl": ".",
+    "paths": { "@/*": ["*"] }
+  }
+}
+
+0.9 Env sample
+
+.env.example
+
+RESEND_API_KEY=
+MAIL_FROM=SENIL <sales@senilparos.com>
+RECAPTCHA_SITE_KEY=
+RECAPTCHA_SECRET=
+BROCHURE_URL=
+FLOORPLAN_TOP_URL=
+FLOORPLAN_MIDDLE_URL=
+FLOORPLAN_BOTTOM_URL=
+
+0.10 Run it
+npm run dev
+
+
+Open the preview—should show the SENIL — Bootstrapped card with Inter + Lora and the Ash/Olive/Graphite palette. If it builds without warnings, Step 0 ✅

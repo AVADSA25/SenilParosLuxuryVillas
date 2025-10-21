@@ -2,186 +2,108 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Brand tokens - Step 0.4 */
 :root {
-  --button-outline: rgba(0,0,0, .10);
-  --badge-outline: rgba(0,0,0, .05);
-
-  --opaque-button-border-intensity: -8;
-
-  --elevate-1: rgba(0,0,0, .03);
-  --elevate-2: rgba(0,0,0, .08);
-
-  --background: 60deg 10% 11.76%;
-  --foreground: 45deg 13.33% 82.35%;
-  --border: 69.23deg 5.78% 44.12%;
-
-  --card: 45deg 13.33% 94.12%;
-  --card-foreground: 60deg 3.45% 11.37%;
-  --card-border: 41 8% 90%;
-
-  --sidebar: 180 6.6667% 97.0588%;
-  --sidebar-foreground: 210 25% 7.8431%;
-  --sidebar-border: 205.0000 25.0000% 90.5882%;
-
-  --sidebar-primary: 203.8863 88.2845% 53.1373%;
-  --sidebar-primary-foreground: 0 0% 100%;
-
-  --sidebar-accent: 211.5789 51.3514% 92.7451%;
-  --sidebar-accent-foreground: 203.8863 88.2845% 53.1373%;
-
-  --sidebar-ring: 202.8169 89.1213% 53.1373%;
-
+  --ash: #D8D5CC;        /* primary light background */
+  --olive: #75776A;      /* accents, buttons, hover overlays */
+  --graphite: #1E1E1C;   /* text on light / dark sections, footer */
+  --pine: #4f6e47;       /* optional deep olive */
+  
+  --border: #CFCBC2;     /* ash -15% */
+  --card: #F2F1EE;       /* ash +6% white */
+  --muted: #E6E4DD;      /* lighter ash for sections */
+  
+  /* Map to our color system (HSL values for Tailwind) */
+  --background: 41 9% 86%;        /* #D8D5CC in HSL */
+  --foreground: 0 0% 11%;         /* #1E1E1C in HSL */
+  --primary: 88 13% 43%;          /* #75776A in HSL */
+  --primary-foreground: 0 0% 100%;
+  
+  --card-color: 40 20% 94%;       /* #F2F1EE in HSL */
+  --card-foreground: 0 0% 11%;
+  --card-border: 41 15% 78%;      /* #CFCBC2 in HSL */
+  
   --popover: 0 0% 100%;
-  --popover-foreground: 60deg 3.45% 11.37%;
-  --popover-border: 41 8% 90%;
-
-  --primary: 107.69deg 21.55% 35.49%;
-  --primary-foreground: 229.09deg 17.46% 12.35%;
-
-  --secondary: 60deg 3.45% 11.37%;
-  --secondary-foreground: 0deg 0% 89.02%;
-
-  --muted: 107.69deg 21.55% 35.49%;
-  --muted-foreground: 120deg 8.76% 57.45%;
-
-  --accent: 45deg 13.33% 82.35%;
-  --accent-foreground: 60deg 3.45% 11.37%;
-
-  --destructive: 60deg 3.45% 11.37%;
-  --destructive-foreground: 45deg 13.33% 82.35%;
-
-  --input: 45deg 13.33% 94.12%;
-  --ring: 69.23deg 5.78% 44.12%;
-
-  --chart-1: 107.69deg 21.55% 35.49%;
-  --chart-2: 97.5deg 4.21% 37.25%;
-  --chart-3: 69.23deg 5.78% 44.12%;
-  --chart-4: 60deg 1.75% 22.35%;
-  --chart-5: 44deg 9.32% 68.43%;
-
-  --font-sans: 'Inter', sans-serif;
-  --font-serif: 'Lora', serif;
+  --popover-foreground: 0 0% 11%;
+  
+  --muted-color: 46 15% 88%;      /* #E6E4DD in HSL */
+  --muted-foreground: 88 6% 50%;
+  
+  --accent: 41 9% 86%;
+  --accent-foreground: 0 0% 11%;
+  
+  --secondary: 0 0% 11%;
+  --secondary-foreground: 0 0% 100%;
+  
+  --destructive: 0 0% 11%;
+  --destructive-foreground: 41 9% 86%;
+  
+  --input: 0 0% 100%;
+  --ring: 88 13% 43%;
+  
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Newsreader', serif;  /* Using Newsreader as specified */
   --font-mono: Menlo, monospace;
-  --radius: 0.75rem;
-  --shadow-2xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00);
-  --shadow-xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00);
-  --shadow-sm: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 1px 2px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
-  --shadow: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 1px 2px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
-  --shadow-md: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 2px 4px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
-  --shadow-lg: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 4px 6px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
-  --shadow-xl: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 8px 10px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
-  --shadow-2xl: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00);
-  --tracking-normal: 0em;
-  --spacing: 0.25rem;
+  --radius: 0.75rem;  /* 12px as specified */
+}
 
-  --sidebar-primary-border: hsl(var(--sidebar-primary));
-  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+/* Base look - Step 0.4 */
+html, body { 
+  height: 100%;
+}
 
-  --sidebar-accent-border: hsl(var(--sidebar-accent));
-  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+body {
+  @apply antialiased;
+  background-color: var(--ash);
+  color: var(--graphite);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+}
 
-  --primary-border: hsl(var(--primary));
-  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
 
-  --secondary-border: hsl(var(--secondary));
-  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+/* Links */
+a {
+  @apply underline-offset-4;
+  text-decoration-color: var(--olive);
+}
 
-  --muted-border: hsl(var(--muted));
-  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+a:hover {
+  color: var(--olive);
+}
 
-  --accent-border: hsl(var(--accent));
-  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-
-  --destructive-border: hsl(var(--destructive));
-  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+/* Focus ring (keyboard) - Step 0.4 */
+:focus-visible {
+  outline: 2px solid var(--olive);
+  outline-offset: 2px;
 }
 
 @layer base {
   * {
     @apply border-border;
   }
-
-  body {
-    @apply font-sans antialiased bg-background text-foreground;
-  }
-
-  h1, h2, h3 {
-    @apply font-serif;
-  }
 }
 
 @layer utilities {
-  input[type="search"]::-webkit-search-cancel-button {
-    @apply hidden;
-  }
-
-  [contenteditable][data-placeholder]:empty::before {
-    content: attr(data-placeholder);
-    color: hsl(var(--muted-foreground));
-    pointer-events: none;
-  }
-
-  .no-default-hover-elevate {}
-
-  .no-default-active-elevate {}
-
-  .toggle-elevate::before,
-  .toggle-elevate-2::before {
-    content: "";
-    pointer-events: none;
-    position: absolute;
-    inset: 0px;
-    border-radius: inherit;
-    z-index: -1;
-  }
-
-  .toggle-elevate.toggle-elevated::before {
-    background-color: var(--elevate-2);
-  }
-
-  .border.toggle-elevate::before {
-    inset: -1px;
-  }
-
-  .hover-elevate:not(.no-default-hover-elevate),
-  .active-elevate:not(.no-default-active-elevate),
-  .hover-elevate-2:not(.no-default-hover-elevate),
-  .active-elevate-2:not(.no-default-active-elevate) {
-    position: relative;
-    z-index: 0;
-  }
-
-  .hover-elevate:not(.no-default-hover-elevate)::after,
-  .active-elevate:not(.no-default-active-elevate)::after,
-  .hover-elevate-2:not(.no-default-hover-elevate)::after,
-  .active-elevate-2:not(.no-default-active-elevate)::after {
-    content: "";
-    pointer-events: none;
-    position: absolute;
-    inset: 0px;
-    border-radius: inherit;
-    z-index: 999;
-  }
-
-  .hover-elevate:hover:not(.no-default-hover-elevate)::after,
-  .active-elevate:active:not(.no-default-active-elevate)::after {
-    background-color: var(--elevate-1);
-  }
-
-  .hover-elevate-2:hover:not(.no-default-hover-elevate)::after,
-  .active-elevate-2:active:not(.no-default-active-elevate)::after {
-    background-color: var(--elevate-2);
-  }
-
-  .border.hover-elevate:not(.no-hover-interaction-elevate)::after,
-  .border.active-elevate:not(.no-active-interaction-elevate)::after,
-  .border.hover-elevate-2:not(.no-hover-interaction-elevate)::after,
-  .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
-  .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
-    inset: -1px;
-  }
-
+  /* Tabular numbers for m² and BR counts */
   .font-tabular {
     font-variant-numeric: tabular-nums;
+  }
+  
+  /* Card shadow as specified */
+  .shadow-card {
+    box-shadow: 0 8px 24px rgba(30, 30, 28, 0.08);
+  }
+  
+  /* Font classes */
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+  
+  .font-display {
+    font-family: var(--font-display);
   }
 }
