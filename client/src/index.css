@@ -54,7 +54,6 @@ html, body {
 
 body {
   @apply antialiased;
-  background-color: var(--ash);
   color: var(--graphite);
   font-family: var(--font-sans);
   min-height: 100vh;

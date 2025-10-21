@@ -26,7 +26,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      <div className="relative z-10 max-w-[1200px] mx-auto px-8 text-center text-white flex flex-col justify-end h-screen pb-4">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-8 text-center text-white flex flex-col justify-end h-screen pb-20">
         <motion.img 
           src={logoImage}
           alt="SENIL"
