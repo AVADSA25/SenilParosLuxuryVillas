@@ -23,7 +23,7 @@ export default function Header() {
   return (
     <header
       className={`sticky top-0 z-40 transition-all duration-300 ${
-        isMenuOpen ? "bg-background" : "bg-transparent"
+        isMenuOpen ? "bg-background" : "bg-graphite"
       }`}
       role="banner"
       data-testid="header-main"
@@ -32,7 +32,7 @@ export default function Header() {
         <div className="h-16 flex items-center justify-end">
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
-            className="p-2"
+            className="bg-transparent border-0 p-0"
             aria-label="Toggle menu"
             data-testid="wave-menu-button"
           >
@@ -42,6 +42,7 @@ export default function Header() {
               width={64} 
               height={64}
               className="block"
+              style={{ background: 'transparent' }}
               data-testid="wave-icon"
             />
           </button>
