@@ -63,6 +63,8 @@ export default function Home() {
           <ParallaxSection />
           <KeyFactsBand />
 
+          <DesignSection />
+
           <section className="py-24 bg-background" id="villas" data-testid="section-villas">
             <div className="max-w-[1200px] mx-auto px-8">
               <h2 className="font-serif text-4xl md:text-5xl font-medium mb-16 text-center" data-testid="text-villas-title">
@@ -78,8 +80,6 @@ export default function Home() {
               </p>
             </div>
           </section>
-
-          <DesignSection />
           <LifestyleSection />
           <SustainabilitySection />
           <LocationSection />

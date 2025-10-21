@@ -36,21 +36,19 @@ export default function VillaCard({ name, area, bedrooms, images, floorplan }: V
         className="bg-card rounded-lg overflow-hidden border border-card-border"
         data-testid={`card-villa-${name.toLowerCase()}`}
       >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
-          {[images.exterior, images.interior, images.detail].map((img, idx) => (
-            <div
-              key={idx}
-              className="relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer hover-elevate transition-transform duration-300 hover:scale-[1.02]"
-              onClick={() => setSelectedImage(img)}
-              data-testid={`image-villa-${name.toLowerCase()}-${idx}`}
-            >
-              <img
-                src={img}
-                alt={`${name} villa ${idx === 0 ? 'exterior' : idx === 1 ? 'interior' : 'detail'}`}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
+        <div className="p-6">
+          <div
+            className="relative w-full overflow-hidden rounded-lg cursor-pointer hover-elevate transition-transform duration-300 hover:scale-[1.01]"
+            style={{ paddingTop: '56.25%' }}
+            onClick={() => setSelectedImage(images.exterior)}
+            data-testid={`image-villa-${name.toLowerCase()}`}
+          >
+            <img
+              src={images.exterior}
+              alt={`${name} villa`}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
         </div>
 
         <div className="px-6 pb-6">
