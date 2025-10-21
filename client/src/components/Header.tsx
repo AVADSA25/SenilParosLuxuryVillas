@@ -1,70 +1,73 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 
 const navItems = [
   { label: "Villas", href: "#villas" },
   { label: "Design", href: "#design" },
   { label: "Location", href: "#location" },
-  { label: "Ownership", href: "#ownership" },
   { label: "Contact", href: "#contact" },
 ];
+
+const WAVE = "https://i.imgur.com/awUhJhY.png";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 8);
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (href === "#top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-sm border-b" : "bg-transparent"
+      className={`sticky top-0 z-40 transition-all duration-300 ${
+        isScrolled ? "backdrop-blur bg-background/70" : "bg-transparent"
       }`}
+      role="banner"
       data-testid="header-main"
     >
-      <div className="max-w-[1200px] mx-auto px-8 py-4 flex items-center justify-between">
-        <nav className="hidden md:flex items-center gap-8">
+      <div className="max-w-[1200px] mx-auto px-8 h-16 flex items-center">
+        <nav className="hidden md:flex items-center gap-6 text-sm">
           {navItems.map((item) => (
             <button
               key={item.href}
               onClick={() => scrollToSection(item.href)}
-              className="text-sm text-foreground/70 hover:text-foreground transition-colors"
+              className="text-foreground/70 hover:text-primary transition-colors"
               data-testid={`nav-link-${item.label.toLowerCase()}`}
             >
               {item.label}
             </button>
           ))}
         </nav>
-
-        <div className="ml-auto">
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+        
+        <button 
+          onClick={() => scrollToSection("#top")} 
+          className="ml-auto inline-flex"
+          data-testid="logo-wave-button"
+        >
+          <img 
+            src={WAVE} 
+            alt="SENIL wave" 
+            width={72} 
+            height={28}
+            className="block"
             data-testid="logo-wave"
-          >
-            <path
-              d="M10 30 Q10 15, 20 15 T30 30"
-              stroke="hsl(var(--primary))"
-              strokeWidth="2"
-              fill="none"
-            />
-          </svg>
-        </div>
+          />
+        </button>
       </div>
     </header>
   );
