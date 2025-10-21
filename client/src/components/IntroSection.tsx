@@ -20,11 +20,15 @@ export default function IntroSection() {
     >
       <div className="max-w-[1200px] mx-auto px-8 md:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: 200 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.28, ease: "easeOut" }}
-          className="rounded-2xl bg-white/6 backdrop-blur-sm px-8 py-6 md:px-10 md:py-7"
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          drag="x"
+          dragConstraints={{ left: -100, right: 100 }}
+          dragElastic={0.2}
+          dragTransition={{ bounceStiffness: 300, bounceDamping: 20 }}
+          className="rounded-2xl bg-white/6 backdrop-blur-sm px-8 py-6 md:px-10 md:py-7 cursor-grab active:cursor-grabbing"
           style={{
             boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.05)'
           }}
