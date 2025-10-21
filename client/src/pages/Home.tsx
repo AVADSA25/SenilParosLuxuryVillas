@@ -13,7 +13,9 @@ import LocationSection from "@/components/LocationSection";
 import OwnershipTimeline from "@/components/OwnershipTimeline";
 import BrochureGate from "@/components/BrochureGate";
 import ContactFooter from "@/components/ContactFooter";
-import villa1Floorplan from "@assets/07-senil-villas1-floorplan_1761076882136.png";
+import villa1Floorplan from "@assets/07-senil-villas1-floorplan_1761078324008.png";
+import villa2Floorplan from "@assets/07-senil-villas2-floorplan_1761078385180.png";
+import villa3Floorplan from "@assets/07-senil-villas3-floorplan_1761078407561.png";
 
 const villas = [
   {
@@ -21,7 +23,7 @@ const villas = [
     area: "355.69",
     bedrooms: 6,
     images: {
-      exterior: "https://i.imgur.com/9KZ5QmK.jpg",
+      exterior: villa1Floorplan,
       interior: "https://i.imgur.com/xjYZK8L.jpg",
       detail: "https://i.imgur.com/7sYGK2M.jpg",
     },
@@ -32,22 +34,22 @@ const villas = [
     area: "401.34",
     bedrooms: 9,
     images: {
-      exterior: "https://i.imgur.com/mNH8pLq.jpg",
+      exterior: villa2Floorplan,
       interior: "https://i.imgur.com/8KfZN9R.jpg",
       detail: "https://i.imgur.com/vGqL8Km.jpg",
     },
-    floorplan: "https://i.imgur.com/floorplan-middle.jpg",
+    floorplan: villa2Floorplan,
   },
   {
     name: "Bottom",
     area: "275.79",
     bedrooms: 5,
     images: {
-      exterior: "https://i.imgur.com/xWn9K3L.jpg",
+      exterior: villa3Floorplan,
       interior: "https://i.imgur.com/TpH7Zmq.jpg",
       detail: "https://i.imgur.com/9sYmN2K.jpg",
     },
-    floorplan: "https://i.imgur.com/floorplan-bottom.jpg",
+    floorplan: villa3Floorplan,
   },
 ];
 

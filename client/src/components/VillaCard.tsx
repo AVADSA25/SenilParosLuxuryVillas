@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { motion } from "framer-motion";
+import { X } from "lucide-react";
 
 interface VillaCardProps {
   name: string;
@@ -16,7 +16,6 @@ interface VillaCardProps {
 }
 
 export default function VillaCard({ name, area, bedrooms, images, floorplan }: VillaCardProps) {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [showFloorplan, setShowFloorplan] = useState(false);
 
   const scrollToContact = () => {
@@ -40,13 +39,13 @@ export default function VillaCard({ name, area, bedrooms, images, floorplan }: V
           <div
             className="relative w-full overflow-hidden rounded-lg cursor-pointer hover-elevate transition-transform duration-300 hover:scale-[1.01]"
             style={{ paddingTop: '56.25%' }}
-            onClick={() => setSelectedImage(images.exterior)}
+            onClick={() => setShowFloorplan(true)}
             data-testid={`image-villa-${name.toLowerCase()}`}
           >
             <img
               src={images.exterior}
-              alt={`${name} villa`}
-              className="absolute inset-0 w-full h-full object-cover"
+              alt={`${name} villa floorplan`}
+              className="absolute inset-0 w-full h-full object-contain bg-background"
             />
           </div>
         </div>
@@ -79,27 +78,27 @@ export default function VillaCard({ name, area, bedrooms, images, floorplan }: V
         </div>
       </motion.div>
 
-      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="max-w-4xl">
-          {selectedImage && (
-            <img src={selectedImage} alt="Villa detail" className="w-full h-auto rounded-lg" />
-          )}
-        </DialogContent>
-      </Dialog>
-
-      <Dialog open={showFloorplan} onOpenChange={setShowFloorplan}>
-        <DialogContent className="max-w-4xl">
-          <DialogHeader>
-            <DialogTitle>{name} Villa Floorplan</DialogTitle>
-          </DialogHeader>
-          <img src={floorplan} alt={`${name} villa floorplan`} className="w-full h-auto rounded-lg" />
-          <Button variant="outline" asChild className="w-full">
-            <a href={floorplan} download data-testid={`button-download-floorplan-${name.toLowerCase()}`}>
-              Download Floorplan
-            </a>
-          </Button>
-        </DialogContent>
-      </Dialog>
+      {showFloorplan && (
+        <div 
+          className="fixed inset-0 z-50 bg-background flex items-center justify-center p-4"
+          onClick={() => setShowFloorplan(false)}
+          data-testid={`fullscreen-floorplan-${name.toLowerCase()}`}
+        >
+          <button
+            onClick={() => setShowFloorplan(false)}
+            className="absolute top-4 right-4 z-50 rounded-full bg-card border border-card-border p-2 hover-elevate active-elevate-2"
+            data-testid={`button-close-floorplan-${name.toLowerCase()}`}
+          >
+            <X className="w-6 h-6" />
+          </button>
+          <img 
+            src={floorplan} 
+            alt={`${name} villa floorplan`} 
+            className="max-w-full max-h-full object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </>
   );
 }
