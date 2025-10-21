@@ -24,13 +24,23 @@ export default function BrochureGate() {
     setIsSubmitting(true);
 
     setTimeout(() => {
+      // Trigger PDF download from Google Drive
+      const pdfUrl = "https://drive.google.com/uc?export=download&id=1ujB2Q6fVnPpPMfXD26Cs3HmFLssyom7J";
+      const link = document.createElement('a');
+      link.href = pdfUrl;
+      link.setAttribute('download', 'SENIL_Paros_Villas_Brochure.pdf');
+      link.setAttribute('target', '_blank');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
       toast({
-        title: "Brochure on its way!",
-        description: "Check your email for the download link.",
+        title: "Brochure download started!",
+        description: "Your download should begin automatically.",
       });
       setFormData({ name: "", email: "", phone: "", honeypot: "" });
       setIsSubmitting(false);
-    }, 1500);
+    }, 1000);
   };
 
   return (
