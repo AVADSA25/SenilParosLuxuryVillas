@@ -3,8 +3,7 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import waveIcon from "@assets/ChatGPT Image Oct 21, 2025, 12_56_10 PM (1)_1761049770147.png";
 import logoImage from "@assets/ChatGPT Image Oct 21, 2025, 02_42_29 PM (1)-3_1761052593840.png";
-
-const HERO_IMAGE = "https://i.imgur.com/NgkAQhs.png";
+import heroVideo from "@assets/860497b9-de9a-444e-a6a6-861649914c40_1761070130520.mp4";
 
 const navItems = [
   { label: "Villas", href: "#villas" },
@@ -81,12 +80,17 @@ export default function Hero() {
           </>
         )}
       </AnimatePresence>
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${HERO_IMAGE})`,
-        }}
-      >
+      <div className="absolute inset-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          data-testid="hero-video"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-black/20" />
       </div>
 
