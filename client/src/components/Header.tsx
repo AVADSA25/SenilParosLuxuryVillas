@@ -8,6 +8,8 @@ const navItems = [
   { label: "Contact", href: "#contact" },
 ];
 
+const WAVE = "https://i.imgur.com/awUhJhY.png";
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,15 +32,16 @@ export default function Header() {
   };
 
   return (
-    <>
-      <header
-        className={`sticky top-0 z-40 transition-all duration-300 ${
-          isScrolled ? "backdrop-blur bg-background/70" : "bg-transparent"
-        }`}
-        role="banner"
-        data-testid="header-main"
-      >
-        <div className="max-w-[1200px] mx-auto px-8 h-16 flex items-center justify-between">
+    <header
+      className={`sticky top-0 z-40 transition-all duration-300 ${
+        isScrolled ? "backdrop-blur bg-background/70" : "bg-transparent"
+      }`}
+      role="banner"
+      data-testid="header-main"
+    >
+      <div className="max-w-[1200px] mx-auto px-8">
+        {/* Main header bar */}
+        <div className="h-16 flex items-center justify-between">
           {/* Desktop nav - left side */}
           <nav className="hidden md:flex items-center gap-6 text-sm">
             {navItems.map((item) => (
@@ -56,68 +59,51 @@ export default function Header() {
           {/* Logo/Title - center on mobile, hidden on desktop */}
           <div className="md:hidden font-serif text-xl">SENIL</div>
           
-          {/* Burger menu icon - right side */}
+          {/* Wave icon - right side */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
-            className="ml-auto p-2"
+            className="ml-auto"
             aria-label="Toggle menu"
-            data-testid="burger-menu-button"
+            data-testid="wave-menu-button"
           >
-            <div className="w-6 h-5 flex flex-col justify-between">
-              <motion.span 
-                className="w-full h-0.5 bg-foreground block"
-                animate={{ 
-                  rotate: isMenuOpen ? 45 : 0,
-                  y: isMenuOpen ? 9 : 0
-                }}
-                transition={{ duration: 0.2 }}
-              />
-              <motion.span 
-                className="w-full h-0.5 bg-foreground block"
-                animate={{ 
-                  opacity: isMenuOpen ? 0 : 1
-                }}
-                transition={{ duration: 0.2 }}
-              />
-              <motion.span 
-                className="w-full h-0.5 bg-foreground block"
-                animate={{ 
-                  rotate: isMenuOpen ? -45 : 0,
-                  y: isMenuOpen ? -9 : 0
-                }}
-                transition={{ duration: 0.2 }}
-              />
-            </div>
+            <img 
+              src={WAVE} 
+              alt="Menu" 
+              width={72} 
+              height={28}
+              className="block"
+              data-testid="wave-icon"
+            />
           </button>
         </div>
-      </header>
 
-      {/* Sliding dropdown menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            className="fixed top-16 right-0 z-30 bg-background border-l border-b shadow-lg"
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "tween", duration: 0.3 }}
-            data-testid="mobile-menu-dropdown"
-          >
-            <nav className="flex flex-col p-6 gap-4 min-w-[200px]">
-              {navItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-left text-foreground/70 hover:text-foreground transition-colors py-2"
-                  data-testid={`mobile-nav-${item.label.toLowerCase()}`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+        {/* Sliding dropdown menu - slides down from header */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.nav
+              className="md:hidden overflow-hidden"
+              initial={{ height: 0 }}
+              animate={{ height: "auto" }}
+              exit={{ height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              data-testid="mobile-menu-dropdown"
+            >
+              <div className="py-4 border-t border-border/30">
+                {navItems.map((item) => (
+                  <button
+                    key={item.href}
+                    onClick={() => scrollToSection(item.href)}
+                    className="block w-full text-left px-0 py-3 text-foreground/70 hover:text-foreground transition-colors"
+                    data-testid={`mobile-nav-${item.label.toLowerCase()}`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </motion.nav>
+          )}
+        </AnimatePresence>
+      </div>
+    </header>
   );
 }
