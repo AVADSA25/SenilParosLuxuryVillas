@@ -1,7 +1,7 @@
 import { useState } from "react";
 import LogoIntro from "@/components/LogoIntro";
 import Hero from "@/components/Hero";
-import HorizonVideo from "@/components/HorizonVideo";
+import IntroSection from "@/components/IntroSection";
 import KeyFactsBand from "@/components/KeyFactsBand";
 import VillaCard from "@/components/VillaCard";
 import DesignSection from "@/components/DesignSection";
@@ -58,7 +58,7 @@ export default function Home() {
         <div className="min-h-screen">
           <a id="top" />
           <Hero />
-          <HorizonVideo />
+          <IntroSection />
           <KeyFactsBand />
 
           <section className="py-24 bg-background" id="villas" data-testid="section-villas">
