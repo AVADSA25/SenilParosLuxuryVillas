@@ -1,33 +1,17 @@
-import { useEffect, useState } from "react";
-
 const facts = [
   "Isterni, Paros",
   "19 Bedrooms",
   "1,032.82 m² Living",
-  "Architect: TBD",
+  "Architect: Aristides Dallas Architects",
   "Completion 2026",
   "Price on Request",
   "Viewings by Appointment",
 ];
 
 export default function KeyFactsBand() {
-  const [isSticky, setIsSticky] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const heroHeight = window.innerHeight;
-      setIsSticky(window.scrollY > heroHeight + 400);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <div
-      className={`sticky top-0 z-30 bg-primary text-primary-foreground transition-opacity duration-300 ${
-        isSticky ? "opacity-100" : "opacity-0 pointer-events-none"
-      }`}
+      className="w-full bg-primary text-primary-foreground"
       style={{ minHeight: "48px" }}
       data-testid="band-key-facts"
     >
