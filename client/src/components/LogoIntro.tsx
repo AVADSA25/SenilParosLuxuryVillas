@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { WordmarkImage } from "./WordmarkImage";
 
 const FLAG = "senil:intro_seen";
-const WORDMARK = "https://i.imgur.com/nLRvGQ0_d.png";
+const WORDMARK = "https://i.imgur.com/M3kLaK9.png";
 
 export default function LogoIntro({ onComplete }: { onComplete: () => void }) {
   const [show, setShow] = useState(false);

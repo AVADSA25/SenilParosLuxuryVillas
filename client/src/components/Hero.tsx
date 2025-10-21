@@ -1,5 +1,8 @@
 import { Button } from "@/components/ui/button";
 
+const LOGO = "https://i.imgur.com/M3kLaK9.png";
+const HERO_IMAGE = "https://i.imgur.com/NgkAQhs.png";
+
 export default function Hero() {
   const scrollToSection = (id: string) => {
     const element = document.querySelector(id);
@@ -16,20 +19,19 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage:
-            "url(https://i.imgur.com/9KZ5QmK.jpg)",
+          backgroundImage: `url(${HERO_IMAGE})`,
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
       </div>
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-8 text-center text-white">
-        <h1
-          className="font-serif text-5xl md:text-7xl font-medium mb-6 tracking-tight"
-          data-testid="text-hero-title"
-        >
-          SENIL
-        </h1>
+        <img 
+          src={LOGO}
+          alt="SENIL"
+          className="mx-auto mb-6 w-[400px] max-w-[80vw]"
+          data-testid="logo-hero"
+        />
         <p
           className="text-xl md:text-2xl mb-12 text-white/90 font-light max-w-2xl mx-auto"
           data-testid="text-hero-subtitle"
