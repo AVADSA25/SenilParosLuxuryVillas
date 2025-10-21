@@ -1,14 +1,26 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import exterior from "@assets/02-senil-villas-paros-estate3_1761078697987.png";
+import interior1 from "@assets/05-senil-villa-interior-_1761078737080.jpg";
+import interior2 from "@assets/05-senil-villa-interior-3_1761078744243.png";
+import interior3 from "@assets/05-senil-villa-interior-5_1761078752661.jpg";
+import interior4 from "@assets/05-senil-villa-interior-6_1761078764987.jpg";
+import rooms1 from "@assets/06-senil-villa-indoor-rooms_1761078776908.jpg";
+import rooms2 from "@assets/06-senil-villa-indoor-rooms2_1761078787639.jpg";
+import rooms3 from "@assets/06-senil-villa-indoor-rooms3_1761078842923.jpg";
+import rooms5 from "@assets/06-senil-villa-indoor-rooms5_1761078806733.jpg";
+import rooms6 from "@assets/06-senil-villa-indoor-rooms6_1761078822961.jpg";
 
 const lifestyleImages = [
-  "https://i.imgur.com/vGqL8Km.jpg",
-  "https://i.imgur.com/xWn9K3L.jpg",
-  "https://i.imgur.com/TpH7Zmq.jpg",
-  "https://i.imgur.com/9sYmN2K.jpg",
-  "https://i.imgur.com/KfP8nQm.jpg",
-  "https://i.imgur.com/2mH9Lkq.jpg",
+  exterior,
+  interior1,
+  interior2,
+  interior3,
+  interior4,
+  rooms1,
+  rooms2,
+  rooms5,
+  rooms6,
+  rooms3,
 ];
 
 const amenities = [
@@ -24,58 +36,77 @@ const amenities = [
 ];
 
 export default function LifestyleSection() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const duplicatedImages = [...lifestyleImages, ...lifestyleImages, ...lifestyleImages];
 
   return (
-    <>
-      <section className="py-24 bg-accent" data-testid="section-lifestyle">
-        <div className="max-w-[1200px] mx-auto px-8">
-          <h2 className="font-serif text-4xl md:text-5xl font-medium mb-16 text-center" data-testid="text-lifestyle-title">
-            Lifestyle & Amenities
-          </h2>
+    <section className="py-24 bg-accent overflow-hidden" data-testid="section-lifestyle">
+      <div className="max-w-[1400px] mx-auto px-8">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="font-serif text-4xl md:text-5xl font-medium mb-16 text-center" 
+          data-testid="text-lifestyle-title"
+        >
+          Lifestyle & Amenities
+        </motion.h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16">
-            {lifestyleImages.map((img, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.06 }}
-                className="relative aspect-square overflow-hidden rounded-lg cursor-pointer hover-elevate transition-transform duration-300 hover:scale-[1.02]"
-                onClick={() => setSelectedImage(img)}
-                data-testid={`image-lifestyle-${index}`}
-              >
-                <img
-                  src={img}
-                  alt={`Lifestyle ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {amenities.map((amenity, index) => (
+        <div className="relative mb-16 overflow-hidden">
+          <div 
+            className="flex gap-6"
+            style={{
+              animation: 'scroll 40s linear infinite',
+            }}
+          >
+            {duplicatedImages.map((img, index) => (
               <div
                 key={index}
-                className="bg-card p-4 rounded-lg border border-card-border text-center"
-                data-testid={`amenity-${index}`}
+                className="flex-shrink-0 rounded-lg overflow-hidden"
+                style={{ 
+                  width: 'calc((100vw - 64px) / 2.5 - 14.4px)',
+                  maxWidth: '520px',
+                }}
+                data-testid={`image-lifestyle-${index % lifestyleImages.length}`}
               >
-                <span className="text-sm">{amenity}</span>
+                <div 
+                  className="relative w-full overflow-hidden"
+                  style={{ paddingTop: '56.25%' }}
+                >
+                  <img
+                    src={img}
+                    alt={`Villa lifestyle ${(index % lifestyleImages.length) + 1}`}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
               </div>
             ))}
           </div>
         </div>
-      </section>
 
-      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="max-w-4xl">
-          {selectedImage && (
-            <img src={selectedImage} alt="Lifestyle detail" className="w-full h-auto rounded-lg" />
-          )}
-        </DialogContent>
-      </Dialog>
-    </>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {amenities.map((amenity, index) => (
+            <div
+              key={index}
+              className="bg-card p-4 rounded-lg border border-card-border text-center"
+              data-testid={`amenity-${index}`}
+            >
+              <span className="text-sm">{amenity}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-100% / 3));
+          }
+        }
+      `}</style>
+    </section>
   );
 }
