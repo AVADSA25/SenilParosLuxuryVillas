@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { WordmarkImage } from "./WordmarkImage";
+import logoImage from "@assets/beige_1761047146946.png";
 
 const FLAG = "senil:intro_seen";
-const WORDMARK = "https://i.imgur.com/M3kLaK9.png";
+const WORDMARK = logoImage;
 
 export default function LogoIntro({ onComplete }: { onComplete: () => void }) {
   const [show, setShow] = useState(false);

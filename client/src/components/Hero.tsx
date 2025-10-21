@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import logoImage from "@assets/beige_1761047146946.png";
 
-const LOGO = "https://i.imgur.com/M3kLaK9.png";
 const HERO_IMAGE = "https://i.imgur.com/NgkAQhs.png";
 
 export default function Hero() {
@@ -22,14 +23,17 @@ export default function Hero() {
           backgroundImage: `url(${HERO_IMAGE})`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-8 text-center text-white">
-        <img 
-          src={LOGO}
+        <motion.img 
+          src={logoImage}
           alt="SENIL"
-          className="mx-auto mb-6 w-[400px] max-w-[80vw]"
+          className="mx-auto mb-8 w-[500px] max-w-[85vw]"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           data-testid="logo-hero"
         />
         <p

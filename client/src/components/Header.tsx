@@ -23,7 +23,7 @@ export default function Header() {
   return (
     <header
       className={`sticky top-0 z-40 transition-all duration-300 ${
-        isMenuOpen ? "bg-background" : "bg-graphite"
+        isMenuOpen ? "bg-background" : "bg-transparent"
       }`}
       role="banner"
       data-testid="header-main"
