@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { WordmarkImage } from "./WordmarkImage";
-import logoImage from "@assets/beige_1761047146946.png";
+import logoImage from "@assets/SENIL_WHITE_1761053378465.png";
 
 const FLAG = "senil:intro_seen";
 const WORDMARK = logoImage;
@@ -20,29 +20,28 @@ export default function LogoIntro({ onComplete }: { onComplete: () => void }) {
       return;
     }
 
-    // Only show intro if not seen before
     setShow(true);
     const timer = setTimeout(() => {
       localStorage.setItem(FLAG, "1");
       setShow(false);
-      setTimeout(onComplete, 240); // Wait for exit animation
-    }, 900);
+      setTimeout(onComplete, 300);
+    }, 2500);
     
     return () => clearTimeout(timer);
   }, [onComplete]);
 
-  // Don't render anything if we should skip
   if (shouldSkip) return null;
 
   return (
     <AnimatePresence>
       {show && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-background"
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          style={{ backgroundColor: "#1E1E1C" }}
           initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.24 }}
+          transition={{ duration: 0.3 }}
           aria-hidden="true"
           data-testid="logo-intro-overlay"
         >
