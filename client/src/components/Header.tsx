@@ -8,7 +8,7 @@ const navItems = [
   { label: "Contact", href: "#contact" },
 ];
 
-const WAVE = "https://i.imgur.com/awUhJhY.png";
+const WAVE = "https://i.imgur.com/pgRCnTn.png";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
