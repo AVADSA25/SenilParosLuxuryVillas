@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import villaAerial from "@assets/02-senil-villas-paros-estate2_1761075580986.jpg";
 import villaNight from "@assets/03b-senil-villa-night4_1761075658399.jpg";
+import villaOutdoor from "@assets/04-senil-villa-outdoor_1761076245245.jpg";
 
 const blocks = [
   {
@@ -18,7 +19,7 @@ const blocks = [
     reverse: true,
   },
   {
-    image: "https://i.imgur.com/8KfZN9R.jpg",
+    image: villaOutdoor,
     title: "Horizon Lines",
     description:
       "Floor-to-ceiling glazing dissolves boundaries between interior and landscape. Living spaces open to panoramic sea views, private infinity pools, and carefully choreographed sunsets.",
