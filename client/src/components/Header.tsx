@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import waveIcon from "@assets/Untitled design_1761046194787.png";
+import waveIcon from "@assets/ChatGPT Image Oct 21, 2025, 12_56_10 PM (1)_1761046917866.png";
 
 const navItems = [
   { label: "Villas", href: "#villas" },
