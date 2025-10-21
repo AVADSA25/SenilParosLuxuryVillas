@@ -28,49 +28,101 @@ export default function DesignSection() {
   return (
     <section className="py-24 bg-background" id="design" data-testid="section-design">
       <div className="max-w-[1200px] mx-auto px-8">
-        <h2 className="font-serif text-4xl md:text-5xl font-medium mb-16 text-center" data-testid="text-design-title">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="font-serif text-4xl md:text-5xl font-medium mb-20 text-center" 
+          data-testid="text-design-title"
+        >
           Design & Architecture
-        </h2>
+        </motion.h2>
 
-        <div className="space-y-24">
+        <div className="space-y-32">
           {blocks.map((block, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className={`grid grid-cols-1 md:grid-cols-2 gap-12 items-center ${
+              className={`grid grid-cols-1 md:grid-cols-2 gap-16 items-center ${
                 block.reverse ? "md:flex-row-reverse" : ""
               }`}
               data-testid={`block-design-${index}`}
             >
-              <div className={block.reverse ? "md:order-2" : ""}>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-lg hover-elevate transition-transform duration-300 hover:scale-[1.02]">
+              <motion.div 
+                className={block.reverse ? "md:order-2" : ""}
+                initial={{ opacity: 0, x: block.reverse ? 60 : -60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+              >
+                <div className="relative overflow-hidden rounded-lg hover-elevate transition-transform duration-300 hover:scale-[1.01]"
+                  style={{ paddingTop: '56.25%' }}
+                >
                   <img
                     src={block.image}
                     alt={block.title}
-                    className="w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
-              </div>
+              </motion.div>
+              
               <div className={block.reverse ? "md:order-1" : ""}>
-                <h3 className="font-serif text-3xl font-medium mb-4" data-testid={`text-design-block-title-${index}`}>
-                  {block.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed" data-testid={`text-design-block-desc-${index}`}>
-                  {block.description}
-                </p>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  <motion.div
+                    initial={{ opacity: 0, scaleX: 0 }}
+                    whileInView={{ opacity: 1, scaleX: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="w-12 h-px mb-6"
+                    style={{ 
+                      backgroundColor: 'var(--olive)',
+                      transformOrigin: 'left'
+                    }}
+                  />
+                  
+                  <motion.h3 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.5, delay: 0.35 }}
+                    className="font-serif text-3xl md:text-4xl font-medium mb-4" 
+                    data-testid={`text-design-block-title-${index}`}
+                  >
+                    {block.title}
+                  </motion.h3>
+                  
+                  <motion.p 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.5, delay: 0.45 }}
+                    className="text-muted-foreground leading-relaxed text-lg" 
+                    data-testid={`text-design-block-desc-${index}`}
+                  >
+                    {block.description}
+                  </motion.p>
+                </motion.div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-20 text-center"
+        >
           <p className="text-sm text-muted-foreground">
-            Architect: To Be Confirmed
+            Architect: Aristides Dallas Architects
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
