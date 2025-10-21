@@ -86,17 +86,7 @@ export default function Hero() {
           loop
           muted={true}
           playsInline
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            minWidth: '100vw',
-            minHeight: '100vh',
-            width: 'auto',
-            height: 'auto',
-            transform: 'translate(-50%, -50%)',
-            objectFit: 'cover'
-          }}
+          className="video-background"
           data-testid="hero-video"
         >
           <source src={heroVideo} type="video/mp4" />
