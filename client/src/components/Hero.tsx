@@ -89,7 +89,7 @@ export default function Hero() {
           className="text-xl md:text-2xl mb-3 text-white/90 font-light max-w-2xl mx-auto"
           data-testid="text-hero-subtitle"
         >
-          Luxurious villas in Isterni, Paros
+          Luxurious villas in Paros
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
