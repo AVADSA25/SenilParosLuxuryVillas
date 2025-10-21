@@ -26,11 +26,11 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      <div className="relative z-10 max-w-[1200px] mx-auto px-8 text-center text-white">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-8 text-center text-white flex flex-col justify-end h-screen pb-32">
         <motion.img 
           src={logoImage}
           alt="SENIL"
-          className="mx-auto mb-8 w-[500px] max-w-[85vw]"
+          className="mx-auto mb-6 w-[500px] max-w-[85vw]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
