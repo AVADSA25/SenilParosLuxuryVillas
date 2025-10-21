@@ -1,6 +1,5 @@
 import { useState } from "react";
 import LogoIntro from "@/components/LogoIntro";
-import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import HorizonVideo from "@/components/HorizonVideo";
 import KeyFactsBand from "@/components/KeyFactsBand";
@@ -58,7 +57,6 @@ export default function Home() {
       {showContent && (
         <div className="min-h-screen">
           <a id="top" />
-          <Header />
           <Hero />
           <HorizonVideo />
           <KeyFactsBand />
