@@ -80,14 +80,21 @@ export default function Hero() {
           </>
         )}
       </AnimatePresence>
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
         <video
           autoPlay
           loop
           muted={true}
           playsInline
-          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover"
-          style={{ objectFit: 'cover' }}
+          className="w-full h-full"
+          style={{
+            objectFit: 'cover',
+            width: '100%',
+            height: '100%',
+            position: 'absolute',
+            top: 0,
+            left: 0
+          }}
           data-testid="hero-video"
         >
           <source src={heroVideo} type="video/mp4" />
