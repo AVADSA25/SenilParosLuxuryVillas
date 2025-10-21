@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import waveIcon from "@assets/Untitled design_1761046194787.png";
 
 const navItems = [
   { label: "Villas", href: "#villas" },
@@ -8,20 +9,8 @@ const navItems = [
   { label: "Contact", href: "#contact" },
 ];
 
-const WAVE = "https://i.imgur.com/pgRCnTn.png";
-
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 8);
-    };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const scrollToSection = (href: string) => {
     setIsMenuOpen(false);
@@ -34,7 +23,7 @@ export default function Header() {
   return (
     <header
       className={`sticky top-0 z-40 transition-all duration-300 ${
-        isScrolled ? "backdrop-blur bg-background/70" : "bg-transparent"
+        isMenuOpen ? "bg-background" : "bg-transparent"
       }`}
       role="banner"
       data-testid="header-main"
@@ -43,15 +32,15 @@ export default function Header() {
         <div className="h-16 flex items-center justify-end">
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
-            className={`p-3 transition-colors ${isMenuOpen ? 'bg-background' : 'bg-graphite'}`}
+            className="p-2"
             aria-label="Toggle menu"
             data-testid="wave-menu-button"
           >
             <img 
-              src={WAVE} 
+              src={waveIcon} 
               alt="Menu" 
-              width={40} 
-              height={40}
+              width={64} 
+              height={64}
               className="block"
               data-testid="wave-icon"
             />
