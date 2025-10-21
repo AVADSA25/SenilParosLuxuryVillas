@@ -28,7 +28,7 @@ export default function IntroSection() {
           dragConstraints={{ left: -100, right: 100 }}
           dragElastic={0.2}
           dragTransition={{ bounceStiffness: 300, bounceDamping: 20 }}
-          className="rounded-2xl bg-white/6 backdrop-blur-sm px-8 py-6 md:px-10 md:py-7 cursor-grab active:cursor-grabbing"
+          className="rounded-2xl bg-white/12 backdrop-blur-sm px-8 py-6 md:px-10 md:py-7 cursor-grab active:cursor-grabbing"
           style={{
             boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.05)'
           }}
