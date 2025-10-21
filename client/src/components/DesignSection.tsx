@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
+import villaAerial from "@assets/02-senil-villas-paros-estate2_1761075580986.jpg";
 
 const blocks = [
   {
-    image: "https://i.imgur.com/7sYGK2M.jpg",
+    image: villaAerial,
     title: "Architectural Excellence",
     description:
       "Each villa embodies contemporary Cycladic architecture, seamlessly blending traditional stone masonry with modern minimalist design. Clean lines frame the infinite Aegean horizon.",
