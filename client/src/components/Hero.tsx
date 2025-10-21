@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import waveIcon from "@assets/ChatGPT Image Oct 21, 2025, 12_56_10 PM (1)_1761049770147.png";
 
 const HERO_IMAGE = "https://i.imgur.com/NgkAQhs.png";
 
@@ -15,6 +16,12 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       data-testid="section-hero"
     >
+      <img 
+        src={waveIcon}
+        alt="Wave"
+        className="absolute top-8 right-8 z-50 w-16 h-16"
+        data-testid="wave-icon-decoration"
+      />
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
