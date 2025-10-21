@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import waveIcon from "@assets/ChatGPT Image Oct 21, 2025, 12_56_10 PM (1)_1761049770147.png";
+import logoImage from "@assets/ChatGPT Image Oct 21, 2025, 02_42_29 PM (1)_1761050658007.png";
 
 const HERO_IMAGE = "https://i.imgur.com/NgkAQhs.png";
 
@@ -78,6 +79,12 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-8 text-center text-white flex flex-col justify-end h-screen pb-12">
+        <img 
+          src={logoImage}
+          alt="SENIL"
+          className="mx-auto mb-4 w-[500px] max-w-[85vw]"
+          data-testid="logo-hero"
+        />
         <p
           className="text-xl md:text-2xl mb-3 text-white/90 font-light max-w-2xl mx-auto"
           data-testid="text-hero-subtitle"
