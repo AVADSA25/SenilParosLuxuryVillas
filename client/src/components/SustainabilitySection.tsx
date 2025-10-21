@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import parosBeach from "@assets/09-paros-island-mix-picture6_1761080091981.png";
 
 const features = [
   "Solar energy systems with battery storage",
@@ -41,8 +42,8 @@ export default function SustainabilitySection() {
             className="relative aspect-[4/3] overflow-hidden rounded-lg"
           >
             <img
-              src="https://i.imgur.com/pKn8Zmq.jpg"
-              alt="Sustainable systems"
+              src={parosBeach}
+              alt="Paros beach with turquoise waters"
               className="w-full h-full object-cover"
             />
           </motion.div>
