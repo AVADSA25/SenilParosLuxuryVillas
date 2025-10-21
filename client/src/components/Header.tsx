@@ -24,7 +24,7 @@ export default function Header() {
   }, []);
 
   const scrollToSection = (href: string) => {
-    setIsMenuOpen(false); // Close menu when navigating
+    setIsMenuOpen(false);
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -40,51 +40,33 @@ export default function Header() {
       data-testid="header-main"
     >
       <div className="max-w-[1200px] mx-auto px-8">
-        {/* Main header bar */}
         <div className="h-16 flex items-center justify-between">
-          {/* Desktop nav - left side */}
-          <nav className="hidden md:flex items-center gap-6 text-sm">
-            {navItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => scrollToSection(item.href)}
-                className="text-foreground/70 hover:text-primary transition-colors"
-                data-testid={`nav-link-${item.label.toLowerCase()}`}
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
+          <div className="font-serif text-xl">SENIL</div>
           
-          {/* Logo/Title - center on mobile, hidden on desktop */}
-          <div className="md:hidden font-serif text-xl">SENIL</div>
-          
-          {/* Wave icon - right side */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
-            className="ml-auto"
+            className="ml-auto p-2 bg-transparent"
             aria-label="Toggle menu"
             data-testid="wave-menu-button"
           >
             <img 
               src={WAVE} 
               alt="Menu" 
-              width={72} 
-              height={28}
-              className="block"
+              width={48} 
+              height={48}
+              className="block mix-blend-multiply dark:mix-blend-lighten opacity-80"
               data-testid="wave-icon"
             />
           </button>
         </div>
 
-        {/* Sliding dropdown menu - slides down from header */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.nav
-              className="md:hidden overflow-hidden"
-              initial={{ height: 0 }}
-              animate={{ height: "auto" }}
-              exit={{ height: 0 }}
+              className="overflow-hidden"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               data-testid="mobile-menu-dropdown"
             >
