@@ -12,6 +12,7 @@ import LocationSection from "@/components/LocationSection";
 import OwnershipTimeline from "@/components/OwnershipTimeline";
 import BrochureGate from "@/components/BrochureGate";
 import ContactFooter from "@/components/ContactFooter";
+import villa1Floorplan from "@assets/07-senil-villas1-floorplan_1761076701153.png";
 
 const villas = [
   {
@@ -23,7 +24,7 @@ const villas = [
       interior: "https://i.imgur.com/xjYZK8L.jpg",
       detail: "https://i.imgur.com/7sYGK2M.jpg",
     },
-    floorplan: "https://i.imgur.com/floorplan-top.jpg",
+    floorplan: villa1Floorplan,
   },
   {
     name: "Middle",
