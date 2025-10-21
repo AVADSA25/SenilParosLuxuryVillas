@@ -30,7 +30,7 @@ export default function Hero() {
     >
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="absolute top-8 left-8 z-50 bg-transparent border-0 p-0"
+        className="fixed top-2 right-2 z-50 bg-transparent border-0 p-0"
         aria-label="Toggle menu"
         data-testid="burger-menu-button"
       >
@@ -45,7 +45,7 @@ export default function Hero() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.nav
-            className="absolute top-24 left-8 z-50 bg-graphite rounded-md overflow-hidden"
+            className="fixed top-20 right-2 z-50 bg-graphite rounded-md overflow-hidden"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
