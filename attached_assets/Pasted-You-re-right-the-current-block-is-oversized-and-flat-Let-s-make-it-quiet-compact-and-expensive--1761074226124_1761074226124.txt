@@ -1,0 +1,124 @@
+You’re right—the current block is oversized and flat. Let’s make it **quiet, compact, and expensive-looking**: small eyebrow, one crisp headline, tight copy, hairline rules, and a soft floating card. No parallax in this band (save it for the beach strip below).
+
+## What we’ll change (fast)
+
+* **Shrink type** (H2 → 2xl/3xl), tighter leading, 60ch max width.
+* **Eyebrow** “Opening Summer 2026” (tracking +0.2em).
+* **Soft panel**: subtle blur + border to separate from hero/video.
+* **Hairline divider** top/bottom (luxury feel).
+* **Staggered fade+rise** on reveal (60ms child cadence).
+
+## Drop-in component
+
+Paste this as `components/IntroBand.tsx` and replace your current section with `<IntroBand />`.
+
+```tsx
+"use client"
+import { motion } from "framer-motion"
+
+const items = [
+  "Isterni, Paros — Cyclades, Greece",
+  "19 bedrooms total",
+  "Completion 2026",
+  "Price on request",
+]
+
+export function IntroBand() {
+  return (
+    <section id="intro" className="relative border-y border-[#CFCBC3] bg-[#D8D5CC]">
+      <div className="container py-10 md:py-14">
+        {/* floating panel */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.28, ease: "easeOut" }}
+          className="mx-auto max-w-3xl rounded-2xl bg-white/6 backdrop-blur-sm ring-1 ring-black/5 px-6 py-8 md:px-8 md:py-9"
+        >
+          <motion.p
+            initial={{ opacity: 0, y: 6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.06, duration: 0.22 }}
+            className="text-xs uppercase tracking-[0.2em] text-[#75776A]"
+          >
+            Opening Summer 2026
+          </motion.p>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.12, duration: 0.22 }}
+            className="font-display text-2xl md:text-3xl leading-tight tracking-[-0.01em] mt-2 text-[#1E1E1C]"
+          >
+            Three villas by award-winning Aristides Dallas on a quiet hillside in Isterni, Paros.
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.18, duration: 0.22 }}
+            className="mt-3 text-[15px] leading-relaxed text-[#363636]"
+          >
+            Linear roofs trace the horizon; stone, light and shade do the rest. Close to Naoussa and
+            Ampelas; discreet viewings by appointment.
+          </motion.p>
+
+          {/* hairline */}
+          <div className="my-6 h-px bg-black/10" />
+
+          <motion.div
+            initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }}
+            variants={{ show: { transition: { staggerChildren: 0.06 } } }}
+            className="flex flex-wrap gap-2"
+          >
+            {items.map((t) => (
+              <motion.span
+                key={t}
+                variants={{ hidden: { opacity: 0, y: 6 }, show: { opacity: 1, y: 0 } }}
+                className="px-3 py-1 rounded-full bg-[#1E1E1C] text-[#D8D5CC] text-xs"
+              >
+                {t}
+              </motion.span>
+            ))}
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.28, duration: 0.22 }}
+            className="mt-3 text-xs text-[#545454]"
+          >
+            Paros Airport (PAS) ≈ 25 min • Parikia Port ≈ 25–30 min • Naoussa ≈ 10 min • Ampelas ≈ 6–8 min
+          </motion.p>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+```
+
+**Use it:**
+
+```tsx
+// app/page.tsx
+import { IntroBand } from "@/components/IntroBand"
+// ...
+<Hero />       {/* your video hero */}
+<IntroBand />  {/* new compact intro */}
+<BeachParallax /> {/* keep this next */}
+```
+
+### Why this looks better
+
+* Smaller, calmer type + **short lines** → high-end editorial feel.
+* **Backdrop blur + ring** gives separation without a heavy slab.
+* **Hairline** and **capsules** add structure without noise.
+* Motion is **barely there** (fade+rise), keeping the premium vibe.
+
+### Optional quick tweaks
+
+* Want it even tighter? Change `max-w-3xl` → `max-w-2xl`, and H2 to `text-[22px] md:text-[28px]`.
+* Want darker pills? Set `bg-[#1E1E1C]/95` and `text-[#D8D5CC]`.
+* If the beach parallax is strong, keep this band flat (no parallax here). Let the image below carry the motion.
+
+If you paste this and still feel it’s too “boxy,” I’ll give you an **inline (no panel)** variant next that keeps the hairlines but removes the floating card.
