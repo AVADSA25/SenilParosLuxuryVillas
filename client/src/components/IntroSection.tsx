@@ -23,13 +23,18 @@ export default function IntroSection() {
           initial={{ opacity: 0, x: 200 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ 
+            duration: 0.8, 
+            ease: [0.34, 1.56, 0.64, 1],
+            opacity: { duration: 0.4 }
+          }}
           drag="x"
           dragConstraints={{ left: -100, right: 100 }}
           dragElastic={0.2}
           dragTransition={{ bounceStiffness: 300, bounceDamping: 20 }}
-          className="rounded-2xl bg-white/12 backdrop-blur-sm px-8 py-6 md:px-10 md:py-7 cursor-grab active:cursor-grabbing"
+          className="rounded-2xl backdrop-blur-sm px-8 py-6 md:px-10 md:py-7 cursor-grab active:cursor-grabbing"
           style={{
+            backgroundColor: 'rgba(255, 255, 255, 0.25)',
             boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.05)'
           }}
         >
