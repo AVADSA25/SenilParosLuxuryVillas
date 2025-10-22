@@ -31,18 +31,19 @@ export default function LifestyleSection() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
-  const [hasInteracted, setHasInteracted] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   const animationRef = useRef<number | null>(null);
   const velocityRef = useRef(0);
   const lastXRef = useRef(0);
   const lastTimeRef = useRef(0);
+  const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    if (!scrollRef.current || hasInteracted) return;
+    if (!scrollRef.current || isPaused) return;
 
-    let offset = 0;
+    let offset = scrollRef.current.scrollLeft;
     const container = scrollRef.current;
-    const speed = 0.5;
+    const speed = 0.67;
 
     const animate = () => {
       offset += speed;
@@ -65,18 +66,22 @@ export default function LifestyleSection() {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [hasInteracted]);
+  }, [isPaused]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!scrollRef.current) return;
     
     setIsDragging(true);
-    setHasInteracted(true);
+    setIsPaused(true);
     setStartX(e.pageX - scrollRef.current.offsetLeft);
     setScrollLeft(scrollRef.current.scrollLeft);
     velocityRef.current = 0;
     lastXRef.current = e.pageX;
     lastTimeRef.current = Date.now();
+    
+    if (pauseTimeoutRef.current) {
+      clearTimeout(pauseTimeoutRef.current);
+    }
     
     if (animationRef.current) {
       cancelAnimationFrame(animationRef.current);
@@ -106,6 +111,10 @@ export default function LifestyleSection() {
     if (Math.abs(velocityRef.current) > 0.1) {
       applyMomentum();
     }
+    
+    pauseTimeoutRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, 3000);
   };
 
   const applyMomentum = () => {
