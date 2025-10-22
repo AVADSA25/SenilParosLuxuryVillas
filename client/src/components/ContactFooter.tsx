@@ -52,9 +52,6 @@ export default function ContactFooter() {
                 <a href="#" className="text-secondary-foreground/60 hover:text-secondary-foreground transition-colors whitespace-nowrap">
                   Privacy Policy
                 </a>
-                <a href="#" className="text-secondary-foreground/60 hover:text-secondary-foreground transition-colors whitespace-nowrap">
-                  Cookies Policy
-                </a>
               </div>
               <p className="text-xs text-secondary-foreground/40">
                 Marketed in collaboration with Engel &amp; Völkers Paros
