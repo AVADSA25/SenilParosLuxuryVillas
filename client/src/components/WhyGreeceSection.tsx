@@ -120,14 +120,14 @@ export default function WhyGreeceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="group rounded-2xl bg-card ring-1 ring-card-border p-6 shadow-sm hover-elevate active-elevate-2 will-change-transform"
+            className="group rounded-2xl bg-card ring-1 ring-card-border p-8 shadow-sm hover-elevate active-elevate-2 will-change-transform flex flex-col items-center text-center"
             data-testid="benefit-card-0"
           >
-            <div className="w-10 h-10 rounded-full bg-olive/8 flex items-center justify-center mb-4">
-              <Home className="w-5 h-5 text-olive" strokeWidth={1.5} />
+            <div className="w-12 h-12 rounded-full bg-olive/10 flex items-center justify-center mb-5">
+              <Home className="w-6 h-6 text-olive" strokeWidth={1.5} />
             </div>
-            <h3 className="text-[15px] font-medium mb-1">{benefits[0].title}</h3>
-            <p className="text-sm leading-relaxed text-muted-foreground">{benefits[0].description}</p>
+            <h3 className="text-lg font-bold mb-3 text-olive">{benefits[0].title}</h3>
+            <p className="text-base leading-relaxed text-muted-foreground">{benefits[0].description}</p>
           </motion.div>
 
           <motion.div
@@ -146,14 +146,14 @@ export default function WhyGreeceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.3 }}
-            className="group rounded-2xl bg-card ring-1 ring-card-border p-6 shadow-sm hover-elevate active-elevate-2 will-change-transform"
+            className="group rounded-2xl bg-card ring-1 ring-card-border p-8 shadow-sm hover-elevate active-elevate-2 will-change-transform flex flex-col items-center text-center"
             data-testid="benefit-card-1"
           >
-            <div className="w-10 h-10 rounded-full bg-olive/8 flex items-center justify-center mb-4">
-              <TrendingUp className="w-5 h-5 text-olive" strokeWidth={1.5} />
+            <div className="w-12 h-12 rounded-full bg-olive/10 flex items-center justify-center mb-5">
+              <TrendingUp className="w-6 h-6 text-olive" strokeWidth={1.5} />
             </div>
-            <h3 className="text-[15px] font-medium mb-1">{benefits[1].title}</h3>
-            <p className="text-sm leading-relaxed text-muted-foreground">{benefits[1].description}</p>
+            <h3 className="text-lg font-bold mb-3 text-olive">{benefits[1].title}</h3>
+            <p className="text-base leading-relaxed text-muted-foreground">{benefits[1].description}</p>
           </motion.div>
         </div>
 
@@ -163,14 +163,14 @@ export default function WhyGreeceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.35 }}
-            className="group rounded-2xl bg-card ring-1 ring-card-border p-6 shadow-sm hover-elevate active-elevate-2 will-change-transform"
+            className="group rounded-2xl bg-card ring-1 ring-card-border p-8 shadow-sm hover-elevate active-elevate-2 will-change-transform flex flex-col items-center text-center"
             data-testid="benefit-card-2"
           >
-            <div className="w-10 h-10 rounded-full bg-olive/8 flex items-center justify-center mb-4">
-              <Sparkles className="w-5 h-5 text-olive" strokeWidth={1.5} />
+            <div className="w-12 h-12 rounded-full bg-olive/10 flex items-center justify-center mb-5">
+              <Sparkles className="w-6 h-6 text-olive" strokeWidth={1.5} />
             </div>
-            <h3 className="text-[15px] font-medium mb-1">{benefits[2].title}</h3>
-            <p className="text-sm leading-relaxed text-muted-foreground">{benefits[2].description}</p>
+            <h3 className="text-lg font-bold mb-3 text-olive">{benefits[2].title}</h3>
+            <p className="text-base leading-relaxed text-muted-foreground">{benefits[2].description}</p>
           </motion.div>
 
           <motion.div
@@ -189,14 +189,14 @@ export default function WhyGreeceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.45 }}
-            className="group rounded-2xl bg-card ring-1 ring-card-border p-6 shadow-sm hover-elevate active-elevate-2 will-change-transform"
+            className="group rounded-2xl bg-card ring-1 ring-card-border p-8 shadow-sm hover-elevate active-elevate-2 will-change-transform flex flex-col items-center text-center"
             data-testid="benefit-card-3"
           >
-            <div className="w-10 h-10 rounded-full bg-olive/8 flex items-center justify-center mb-4">
-              <Sun className="w-5 h-5 text-olive" strokeWidth={1.5} />
+            <div className="w-12 h-12 rounded-full bg-olive/10 flex items-center justify-center mb-5">
+              <Sun className="w-6 h-6 text-olive" strokeWidth={1.5} />
             </div>
-            <h3 className="text-[15px] font-medium mb-1">{benefits[3].title}</h3>
-            <p className="text-sm leading-relaxed text-muted-foreground">{benefits[3].description}</p>
+            <h3 className="text-lg font-bold mb-3 text-olive">{benefits[3].title}</h3>
+            <p className="text-base leading-relaxed text-muted-foreground">{benefits[3].description}</p>
           </motion.div>
 
           <motion.div
@@ -204,14 +204,14 @@ export default function WhyGreeceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.5 }}
-            className="group rounded-2xl bg-card ring-1 ring-card-border p-6 shadow-sm hover-elevate active-elevate-2 will-change-transform"
+            className="group rounded-2xl bg-card ring-1 ring-card-border p-8 shadow-sm hover-elevate active-elevate-2 will-change-transform flex flex-col items-center text-center"
             data-testid="benefit-card-4"
           >
-            <div className="w-10 h-10 rounded-full bg-olive/8 flex items-center justify-center mb-4">
-              <TrendingUp className="w-5 h-5 text-olive" strokeWidth={1.5} />
+            <div className="w-12 h-12 rounded-full bg-olive/10 flex items-center justify-center mb-5">
+              <TrendingUp className="w-6 h-6 text-olive" strokeWidth={1.5} />
             </div>
-            <h3 className="text-[15px] font-medium mb-1">{benefits[4].title}</h3>
-            <p className="text-sm leading-relaxed text-muted-foreground">{benefits[4].description}</p>
+            <h3 className="text-lg font-bold mb-3 text-olive">{benefits[4].title}</h3>
+            <p className="text-base leading-relaxed text-muted-foreground">{benefits[4].description}</p>
           </motion.div>
 
           <motion.div
@@ -230,14 +230,14 @@ export default function WhyGreeceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.6 }}
-            className="group rounded-2xl bg-card ring-1 ring-card-border p-6 shadow-sm hover-elevate active-elevate-2 will-change-transform"
+            className="group rounded-2xl bg-card ring-1 ring-card-border p-8 shadow-sm hover-elevate active-elevate-2 will-change-transform flex flex-col items-center text-center"
             data-testid="benefit-card-5"
           >
-            <div className="w-10 h-10 rounded-full bg-olive/8 flex items-center justify-center mb-4">
-              <Shield className="w-5 h-5 text-olive" strokeWidth={1.5} />
+            <div className="w-12 h-12 rounded-full bg-olive/10 flex items-center justify-center mb-5">
+              <Shield className="w-6 h-6 text-olive" strokeWidth={1.5} />
             </div>
-            <h3 className="text-[15px] font-medium mb-1">{benefits[5].title}</h3>
-            <p className="text-sm leading-relaxed text-muted-foreground">{benefits[5].description}</p>
+            <h3 className="text-lg font-bold mb-3 text-olive">{benefits[5].title}</h3>
+            <p className="text-base leading-relaxed text-muted-foreground">{benefits[5].description}</p>
           </motion.div>
         </div>
         </div>
