@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { Home, TrendingUp, Sun, Shield, Sparkles } from "lucide-react";
-import beach from "@assets/09-paros-island-mix-picture4_1761128760341.png";
 import harbor from "@assets/09-paros-island-mix-picture7_1761128768990.png";
-import flowers from "@assets/09-paros-island-mix-picture2_1761128784882.png";
+import church from "@assets/09-paros-island-mix-picture9_1761128776857.png";
 
 const benefits = [
   {
@@ -52,10 +51,10 @@ export default function WhyGreeceSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-serif text-4xl md:text-5xl font-medium mb-4" data-testid="text-why-greece-title">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6" data-testid="text-why-greece-title">
             Why Greece
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             Enduring lifestyle value in the Aegean—sun, stability, and world-class demand.
           </p>
         </motion.div>
@@ -125,9 +124,9 @@ export default function WhyGreeceSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.4 }}
             className="rounded-2xl overflow-hidden ring-1 ring-card-border"
-            data-testid="image-beach"
+            data-testid="image-church"
           >
-            <img src={beach} alt="Paros beach with turquoise waters" className="w-full h-full object-cover aspect-[4/5]" />
+            <img src={church} alt="Traditional Greek church" className="w-full h-full object-cover aspect-[4/5]" />
           </motion.div>
 
           <motion.div
@@ -173,17 +172,6 @@ export default function WhyGreeceSection() {
             </div>
             <h3 className="text-[15px] font-medium mb-1">{benefits[5].title}</h3>
             <p className="text-sm leading-relaxed text-muted-foreground">{benefits[5].description}</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.65 }}
-            className="rounded-2xl overflow-hidden ring-1 ring-card-border"
-            data-testid="image-flowers"
-          >
-            <img src={flowers} alt="Bougainvillea flowers and Greek architecture" className="w-full h-full object-cover aspect-[4/5]" />
           </motion.div>
         </div>
       </div>
