@@ -1,0 +1,77 @@
+Here’s the **Replit system prompt** you can paste in your Replit console or share with your dev to get a clean full-site structure + content export for review:
+
+---
+
+### 🧩 **Prompt for Replit (Site Structure + Content Dump)**
+
+````bash
+# Run this in your Replit console or create a script file "dump-structure.js"
+# It will print out the full site section order and inner text content for review.
+
+npx tsx <<'TS'
+import fs from "fs";
+import path from "path";
+
+// Root folder of your Next.js pages or app routes
+const ROOT = path.resolve("app");
+
+// Helper: recursively list and read all components / sections
+function walk(dir) {
+  const files = fs.readdirSync(dir);
+  let results = [];
+  for (const file of files) {
+    const filepath = path.join(dir, file);
+    const stat = fs.statSync(filepath);
+    if (stat.isDirectory()) {
+      results = results.concat(walk(filepath));
+    } else if (file.endsWith(".tsx") || file.endsWith(".jsx") || file.endsWith(".mdx")) {
+      results.push(filepath);
+    }
+  }
+  return results;
+}
+
+// Read and format content
+const files = walk(ROOT);
+let output = `# 🌿 Website Structure & Content Review\n\n`;
+
+files.forEach((file, i) => {
+  const content = fs.readFileSync(file, "utf8");
+  const relative = path.relative(ROOT, file);
+  const sectionTitle = relative.replace(/\//g, " › ");
+  output += `## ${i + 1}. ${sectionTitle}\n\n`;
+  output += "```tsx\n" + content.slice(0, 3000) + "\n```\n\n"; // Limit per file
+});
+
+fs.writeFileSync("site-structure.md", output);
+console.log("✅ Site structure exported to site-structure.md");
+TS
+````
+
+---
+
+### 🔧 **What It Does**
+
+* Crawls your `/app` (or `/pages`) directory.
+* Reads every `.tsx`, `.jsx`, or `.mdx` file.
+* Outputs a clean **Markdown file** (`site-structure.md`) listing:
+
+  * Section order (based on file paths)
+  * Each section’s code (up to 3,000 chars for readability)
+
+---
+
+### 📄 **Result**
+
+You’ll get a file in your Replit workspace:
+
+```
+/site-structure.md
+```
+
+→ Open it, copy-paste its content here, and I’ll review the full text flow, polish copy tone, and verify design coherence.
+
+---
+
+Would you like me to modify the script to **exclude boilerplate (e.g., Head, Layout, metadata)** and only show **actual visible content sections** (Hero, Video, Why Greece, Villas, etc.)?
+That version is more concise for client review.
