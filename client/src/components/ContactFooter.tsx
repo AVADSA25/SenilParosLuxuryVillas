@@ -10,8 +10,7 @@ export default function ContactFooter() {
               Contact
             </h3>
             <div className="space-y-2 text-secondary-foreground/80">
-              <p data-testid="text-phone-1">+30 123 456 7890</p>
-              <p data-testid="text-phone-2">+30 098 765 4321</p>
+              <p data-testid="text-phone">+30 695 783 1717</p>
               <p>
                 <a
                   href="mailto:sales@senilparos.com"
