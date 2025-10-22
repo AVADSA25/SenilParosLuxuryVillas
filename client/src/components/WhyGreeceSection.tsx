@@ -164,6 +164,17 @@ export default function WhyGreeceSection() {
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.55 }}
+            className="rounded-2xl overflow-hidden ring-1 ring-card-border"
+            data-testid="image-church"
+          >
+            <img src={church} alt="Traditional Greek church" className="w-full h-full object-cover aspect-[4/5]" />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.6 }}
             className="group rounded-2xl bg-card ring-1 ring-card-border p-6 shadow-sm hover-elevate active-elevate-2 will-change-transform"
             data-testid="benefit-card-5"
@@ -173,17 +184,6 @@ export default function WhyGreeceSection() {
             </div>
             <h3 className="text-[15px] font-medium mb-1">{benefits[5].title}</h3>
             <p className="text-sm leading-relaxed text-muted-foreground">{benefits[5].description}</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.65 }}
-            className="rounded-2xl overflow-hidden ring-1 ring-card-border"
-            data-testid="image-church"
-          >
-            <img src={church} alt="Traditional Greek church" className="w-full h-full object-cover aspect-[4/5]" />
           </motion.div>
         </div>
       </div>
