@@ -40,14 +40,6 @@ export default function ContactFooter() {
               <br />
               On-site or virtual conference call
             </p>
-            <div className="mt-8">
-              <img 
-                src={senilLogo} 
-                alt="SENIL Logo" 
-                className="h-20 w-auto opacity-20"
-                data-testid="footer-logo"
-              />
-            </div>
           </div>
         </div>
 
@@ -55,6 +47,14 @@ export default function ContactFooter() {
           <p className="text-sm text-secondary-foreground/60" data-testid="text-legal">
             Renders and areas are indicative. All areas approximate and subject to final permits.
           </p>
+          <div className="mb-8">
+            <img 
+              src={senilLogo} 
+              alt="SENIL Logo" 
+              className="h-20 w-auto opacity-20"
+              data-testid="footer-logo"
+            />
+          </div>
           <div className="flex flex-wrap gap-6 text-sm">
             <a href="#" className="text-secondary-foreground/60 hover:text-secondary-foreground transition-colors">
               Privacy Policy
