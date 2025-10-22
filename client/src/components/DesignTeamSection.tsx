@@ -44,7 +44,7 @@ export default function DesignTeamSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="relative overflow-hidden rounded-2xl">
-              <div className="relative" style={{ paddingTop: '66.67%' }}>
+              <div className="relative" style={{ paddingTop: '56.25%' }}>
                 <img
                   src={architectImage}
                   alt="Aristides Dallas Architects - SENIL Villas aerial view"
