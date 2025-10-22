@@ -121,7 +121,7 @@ export default function Hero() {
             size="lg"
             variant="outline"
             className="rounded-full px-8 bg-white/10 backdrop-blur-md text-white border-white/30 hover:bg-white/20"
-            onClick={() => scrollToSection("#brochure")}
+            onClick={() => scrollToSection("#forms")}
             data-testid="button-download-brochure"
           >
             Download Brochure
