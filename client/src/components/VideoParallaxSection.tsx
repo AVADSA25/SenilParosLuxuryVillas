@@ -26,7 +26,8 @@ export default function VideoParallaxSection() {
       ref={containerRef}
       className="relative w-full overflow-hidden bg-graphite"
       style={{ 
-        paddingTop: '56.25%'
+        paddingTop: '56.25%',
+        perspective: '1px' // Safari: Enable 3D rendering context
       }}
       data-testid="section-video-parallax"
     >
@@ -39,10 +40,15 @@ export default function VideoParallaxSection() {
           playsInline
           className="absolute w-full h-full object-cover"
           style={{
-            transform: `translateY(${offsetY - 100}px)`,
+            transform: `translate3d(0, ${offsetY - 100}px, 0)`,
+            WebkitTransform: `translate3d(0, ${offsetY - 100}px, 0)`,
             transition: 'transform 0.1s linear',
+            WebkitTransition: 'transform 0.1s linear',
             minHeight: '120%',
-            top: '-10%'
+            top: '-10%',
+            willChange: 'transform',
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden'
           }}
           data-testid="video-parallax"
         >

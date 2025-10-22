@@ -39,7 +39,8 @@ export default function ParallaxSection() {
       ref={containerRef}
       className="relative w-full overflow-hidden bg-graphite"
       style={{ 
-        paddingTop: '56.25%' // 16:9 aspect ratio
+        paddingTop: '56.25%', // 16:9 aspect ratio
+        perspective: '1px' // Safari: Enable 3D rendering context
       }}
       data-testid="section-parallax"
     >
@@ -52,12 +53,17 @@ export default function ParallaxSection() {
             // Mobile: no parallax, perfect fit
             objectPosition: 'center'
           } : {
-            // Desktop: parallax effect
-            transform: `translateY(${offsetY - 150}px)`,
+            // Desktop: parallax effect with Safari optimization
+            transform: `translate3d(0, ${offsetY - 150}px, 0)`,
+            WebkitTransform: `translate3d(0, ${offsetY - 150}px, 0)`,
             transition: 'transform 0.1s linear',
+            WebkitTransition: 'transform 0.1s linear',
             minHeight: '120%',
             top: '-10%',
-            objectPosition: 'center'
+            objectPosition: 'center',
+            willChange: 'transform',
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden'
           }}
           data-testid="image-parallax"
         />
