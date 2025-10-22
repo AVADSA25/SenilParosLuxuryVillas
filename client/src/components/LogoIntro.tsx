@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import introVideo from "@assets/seasil intro_1761158401680.mov";
+import introVideo from "@assets/Camera_rotation_still_202510212204_1761077076465.mp4";
 
 const FLAG = "senil:intro_seen";
 
@@ -55,7 +55,6 @@ export default function LogoIntro({ onComplete }: { onComplete: () => void }) {
             onEnded={handleVideoEnd}
             data-testid="intro-video"
           >
-            <source src={introVideo} type="video/quicktime" />
             <source src={introVideo} type="video/mp4" />
           </video>
         </motion.div>
