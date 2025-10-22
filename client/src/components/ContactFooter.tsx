@@ -43,29 +43,33 @@ export default function ContactFooter() {
           </div>
         </div>
 
-        <div className="border-t border-secondary-foreground/20 pt-8 space-y-4">
-          <p className="text-sm text-secondary-foreground/60" data-testid="text-legal">
-            Renders and areas are indicative. All areas approximate and subject to final permits.
-          </p>
-          <div className="mb-8">
-            <img 
-              src={senilLogo} 
-              alt="SENIL Logo" 
-              className="h-20 w-auto opacity-20"
-              data-testid="footer-logo"
-            />
+        <div className="border-t border-secondary-foreground/20 pt-8">
+          <div className="flex flex-col md:flex-row md:items-start gap-8">
+            <div className="flex-shrink-0">
+              <img 
+                src={senilLogo} 
+                alt="SENIL Logo" 
+                className="h-20 w-auto opacity-20"
+                data-testid="footer-logo"
+              />
+            </div>
+            <div className="flex-1 space-y-4">
+              <p className="text-sm text-secondary-foreground/60" data-testid="text-legal">
+                Renders and areas are indicative. All areas approximate and subject to final permits.
+              </p>
+              <div className="flex flex-wrap gap-6 text-sm">
+                <a href="#" className="text-secondary-foreground/60 hover:text-secondary-foreground transition-colors whitespace-nowrap">
+                  Privacy Policy
+                </a>
+                <a href="#" className="text-secondary-foreground/60 hover:text-secondary-foreground transition-colors whitespace-nowrap">
+                  Cookies Policy
+                </a>
+              </div>
+              <p className="text-xs text-secondary-foreground/40">
+                Marketed in collaboration with Engel &amp; Völkers Paros
+              </p>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-6 text-sm">
-            <a href="#" className="text-secondary-foreground/60 hover:text-secondary-foreground transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-secondary-foreground/60 hover:text-secondary-foreground transition-colors">
-              Cookies Policy
-            </a>
-          </div>
-          <p className="text-xs text-secondary-foreground/40">
-            Marketed in collaboration with Engel & Völkers Paros
-          </p>
         </div>
       </div>
     </footer>
