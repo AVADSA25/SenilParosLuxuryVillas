@@ -1,0 +1,75 @@
+Section 2 — Why Greece
+
+Section name: “Why Greece”
+One-line intro: “Enduring lifestyle value in the Aegean—sun, stability, and world-class demand.”
+
+The 6 cards (short, commercial, and actually useful)
+
+Golden Visa Residency
+Real estate investment grants a 5-year renewable Greek residency for non-EU families, with visa-free Schengen travel. 
+
+Senil Paros Luxurious Villas – …
+
+High-Season Demand
+Paros is a top Mediterranean destination; luxury stays command strong rates across a long May–Oct season (and shoulder months). 
+
+Senil Paros Luxurious Villas – …
+
+Rental Yield Potential
+A 19-bedroom, three-villa estate can be operated as a boutique compound or per-villa rentals for premium returns. 
+
+Senil Paros Luxurious Villas – …
+
+Sunny, Long Season
+250+ sunny days a year and mild shoulders extend usage and rental windows beyond peak summer. 
+
+Senil Paros Luxurious Villas – …
+
+Scarcity & Appreciation
+Tight building rules + rising global attention have pushed prime Paros values into Greece’s top tier—strong long-term fundamentals. 
+
+Senil Paros Luxurious Villas – …
+
+Easy Access & Safety
+25-min drive from PAS airport; fast ferries; Greece rates among the safest EU destinations—ideal for families and discreet owners. 
+
+Senil Paros Luxurious Villas – …
+
+Tiny note under grid: “General information only. Your legal/financial advisor can confirm specifics for your situation.”
+
+Stand-out layout (sexy + modern)
+
+Visual concept: “Capsule mosaic.” Think lighter Ash Stone panel with three oversized “stat capsules” floating at top, then a 3×2 card grid below.
+
+Top capsules (animated counters):
+
+“250+ sunny days / yr”
+
+“≤25 min from PAS airport”
+
+“Schengen residency path”
+(Counters rise gently on reveal; no gimmicks.)
+
+Card grid look: rounded-2xl cards, Olive Slate icons (simple line pictos), subtle inset shadow, hairline border. Copy in two lines max. On hover: elevate 2px + 1.02 scale + caption lift (80ms).
+
+Motion: section fade+rise 12px; children stagger 60ms; honor reduced-motion.
+
+Replit build brief (paste):
+
+<section id="why-greece" class="bg-[var(--ash)] py-20 md:py-28">
+
+Container: max-w-6xl mx-auto px-4
+
+Stat row: grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10
+Use rounded-full bg-[color:var(--ash-contrast)]/50 ring-1 ring-[var(--ash-outline)] px-5 py-3 flex items-center justify-center text-sm tracking-wide.
+
+Cards: grid grid-cols-1 md:grid-cols-3 gap-6
+Each card: group rounded-2xl bg-[var(--paper)] ring-1 ring-[var(--ash-outline)] p-6 shadow-[0_1px_0_rgba(0,0,0,0.04)] transition-transform duration-100 will-change-transform hover:scale-[1.02].
+Title: text-[15px] font-medium text-[var(--charcoal)] mb-1
+Body: text-sm leading-relaxed text-[var(--charcoal-70)]
+
+Icons: SVG strokes at 1.5px in Olive Slate; place inside a 32px circle badge bg-[var(--olive)/8].
+
+Animation: use IntersectionObserver or Framer Motion whileInView={{opacity:1,y:0}} with initial={{opacity:0,y:12}}, transition={{duration:.18, staggerChildren:.06}}.
+
+A11y: ensure card headings are <h3>; keep reading order left→right, top→bottom.
