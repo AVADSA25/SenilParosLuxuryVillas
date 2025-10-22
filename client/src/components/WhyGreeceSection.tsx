@@ -262,7 +262,8 @@ export default function WhyGreeceSection() {
               transform: `translateY(${offsetY2 - 75}px)`,
               transition: 'transform 0.1s linear',
               minHeight: '120%',
-              top: '-10%'
+              top: '-10%',
+              objectPosition: 'center 35%'
             }}
           />
         </motion.div>
