@@ -53,7 +53,7 @@ export default function FilmSection() {
     <section 
       id="film" 
       ref={sectionRef}
-      className="pt-12 pb-24 bg-background" 
+      className="pt-4 pb-24 bg-background" 
       data-testid="section-film"
     >
       <div className="max-w-[1200px] mx-auto px-8">
