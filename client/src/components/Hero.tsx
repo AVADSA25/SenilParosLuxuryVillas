@@ -16,11 +16,18 @@ export default function Hero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
+    console.log('Scrolling to:', id);
     setIsMenuOpen(false);
-    const element = document.querySelector(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    
+    setTimeout(() => {
+      const element = document.querySelector(id);
+      console.log('Found element:', element);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        console.error('Element not found:', id);
+      }
+    }, 100);
   };
 
   return (
