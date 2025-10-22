@@ -71,6 +71,7 @@ export default function Home() {
           <KeyFactsBand />
 
           <DesignSection />
+          <DesignTeamSection />
 
           <VideoParallaxSection />
 
@@ -95,7 +96,6 @@ export default function Home() {
           <WhyGreeceSection />
           <LocationSection />
           <OwnershipTimeline />
-          <DesignTeamSection />
           <BrochureGate />
           <ContactFooter />
         </div>
