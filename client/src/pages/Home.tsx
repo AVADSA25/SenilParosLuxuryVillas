@@ -1,5 +1,3 @@
-import { useState } from "react";
-import LogoIntro from "@/components/LogoIntro";
 import Hero from "@/components/Hero";
 import IntroSection from "@/components/IntroSection";
 import ParallaxSection from "@/components/ParallaxSection";
@@ -57,52 +55,45 @@ const villas = [
 ];
 
 export default function Home() {
-  const [showContent, setShowContent] = useState(false);
-
   return (
-    <>
-      <LogoIntro onComplete={() => setShowContent(true)} />
-      {showContent && (
-        <div className="min-h-screen">
-          <a id="top" />
-          <Hero />
-          <IntroSection />
-          <ParallaxSection />
-          <KeyFactsBand />
+    <div className="min-h-screen">
+      <a id="top" />
+      <Hero />
+      <IntroSection />
+      <ParallaxSection />
+      <KeyFactsBand />
 
-          <DesignSection />
-          <DesignTeamSection />
+      <DesignSection />
+      <DesignTeamSection />
 
-          <VideoParallaxSection />
+      <VideoParallaxSection />
 
-          <section className="py-24 bg-background" id="villas" data-testid="section-villas">
-            <div className="max-w-[1200px] mx-auto px-8">
-              <h2 className="font-serif text-4xl md:text-5xl font-medium mb-6 text-center" data-testid="text-villas-title">
-                The Villas
-              </h2>
-              <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-center mb-16" data-testid="text-villas-intro">
-                Three independent villas: Top, Middle, Bottom. One horizon. Private pools, deep terraces and indoor-outdoor living; 6, 9 and 5 bedrooms respectively.
-              </p>
-              <div className="space-y-12">
-                {villas.map((villa) => (
-                  <VillaCard key={villa.name} {...villa} />
-                ))}
-              </div>
-              <p className="text-sm text-muted-foreground text-center mt-12" data-testid="text-villas-footnote">
-                Areas are approximate and subject to final permits. Technical SQM Plan (PDF) available on request.
-              </p>
-            </div>
-          </section>
-          <LifestyleSection />
-          <SustainabilitySection />
-          <FilmSection />
-          <WhyGreeceSection />
-          <LocationSection />
-          <OwnershipTimeline />
-          <LeadFormsSection />
-          <ContactFooter />
+      <section className="py-24 bg-background" id="villas" data-testid="section-villas">
+        <div className="max-w-[1200px] mx-auto px-8">
+          <h2 className="font-serif text-4xl md:text-5xl font-medium mb-6 text-center" data-testid="text-villas-title">
+            The Villas
+          </h2>
+          <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-center mb-16" data-testid="text-villas-intro">
+            Three independent villas: Top, Middle, Bottom. One horizon. Private pools, deep terraces and indoor-outdoor living; 6, 9 and 5 bedrooms respectively.
+          </p>
+          <div className="space-y-12">
+            {villas.map((villa) => (
+              <VillaCard key={villa.name} {...villa} />
+            ))}
+          </div>
+          <p className="text-sm text-muted-foreground text-center mt-12" data-testid="text-villas-footnote">
+            Areas are approximate and subject to final permits. Technical SQM Plan (PDF) available on request.
+          </p>
         </div>
-      )}
-    </>
+      </section>
+      <LifestyleSection />
+      <SustainabilitySection />
+      <FilmSection />
+      <WhyGreeceSection />
+      <LocationSection />
+      <OwnershipTimeline />
+      <LeadFormsSection />
+      <ContactFooter />
+    </div>
   );
 }
