@@ -66,7 +66,7 @@ export default function VillaCard({ name, area, bedrooms, images, floorplan }: V
               onClick={() => setShowFloorplan(true)}
               data-testid={`button-floorplan-${name.toLowerCase()}`}
             >
-              View Floorplan
+              Expand Picture
             </Button>
             <Button
               onClick={scrollToContact}
