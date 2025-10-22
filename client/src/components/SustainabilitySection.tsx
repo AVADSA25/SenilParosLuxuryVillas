@@ -2,12 +2,14 @@ import { motion } from "framer-motion";
 import parosBeach from "@assets/09-paros-island-mix-picture6_1761080091981.png";
 
 const features = [
-  "Solar energy systems with battery storage",
-  "Rainwater harvesting and greywater recycling",
-  "High-performance thermal insulation",
-  "Energy-efficient HVAC systems",
-  "LED lighting throughout",
-  "Locally sourced natural materials",
+  "Solar PV with battery storage for resilient, low-carbon operation",
+  "Rainwater harvesting with greywater reuse",
+  "High-performance envelope and shading strategy",
+  "Energy-efficient HVAC with zoned control",
+  "LED lighting throughout with warm, low-glare scenes",
+  "Locally sourced natural materials, low-VOC finishes",
+  "Smart home (KNX / equivalent), CAT6a data backbone",
+  "CCTV and discreet perimeter intrusion detection",
 ];
 
 export default function SustainabilitySection() {
