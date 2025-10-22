@@ -45,14 +45,6 @@ export default function ContactFooter() {
 
         <div className="border-t border-secondary-foreground/20 pt-8">
           <div className="flex flex-col md:flex-row md:items-start gap-8">
-            <div className="flex-shrink-0">
-              <img 
-                src={senilLogo} 
-                alt="SENIL Logo" 
-                className="h-20 w-auto opacity-20"
-                data-testid="footer-logo"
-              />
-            </div>
             <div className="flex-1 space-y-4">
               <p className="text-sm text-secondary-foreground/60" data-testid="text-legal">
                 Renders and areas are indicative. All areas approximate and subject to final permits.
@@ -68,6 +60,14 @@ export default function ContactFooter() {
               <p className="text-xs text-secondary-foreground/40">
                 Marketed in collaboration with Engel &amp; Völkers Paros
               </p>
+            </div>
+            <div className="flex-shrink-0">
+              <img 
+                src={senilLogo} 
+                alt="SENIL Logo" 
+                className="h-20 w-auto opacity-20"
+                data-testid="footer-logo"
+              />
             </div>
           </div>
         </div>
