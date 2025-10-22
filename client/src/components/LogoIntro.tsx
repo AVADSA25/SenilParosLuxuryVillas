@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { WordmarkImage } from "./WordmarkImage";
-import logoImage from "@assets/beige_1761047146946.png";
+import introVideo from "@assets/seasil intro_1761158401680.mov";
 
 const FLAG = "senil:intro_seen";
-const WORDMARK = logoImage;
 
 export default function LogoIntro({ onComplete }: { onComplete: () => void }) {
   const [show, setShow] = useState(false);
   const [shouldSkip, setShouldSkip] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -20,18 +19,20 @@ export default function LogoIntro({ onComplete }: { onComplete: () => void }) {
       return;
     }
 
-    // Only show intro if not seen before
     setShow(true);
-    const timer = setTimeout(() => {
-      localStorage.setItem(FLAG, "1");
-      setShow(false);
-      setTimeout(onComplete, 240); // Wait for exit animation
-    }, 900);
     
-    return () => clearTimeout(timer);
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 1.5;
+      videoRef.current.play();
+    }
   }, [onComplete]);
 
-  // Don't render anything if we should skip
+  const handleVideoEnd = () => {
+    localStorage.setItem(FLAG, "1");
+    setShow(false);
+    setTimeout(onComplete, 300);
+  };
+
   if (shouldSkip) return null;
 
   return (
@@ -42,11 +43,21 @@ export default function LogoIntro({ onComplete }: { onComplete: () => void }) {
           initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.24 }}
+          transition={{ duration: 0.3 }}
           aria-hidden="true"
           data-testid="logo-intro-overlay"
         >
-          <WordmarkImage src={WORDMARK} />
+          <video
+            ref={videoRef}
+            className="w-full h-full object-cover"
+            muted
+            playsInline
+            onEnded={handleVideoEnd}
+            data-testid="intro-video"
+          >
+            <source src={introVideo} type="video/quicktime" />
+            <source src={introVideo} type="video/mp4" />
+          </video>
         </motion.div>
       )}
     </AnimatePresence>
