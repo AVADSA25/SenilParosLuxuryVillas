@@ -2,7 +2,7 @@ const facts = [
   "Isterni, Paros",
   "19 Bedrooms",
   "1,032.82 m² Living",
-  "Architect: Aristides Dallas Architects",
+  "Architect: Aristides Dallas",
   "Completion 2026",
   "Price on Request",
   "Viewings by Appointment",
