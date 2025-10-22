@@ -67,7 +67,7 @@ export default function ViewingRequestForm() {
             Request a Viewing
           </h2>
           <p className="text-muted-foreground text-center">
-            Schedule a private viewing of the villas, on-site or via video call
+            Schedule a private viewing on-site or via video call
           </p>
         </div>
         <div className="space-y-2">

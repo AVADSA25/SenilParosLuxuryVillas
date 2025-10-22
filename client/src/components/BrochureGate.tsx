@@ -78,7 +78,7 @@ export default function BrochureGate() {
             Download Brochure
           </h2>
           <p className="text-muted-foreground text-center">
-            Receive our detailed property brochure and floor plans via email
+            Receive our detailed property brochure via email
           </p>
         </div>
           <div className="space-y-2">
