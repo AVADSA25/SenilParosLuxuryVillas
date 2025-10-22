@@ -11,6 +11,7 @@ import LifestyleSection from "@/components/LifestyleSection";
 import SustainabilitySection from "@/components/SustainabilitySection";
 import FilmSection from "@/components/FilmSection";
 import WhyGreeceSection from "@/components/WhyGreeceSection";
+import ParallaxDivider from "@/components/ParallaxDivider";
 import LocationSection from "@/components/LocationSection";
 import OwnershipTimeline from "@/components/OwnershipTimeline";
 import BrochureGate from "@/components/BrochureGate";
@@ -91,6 +92,7 @@ export default function Home() {
           <LifestyleSection />
           <SustainabilitySection />
           <FilmSection />
+          <ParallaxDivider />
           <WhyGreeceSection />
           <LocationSection />
           <OwnershipTimeline />
