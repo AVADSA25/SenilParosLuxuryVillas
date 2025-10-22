@@ -31,30 +31,28 @@ export default function LifestyleSection() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const animationRef = useRef<number | null>(null);
   const velocityRef = useRef(0);
   const lastXRef = useRef(0);
   const lastTimeRef = useRef(0);
   const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const isAutoScrollingRef = useRef(true);
 
+  // Auto-scroll effect
   useEffect(() => {
     const container = scrollRef.current;
-    if (!container || isPaused) return;
+    if (!container) return;
 
-    let offset = container.scrollLeft;
-    const speed = 0.67;
-    let isActive = true;
+    const speed = 0.67; // 33% faster than base speed
 
     const animate = () => {
-      if (!isActive || !container) return;
+      if (!container || !isAutoScrollingRef.current) return;
       
-      offset += speed;
-      container.scrollLeft = offset;
+      container.scrollLeft += speed;
       
+      // Loop back when reaching 1/3 of the scroll width
       const maxScroll = container.scrollWidth - container.clientWidth;
-      if (offset >= maxScroll / 3) {
-        offset = 0;
+      if (container.scrollLeft >= maxScroll / 3) {
         container.scrollLeft = 0;
       }
       
@@ -64,31 +62,30 @@ export default function LifestyleSection() {
     animationRef.current = requestAnimationFrame(animate);
 
     return () => {
-      isActive = false;
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [isPaused]);
+  }, []);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!scrollRef.current) return;
     
+    // Stop auto-scrolling
+    isAutoScrollingRef.current = false;
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+    }
+    if (pauseTimeoutRef.current) {
+      clearTimeout(pauseTimeoutRef.current);
+    }
+    
     setIsDragging(true);
-    setIsPaused(true);
     setStartX(e.pageX - scrollRef.current.offsetLeft);
     setScrollLeft(scrollRef.current.scrollLeft);
     velocityRef.current = 0;
     lastXRef.current = e.pageX;
     lastTimeRef.current = Date.now();
-    
-    if (pauseTimeoutRef.current) {
-      clearTimeout(pauseTimeoutRef.current);
-    }
-    
-    if (animationRef.current) {
-      cancelAnimationFrame(animationRef.current);
-    }
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -115,8 +112,29 @@ export default function LifestyleSection() {
       applyMomentum();
     }
     
+    // Resume auto-scrolling after 3 seconds
     pauseTimeoutRef.current = setTimeout(() => {
-      setIsPaused(false);
+      isAutoScrollingRef.current = true;
+      
+      const container = scrollRef.current;
+      if (!container) return;
+
+      const speed = 0.67;
+
+      const animate = () => {
+        if (!container || !isAutoScrollingRef.current) return;
+        
+        container.scrollLeft += speed;
+        
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        if (container.scrollLeft >= maxScroll / 3) {
+          container.scrollLeft = 0;
+        }
+        
+        animationRef.current = requestAnimationFrame(animate);
+      };
+
+      animationRef.current = requestAnimationFrame(animate);
     }, 3000);
   };
 
@@ -145,6 +163,31 @@ export default function LifestyleSection() {
     if (isDragging) {
       setIsDragging(false);
       applyMomentum();
+      
+      // Resume auto-scrolling after 3 seconds
+      pauseTimeoutRef.current = setTimeout(() => {
+        isAutoScrollingRef.current = true;
+        
+        const container = scrollRef.current;
+        if (!container) return;
+
+        const speed = 0.67;
+
+        const animate = () => {
+          if (!container || !isAutoScrollingRef.current) return;
+          
+          container.scrollLeft += speed;
+          
+          const maxScroll = container.scrollWidth - container.clientWidth;
+          if (container.scrollLeft >= maxScroll / 3) {
+            container.scrollLeft = 0;
+          }
+          
+          animationRef.current = requestAnimationFrame(animate);
+        };
+
+        animationRef.current = requestAnimationFrame(animate);
+      }, 3000);
     }
   };
 
