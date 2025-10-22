@@ -78,7 +78,7 @@ export default function IntroSection() {
             style={{ color: '#545454' }}
             data-testid="text-intro-distance"
           >
-            Paros Airport 25 min
+            Access: 45 minutes by air from Athens (or ~3–4 hours by ferry), then ~25 minutes by car from Paros Airport to Isterni.
           </motion.p>
         </motion.div>
       </div>
