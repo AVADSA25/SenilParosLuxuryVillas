@@ -33,12 +33,13 @@ export default function ParallaxSection() {
         <img
           src={parosImage}
           alt="Paros Island"
-          className="absolute w-full h-full object-cover"
+          className="absolute w-full h-full object-cover md:object-cover"
           style={{
             transform: `translateY(${offsetY - 150}px)`,
             transition: 'transform 0.1s linear',
-            minHeight: '120%',
-            top: '-10%'
+            minHeight: window.innerWidth < 768 ? '100%' : '120%',
+            top: window.innerWidth < 768 ? '0' : '-10%',
+            objectPosition: 'center'
           }}
           data-testid="image-parallax"
         />

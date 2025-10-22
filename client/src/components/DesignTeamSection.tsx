@@ -7,10 +7,30 @@ export default function DesignTeamSection() {
       <div className="max-w-[1200px] mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="order-1 md:order-2"
+          >
+            <div className="relative overflow-hidden rounded-2xl">
+              <div className="relative" style={{ paddingTop: '56.25%' }}>
+                <img
+                  src={architectImage}
+                  alt="Aristides Dallas Architects - SENIL Villas aerial view"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  data-testid="image-architect"
+                />
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="order-2 md:order-1"
           >
             <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
@@ -35,24 +55,6 @@ export default function DesignTeamSection() {
             <p className="text-muted-foreground leading-relaxed text-lg" data-testid="text-architect-description">
               An award-winning Greek studio known for contemporary Cycladic architecture. Landscape-first compositions, measured minimalism, and horizon-led interiors. Their work has been recognized internationally (incl. Architizer A+ Awards) and widely published.
             </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="relative overflow-hidden rounded-2xl">
-              <div className="relative" style={{ paddingTop: '56.25%' }}>
-                <img
-                  src={architectImage}
-                  alt="Aristides Dallas Architects - SENIL Villas aerial view"
-                  className="absolute inset-0 w-full h-full object-cover"
-                  data-testid="image-architect"
-                />
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>

@@ -224,7 +224,9 @@ export default function LifestyleSection() {
                   key={index}
                   className="flex-shrink-0 rounded-lg overflow-hidden"
                   style={{ 
-                    width: 'calc((100vw - 64px) / 2.5 - 14.4px)',
+                    width: window.innerWidth < 768 
+                      ? 'calc((100vw - 64px) / 1.3 - 12px)'
+                      : 'calc((100vw - 64px) / 2.5 - 14.4px)',
                     maxWidth: '520px',
                   }}
                   data-testid={`image-lifestyle-${index % lifestyleImages.length}`}
