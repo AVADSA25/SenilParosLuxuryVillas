@@ -192,14 +192,14 @@ export default function LifestyleSection() {
   };
 
   return (
-    <section className="py-24 bg-accent overflow-hidden" data-testid="section-lifestyle">
+    <section className="py-24 bg-graphite overflow-hidden" data-testid="section-lifestyle">
       <div className="max-w-[1400px] mx-auto px-8">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-serif text-4xl md:text-5xl font-medium mb-16 text-center" 
+          className="font-serif text-4xl md:text-5xl font-medium mb-16 text-center text-accent" 
           data-testid="text-lifestyle-title"
         >
           Lifestyle & Amenities
@@ -245,7 +245,7 @@ export default function LifestyleSection() {
             </div>
           </div>
 
-          <div className="flex items-center justify-center gap-2 mt-6 text-muted-foreground text-sm">
+          <div className="flex items-center justify-center gap-2 mt-6 text-accent/60 text-sm">
             <ChevronLeft className="w-4 h-4" />
             <span className="font-light">Drag to explore</span>
             <ChevronRight className="w-4 h-4" />
