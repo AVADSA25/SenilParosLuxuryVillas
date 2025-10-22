@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
 export default function BrochureGate() {
@@ -9,6 +10,7 @@ export default function BrochureGate() {
     name: "",
     email: "",
     phone: "",
+    message: "",
     honeypot: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -38,7 +40,7 @@ export default function BrochureGate() {
         title: "Brochure download started!",
         description: "Your download should begin automatically.",
       });
-      setFormData({ name: "", email: "", phone: "", honeypot: "" });
+      setFormData({ name: "", email: "", phone: "", message: "", honeypot: "" });
       setIsSubmitting(false);
     }, 1000);
   };
@@ -86,6 +88,18 @@ export default function BrochureGate() {
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               required
               data-testid="input-phone"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="brochure-message">Message (Optional)</Label>
+            <Textarea
+              id="brochure-message"
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              placeholder="Any specific information you're looking for..."
+              rows={4}
+              data-testid="input-brochure-message"
             />
           </div>
 
