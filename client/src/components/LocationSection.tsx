@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const distances = [
-  { name: "Naoussa", distance: "5 km" },
-  { name: "Kolympithres Beach", distance: "10 km" },
-  { name: "Parikia Port", distance: "12 km" },
-  { name: "Paros Airport (PAS)", distance: "18 km" },
+  { name: "Naoussa", distance: "4 km" },
+  { name: "Kolympithres Beach", distance: "8 km" },
+  { name: "Parikia Port", distance: "13 km" },
+  { name: "Paros Airport (PAS)", distance: "23 km" },
 ];
 
 export default function LocationSection() {
