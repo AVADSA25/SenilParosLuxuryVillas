@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import BrochureGate from "./BrochureGate";
 import ViewingRequestForm from "./ViewingRequestForm";
-import senilLogo from "@assets/SENIL_BLACK_1761159341894.png";
+import senilLogo from "@assets/ChatGPT Image Oct 21, 2025, 02_42_29 PM (1)-3_1761052593840.png";
 
 export default function LeadFormsSection() {
   return (
