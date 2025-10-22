@@ -67,7 +67,7 @@ export default function IntroSection() {
             style={{ color: '#363636' }}
             data-testid="text-intro-main"
           >
-            Linear roofs trace the horizon; stone, light and shade do the rest. Close to Naoussa and Ampelas; discreet viewings by appointment.
+            Carved into Isterni's slope in rhythm with nature: roofs trace the horizon, verandas dissolve into light, water carries the eye to sea. Private viewings on request.
           </motion.p>
 
           <motion.p
