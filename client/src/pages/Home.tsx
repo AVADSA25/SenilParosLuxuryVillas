@@ -86,10 +86,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-sm text-muted-foreground text-center mt-12" data-testid="text-villas-footnote">
-                All areas are approximate and subject to final permits.
-              </p>
-              <p className="text-sm text-muted-foreground text-center mt-3" data-testid="text-sqm-plan">
-                Technical SQM Plan (PDF) - available on request.
+                Areas are approximate and subject to final permits. Technical SQM Plan (PDF) available on request.
               </p>
             </div>
           </section>

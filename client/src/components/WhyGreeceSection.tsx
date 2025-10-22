@@ -11,32 +11,32 @@ const benefits = [
   {
     icon: Home,
     title: "Golden Visa Residency",
-    description: "Real estate investment grants a 5-year renewable Greek residency for non-EU families, with visa-free Schengen travel."
+    description: "Eligible real-estate investment can grant a renewable 5-year Greek residency for non-EU families (Schengen access)."
   },
   {
     icon: TrendingUp,
     title: "High-Season Demand",
-    description: "Paros is a top Mediterranean destination; luxury stays command strong rates across a long May–Oct season (and shoulder months)."
+    description: "Cyclades remain a top Mediterranean market with robust May-Oct occupancy."
   },
   {
     icon: Sparkles,
     title: "Rental Yield Potential",
-    description: "A 19-bedroom, three-villa estate can be operated as a boutique compound or per-villa rentals for premium returns."
+    description: "Three-villa, 19-bed estate can operate as a boutique compound or per-villa rentals."
   },
   {
     icon: Sun,
-    title: "Sunny, Long Season",
-    description: "250+ sunny days a year and mild shoulders extend usage and rental windows beyond peak summer."
+    title: "Long, Sunny Season",
+    description: "250+ sunny days and mild shoulders extend personal use and rental windows."
   },
   {
     icon: TrendingUp,
     title: "Scarcity & Appreciation",
-    description: "Tight building rules + rising global attention have pushed prime Paros values into Greece's top tier with strong long-term fundamentals."
+    description: "Tight planning + global attention support long-term value."
   },
   {
     icon: Shield,
-    title: "Easy Access & Safety",
-    description: "Fast ferries and excellent connectivity; Greece rates among the safest EU destinations, ideal for families and discreet owners."
+    title: "Easy & Safe",
+    description: "Frequent links via Athens; Greece ranks among the safer EU destinations."
   }
 ];
 
