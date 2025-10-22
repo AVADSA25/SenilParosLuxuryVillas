@@ -40,6 +40,14 @@ export default function ContactFooter() {
               <br />
               On-site or virtual conference call
             </p>
+            <div className="mt-8">
+              <img 
+                src={senilLogo} 
+                alt="SENIL Logo" 
+                className="h-20 w-auto opacity-20"
+                data-testid="footer-logo"
+              />
+            </div>
           </div>
         </div>
 
@@ -59,15 +67,6 @@ export default function ContactFooter() {
             Marketed in collaboration with Engel & Völkers Paros
           </p>
         </div>
-      </div>
-
-      <div className="absolute bottom-8 right-8 opacity-20 hover:opacity-40 transition-opacity duration-300">
-        <img 
-          src={senilLogo} 
-          alt="SENIL Logo" 
-          className="h-16 w-auto"
-          data-testid="footer-logo"
-        />
       </div>
     </footer>
   );
