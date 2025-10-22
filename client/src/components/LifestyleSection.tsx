@@ -39,15 +39,17 @@ export default function LifestyleSection() {
   const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    if (!scrollRef.current || isPaused) return;
+    if (isPaused) return;
 
-    let offset = scrollRef.current.scrollLeft;
     const container = scrollRef.current;
+    if (!container) return;
+
+    let offset = container.scrollLeft;
     const speed = 0.67;
 
     const animate = () => {
-      offset += speed;
-      if (container) {
+      if (!isPaused && container) {
+        offset += speed;
         container.scrollLeft = offset;
         
         const maxScroll = container.scrollWidth - container.clientWidth;
@@ -55,8 +57,8 @@ export default function LifestyleSection() {
           offset = 0;
           container.scrollLeft = 0;
         }
+        animationRef.current = requestAnimationFrame(animate);
       }
-      animationRef.current = requestAnimationFrame(animate);
     };
 
     animationRef.current = requestAnimationFrame(animate);
