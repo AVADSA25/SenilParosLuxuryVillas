@@ -135,10 +135,6 @@ export default function ViewingRequestForm() {
         >
           {isSubmitting ? "Sending..." : "Request Viewing"}
         </Button>
-
-        <p className="text-xs text-muted-foreground text-center">
-          Protected by reCAPTCHA. See our Privacy Policy.
-        </p>
       </form>
     </div>
   );

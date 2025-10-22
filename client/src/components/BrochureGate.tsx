@@ -146,10 +146,6 @@ export default function BrochureGate() {
           >
             {isSubmitting ? "Sending..." : "Download Brochure"}
           </Button>
-
-          <p className="text-xs text-muted-foreground text-center">
-            Protected by reCAPTCHA. See our Privacy Policy.
-          </p>
         </form>
     </div>
   );
