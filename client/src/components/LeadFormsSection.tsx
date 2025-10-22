@@ -9,6 +9,9 @@ export default function LeadFormsSection() {
           <ViewingRequestForm />
           <BrochureGate />
         </div>
+        <p className="text-sm text-muted-foreground text-center mt-12" data-testid="text-sqm-plan">
+          Technical SQM Plan (PDF) — available on request.
+        </p>
       </div>
     </section>
   );
