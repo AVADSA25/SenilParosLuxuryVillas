@@ -240,6 +240,18 @@ export default function WhyGreeceSection() {
             <p className="text-base leading-relaxed text-muted-foreground">{benefits[5].description}</p>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          className="mt-12 max-w-4xl mx-auto"
+        >
+          <p className="text-xs text-accent/60 text-center leading-relaxed italic" data-testid="text-legal-disclaimer">
+            Information is general; consult your legal financial advisor for eligibility and tax specifics (e.g., Golden Visa, rental income).
+          </p>
+        </motion.div>
         </div>
       </div>
 
