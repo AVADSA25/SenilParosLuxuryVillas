@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import exterior from "@assets/02-senil-villas-paros-estate3_1761078697987.png";
 import interior1 from "@assets/05-senil-villa-interior-_1761078737080.jpg";
 import interior2 from "@assets/05-senil-villa-interior-3_1761078744243.png";
@@ -29,35 +30,110 @@ export default function LifestyleSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
-  const [translateX, setTranslateX] = useState(0);
-  const [currentTranslate, setCurrentTranslate] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const animationRef = useRef<number | null>(null);
+  const velocityRef = useRef(0);
+  const lastXRef = useRef(0);
+  const lastTimeRef = useRef(0);
+
+  useEffect(() => {
+    if (!scrollRef.current || hasInteracted) return;
+
+    let offset = 0;
+    const container = scrollRef.current;
+    const speed = 0.5;
+
+    const animate = () => {
+      offset += speed;
+      if (container) {
+        container.scrollLeft = offset;
+        
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        if (offset >= maxScroll / 3) {
+          offset = 0;
+          container.scrollLeft = 0;
+        }
+      }
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [hasInteracted]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true);
-    setStartX(e.pageX);
+    if (!scrollRef.current) return;
     
-    if (scrollRef.current) {
-      const style = window.getComputedStyle(scrollRef.current);
-      const matrix = new WebKitCSSMatrix(style.transform);
-      setCurrentTranslate(matrix.m41);
-      setTranslateX(matrix.m41);
+    setIsDragging(true);
+    setHasInteracted(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+    velocityRef.current = 0;
+    lastXRef.current = e.pageX;
+    lastTimeRef.current = Date.now();
+    
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
     }
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
+    if (!isDragging || !scrollRef.current) return;
+    
     e.preventDefault();
-    const x = e.pageX;
-    const diff = x - startX;
-    setTranslateX(currentTranslate + diff);
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+
+    const now = Date.now();
+    const dt = now - lastTimeRef.current;
+    if (dt > 0) {
+      velocityRef.current = (e.pageX - lastXRef.current) / dt;
+    }
+    lastXRef.current = e.pageX;
+    lastTimeRef.current = now;
   };
 
   const handleMouseUp = () => {
     setIsDragging(false);
+    
+    if (Math.abs(velocityRef.current) > 0.1) {
+      applyMomentum();
+    }
+  };
+
+  const applyMomentum = () => {
+    if (!scrollRef.current) return;
+    
+    const friction = 0.95;
+    let velocity = velocityRef.current * 10;
+    
+    const momentum = () => {
+      velocity *= friction;
+      
+      if (scrollRef.current) {
+        scrollRef.current.scrollLeft -= velocity;
+      }
+      
+      if (Math.abs(velocity) > 0.1) {
+        requestAnimationFrame(momentum);
+      }
+    };
+    
+    requestAnimationFrame(momentum);
   };
 
   const handleMouseLeave = () => {
-    setIsDragging(false);
+    if (isDragging) {
+      setIsDragging(false);
+      applyMomentum();
+    }
   };
 
   return (
@@ -74,57 +150,61 @@ export default function LifestyleSection() {
           Lifestyle & Amenities
         </motion.h2>
 
-        <div 
-          className="relative overflow-hidden select-none"
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseLeave}
-        >
+        <div className="relative">
           <div 
             ref={scrollRef}
-            className="flex gap-6"
+            className="overflow-x-scroll scrollbar-hide select-none"
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseLeave}
             style={{
-              animation: isDragging ? 'none' : 'scroll 27s linear infinite',
               cursor: isDragging ? 'grabbing' : 'grab',
-              transform: isDragging ? `translateX(${translateX}px)` : undefined,
+              scrollBehavior: isDragging ? 'auto' : 'smooth',
             }}
           >
-            {duplicatedImages.map((img, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 rounded-lg overflow-hidden"
-                style={{ 
-                  width: 'calc((100vw - 64px) / 2.5 - 14.4px)',
-                  maxWidth: '520px',
-                }}
-                data-testid={`image-lifestyle-${index % lifestyleImages.length}`}
-              >
-                <div 
-                  className="relative w-full overflow-hidden"
-                  style={{ paddingTop: '112.5%' }}
+            <div className="flex gap-6 w-max">
+              {duplicatedImages.map((img, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 rounded-lg overflow-hidden"
+                  style={{ 
+                    width: 'calc((100vw - 64px) / 2.5 - 14.4px)',
+                    maxWidth: '520px',
+                  }}
+                  data-testid={`image-lifestyle-${index % lifestyleImages.length}`}
                 >
-                  <img
-                    src={img}
-                    alt={`Villa lifestyle ${(index % lifestyleImages.length) + 1}`}
-                    className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-                    draggable={false}
-                  />
+                  <div 
+                    className="relative w-full overflow-hidden"
+                    style={{ paddingTop: '112.5%' }}
+                  >
+                    <img
+                      src={img}
+                      alt={`Villa lifestyle ${(index % lifestyleImages.length) + 1}`}
+                      className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                      draggable={false}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center gap-2 mt-6 text-muted-foreground text-sm">
+            <ChevronLeft className="w-4 h-4" />
+            <span className="font-light">Drag to explore</span>
+            <ChevronRight className="w-4 h-4" />
           </div>
         </div>
       </div>
 
       <style>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(calc(-100% / 3));
-          }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
       `}</style>
     </section>
