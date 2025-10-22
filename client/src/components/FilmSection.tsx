@@ -63,7 +63,7 @@ export default function FilmSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-serif text-4xl md:text-5xl font-medium mb-6 text-center" data-testid="text-film-title">
-            Presentation Film "SENIL & Paros"
+            Presentation Film
           </h2>
           <p className="text-center text-muted-foreground mb-12 max-w-[800px] mx-auto">
             A quiet look at SENIL's architecture and the landscape of Paros, shot for stillness, light, and horizon.
@@ -114,7 +114,7 @@ export default function FilmSection() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "VideoObject",
-            "name": "SENIL & Paros Presentation Film",
+            "name": "SENIL Presentation Film",
             "description": "A quiet look at SENIL's architecture and the landscape of Paros, shot for stillness, light, and horizon.",
             "thumbnailUrl": posterUrl,
             "uploadDate": new Date().toISOString().split('T')[0],
