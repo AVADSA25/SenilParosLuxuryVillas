@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
 import introVideo from "@assets/Camera_rotation_still_202510212204_1761077076465.mp4";
 
 const FLAG = "senil:intro_seen";
@@ -20,14 +21,25 @@ export default function LogoIntro({ onComplete }: { onComplete: () => void }) {
     }
 
     setShow(true);
-    
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 1.5;
-      videoRef.current.play();
-    }
   }, [onComplete]);
 
+  const handleVideoLoaded = () => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 1.5;
+      videoRef.current.play().catch((err) => {
+        console.error("Video play failed:", err);
+        handleSkip();
+      });
+    }
+  };
+
   const handleVideoEnd = () => {
+    localStorage.setItem(FLAG, "1");
+    setShow(false);
+    setTimeout(onComplete, 300);
+  };
+
+  const handleSkip = () => {
     localStorage.setItem(FLAG, "1");
     setShow(false);
     setTimeout(onComplete, 300);
@@ -47,11 +59,21 @@ export default function LogoIntro({ onComplete }: { onComplete: () => void }) {
           aria-hidden="true"
           data-testid="logo-intro-overlay"
         >
+          <button
+            onClick={handleSkip}
+            className="absolute top-4 right-4 z-50 rounded-full bg-card border border-card-border p-2 hover-elevate active-elevate-2"
+            aria-label="Skip intro"
+            data-testid="button-skip-intro"
+          >
+            <X className="w-6 h-6" />
+          </button>
           <video
             ref={videoRef}
             className="w-full h-full object-cover"
+            autoPlay
             muted
             playsInline
+            onLoadedData={handleVideoLoaded}
             onEnded={handleVideoEnd}
             data-testid="intro-video"
           >
