@@ -192,7 +192,7 @@ export default function LifestyleSection() {
   };
 
   return (
-    <section className="py-24 bg-graphite overflow-hidden" data-testid="section-lifestyle">
+    <section className="py-24 bg-graphite overflow-hidden" id="lifestyle" data-testid="section-lifestyle">
       <div className="max-w-[1400px] mx-auto px-8">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}

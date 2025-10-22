@@ -11,7 +11,7 @@ const stages = [
 
 export default function OwnershipTimeline() {
   return (
-    <section className="py-24 bg-background" id="ownership" data-testid="section-ownership">
+    <section className="py-24 bg-background" id="timeline" data-testid="section-ownership">
       <div className="max-w-[1200px] mx-auto px-8">
         <h2 className="font-serif text-4xl md:text-5xl font-medium mb-16 text-center" data-testid="text-ownership-title">
           Ownership & Process

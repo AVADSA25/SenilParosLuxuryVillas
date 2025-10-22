@@ -6,10 +6,15 @@ import logoImage from "@assets/ChatGPT Image Oct 21, 2025, 02_42_29 PM (1)-3_176
 import heroVideo from "@assets/860497b9-de9a-444e-a6a6-861649914c40_1761070130520.mp4";
 
 const navItems = [
-  { label: "Design", href: "#design" },
-  { label: "Villas", href: "#villas" },
+  { label: "Design & Architecture", href: "#design" },
+  { label: "The Villas", href: "#villas" },
+  { label: "Lifestyle & Amenities", href: "#lifestyle" },
+  { label: "Sustainability", href: "#sustainability" },
+  { label: "Film Presentation", href: "#film" },
+  { label: "Why Greece", href: "#why-greece" },
   { label: "Location", href: "#location" },
-  { label: "Contact", href: "#contact" },
+  { label: "Ownership Timeline", href: "#timeline" },
+  { label: "Contact Us", href: "#forms" },
 ];
 
 export default function Hero() {
