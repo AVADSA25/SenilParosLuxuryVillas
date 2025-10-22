@@ -61,14 +61,15 @@ export default function ViewingRequestForm() {
 
   return (
     <div className="flex-1">
-      <h2 className="font-serif text-4xl md:text-5xl font-medium mb-8 text-center" data-testid="text-viewing-title">
-        Request a Viewing
-      </h2>
-      <p className="text-muted-foreground text-center mb-12">
-        Schedule a private viewing of the villas, on-site or via video call
-      </p>
-
       <form onSubmit={handleSubmit} className="space-y-6 bg-card p-8 rounded-lg border border-card-border">
+        <div className="mb-6">
+          <h2 className="font-serif text-4xl md:text-5xl font-medium mb-4 text-center" data-testid="text-viewing-title">
+            Request a Viewing
+          </h2>
+          <p className="text-muted-foreground text-center">
+            Schedule a private viewing of the villas, on-site or via video call
+          </p>
+        </div>
         <div className="space-y-2">
           <Label htmlFor="viewing-name">Name</Label>
           <Input

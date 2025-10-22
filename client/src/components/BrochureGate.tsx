@@ -72,14 +72,15 @@ export default function BrochureGate() {
 
   return (
     <div className="flex-1">
-      <h2 className="font-serif text-4xl md:text-5xl font-medium mb-8 text-center" data-testid="text-brochure-title">
-        Download Brochure
-      </h2>
-      <p className="text-muted-foreground text-center mb-12">
-        Receive our detailed property brochure and floor plans via email
-      </p>
-
       <form onSubmit={handleSubmit} className="space-y-6 bg-card p-8 rounded-lg border border-card-border">
+        <div className="mb-6">
+          <h2 className="font-serif text-4xl md:text-5xl font-medium mb-4 text-center" data-testid="text-brochure-title">
+            Download Brochure
+          </h2>
+          <p className="text-muted-foreground text-center">
+            Receive our detailed property brochure and floor plans via email
+          </p>
+        </div>
           <div className="space-y-2">
             <Label htmlFor="name">Name</Label>
             <Input
