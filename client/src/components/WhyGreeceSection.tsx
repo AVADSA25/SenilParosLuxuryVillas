@@ -3,6 +3,7 @@ import { Home, TrendingUp, Sun, Shield, Sparkles } from "lucide-react";
 import beach from "@assets/09-paros-island-mix-picture4_1761128760341.png";
 import harbor from "@assets/09-paros-island-mix-picture7_1761128768990.png";
 import church from "@assets/09-paros-island-mix-picture9_1761128776857.png";
+import sunset from "@assets/09-paros-island-mix-picture_1761135186874.png";
 
 const benefits = [
   {
@@ -41,10 +42,27 @@ export default function WhyGreeceSection() {
   return (
     <section 
       id="why-greece" 
-      className="py-20 md:py-28 bg-accent"
+      className="bg-accent"
       data-testid="section-why-greece"
     >
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="relative h-[40vh] md:h-[50vh] overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0"
+        >
+          <img 
+            src={sunset} 
+            alt="Paros harbor at sunset" 
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+      </div>
+
+      <div className="py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -185,6 +203,7 @@ export default function WhyGreeceSection() {
             <h3 className="text-[15px] font-medium mb-1">{benefits[5].title}</h3>
             <p className="text-sm leading-relaxed text-muted-foreground">{benefits[5].description}</p>
           </motion.div>
+        </div>
         </div>
       </div>
     </section>
