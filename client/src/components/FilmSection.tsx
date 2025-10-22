@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Play } from "lucide-react";
+import waveIcon from "@assets/wave beige_1761160022502.png";
 
 export default function FilmSection() {
   const [isIframeLoaded, setIsIframeLoaded] = useState(false);
@@ -62,6 +63,14 @@ export default function FilmSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
+          <div className="flex justify-center mb-8">
+            <img 
+              src={waveIcon} 
+              alt="Wave icon" 
+              className="w-24 h-24"
+              data-testid="icon-wave-film"
+            />
+          </div>
           <h2 className="font-serif text-4xl md:text-5xl font-medium mb-6 text-center" data-testid="text-film-title">
             Presentation Film
           </h2>
