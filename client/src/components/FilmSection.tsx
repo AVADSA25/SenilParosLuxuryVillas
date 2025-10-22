@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Play } from "lucide-react";
-import waveIcon from "@assets/wave beige_1761160022502.png";
+import waveIcon from "@assets/awUhJhY - Imgur (1)_1761160541990.png";
 
 export default function FilmSection() {
   const [isIframeLoaded, setIsIframeLoaded] = useState(false);
