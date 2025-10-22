@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Home, TrendingUp, Sun, Shield, Sparkles } from "lucide-react";
+import { Home, TrendingUp, Sun, Shield, Sparkles, X } from "lucide-react";
 import beach from "@assets/09-paros-island-mix-picture4_1761128760341.png";
 import harbor from "@assets/09-paros-island-mix-picture7_1761128768990.png";
 import church from "@assets/09-paros-island-mix-picture9_1761128776857.png";
@@ -45,6 +45,7 @@ export default function WhyGreeceSection() {
   const parallaxRef2 = useRef<HTMLDivElement>(null);
   const [offsetY, setOffsetY] = useState(0);
   const [offsetY2, setOffsetY2] = useState(0);
+  const [expandedImage, setExpandedImage] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,6 +68,7 @@ export default function WhyGreeceSection() {
   }, []);
 
   return (
+    <>
     <section 
       id="why-greece" 
       className="bg-graphite"
@@ -135,7 +137,8 @@ export default function WhyGreeceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.25 }}
-            className="rounded-2xl overflow-hidden ring-1 ring-card-border"
+            className="rounded-2xl overflow-hidden ring-1 ring-card-border cursor-pointer hover-elevate transition-transform duration-300 hover:scale-[1.01]"
+            onClick={() => setExpandedImage(harbor)}
             data-testid="image-harbor"
           >
             <img src={harbor} alt="Greek harbor with traditional boats" className="w-full h-full object-cover aspect-[4/5]" />
@@ -178,7 +181,8 @@ export default function WhyGreeceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.4 }}
-            className="rounded-2xl overflow-hidden ring-1 ring-card-border"
+            className="rounded-2xl overflow-hidden ring-1 ring-card-border cursor-pointer hover-elevate transition-transform duration-300 hover:scale-[1.01]"
+            onClick={() => setExpandedImage(beach)}
             data-testid="image-beach"
           >
             <img src={beach} alt="Paros beach with turquoise waters" className="w-full h-full object-cover aspect-[4/5]" />
@@ -219,7 +223,8 @@ export default function WhyGreeceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.55 }}
-            className="rounded-2xl overflow-hidden ring-1 ring-card-border"
+            className="rounded-2xl overflow-hidden ring-1 ring-card-border cursor-pointer hover-elevate transition-transform duration-300 hover:scale-[1.01]"
+            onClick={() => setExpandedImage(church)}
             data-testid="image-church"
           >
             <img src={church} alt="Traditional Greek church" className="w-full h-full object-cover aspect-[4/5]" />
@@ -281,5 +286,28 @@ export default function WhyGreeceSection() {
         </motion.div>
       </div>
     </section>
+
+    {expandedImage && (
+      <div 
+        className="fixed inset-0 z-50 bg-background flex items-center justify-center p-4"
+        onClick={() => setExpandedImage(null)}
+        data-testid="fullscreen-greece-image"
+      >
+        <button
+          onClick={() => setExpandedImage(null)}
+          className="absolute top-4 right-4 z-50 rounded-full bg-card border border-card-border p-2 hover-elevate active-elevate-2"
+          data-testid="button-close-greece-image"
+        >
+          <X className="w-6 h-6" />
+        </button>
+        <img 
+          src={expandedImage} 
+          alt="Greece detail" 
+          className="max-w-full max-h-full object-contain"
+          onClick={(e) => e.stopPropagation()}
+        />
+      </div>
+    )}
+    </>
   );
 }

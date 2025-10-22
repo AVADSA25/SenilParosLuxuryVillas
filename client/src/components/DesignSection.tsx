@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { X } from "lucide-react";
 import villaAerial from "@assets/02-senil-villas-paros-estate2_1761075580986.jpg";
 import villaNight from "@assets/03b-senil-villa-night4_1761075658399.jpg";
 import villaOutdoor from "@assets/04-senil-villa-outdoor_1761076245245.jpg";
@@ -28,7 +30,10 @@ const blocks = [
 ];
 
 export default function DesignSection() {
+  const [expandedImage, setExpandedImage] = useState<string | null>(null);
+
   return (
+    <>
     <section className="py-24 bg-background" id="design" data-testid="section-design">
       <div className="max-w-[1200px] mx-auto px-8">
         <motion.h2 
@@ -69,8 +74,10 @@ export default function DesignSection() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
               >
-                <div className="relative overflow-hidden rounded-lg hover-elevate transition-transform duration-300 hover:scale-[1.01]"
+                <div 
+                  className="relative overflow-hidden rounded-lg hover-elevate transition-transform duration-300 hover:scale-[1.01] cursor-pointer"
                   style={{ paddingTop: '56.25%' }}
+                  onClick={() => setExpandedImage(block.image)}
                 >
                   <img
                     src={block.image}
@@ -127,5 +134,28 @@ export default function DesignSection() {
         </div>
       </div>
     </section>
+
+    {expandedImage && (
+      <div 
+        className="fixed inset-0 z-50 bg-background flex items-center justify-center p-4"
+        onClick={() => setExpandedImage(null)}
+        data-testid="fullscreen-design-image"
+      >
+        <button
+          onClick={() => setExpandedImage(null)}
+          className="absolute top-4 right-4 z-50 rounded-full bg-card border border-card-border p-2 hover-elevate active-elevate-2"
+          data-testid="button-close-design-image"
+        >
+          <X className="w-6 h-6" />
+        </button>
+        <img 
+          src={expandedImage} 
+          alt="Design detail" 
+          className="max-w-full max-h-full object-contain"
+          onClick={(e) => e.stopPropagation()}
+        />
+      </div>
+    )}
+    </>
   );
 }
