@@ -13,8 +13,8 @@ export default function IntroSection() {
       id="intro"
       className="relative border-y w-full py-6 md:py-8" 
       style={{ 
-        backgroundColor: 'var(--graphite)',
-        borderColor: 'rgba(255, 255, 255, 0.1)'
+        backgroundColor: 'var(--ash)',
+        borderColor: '#CFCBC3'
       }}
       data-testid="section-intro"
     >
@@ -32,9 +32,9 @@ export default function IntroSection() {
           dragConstraints={{ left: -100, right: 100 }}
           dragElastic={0.2}
           dragTransition={{ bounceStiffness: 300, bounceDamping: 20 }}
-          className="rounded-2xl px-8 py-6 md:px-10 md:py-7 cursor-grab active:cursor-grabbing"
+          className="rounded-2xl backdrop-blur-sm px-8 py-6 md:px-10 md:py-7 cursor-grab active:cursor-grabbing"
           style={{
-            backgroundColor: 'var(--ash)',
+            backgroundColor: 'rgba(255, 255, 255, 0.25)',
             boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.05)'
           }}
         >
