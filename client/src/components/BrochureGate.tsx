@@ -44,16 +44,15 @@ export default function BrochureGate() {
   };
 
   return (
-    <section className="py-24 bg-accent" id="brochure" data-testid="section-brochure">
-      <div className="max-w-[600px] mx-auto px-8">
-        <h2 className="font-serif text-4xl md:text-5xl font-medium mb-8 text-center" data-testid="text-brochure-title">
-          Download Brochure
-        </h2>
-        <p className="text-muted-foreground text-center mb-12">
-          Receive our detailed property brochure and floor plans via email
-        </p>
+    <div className="flex-1">
+      <h2 className="font-serif text-4xl md:text-5xl font-medium mb-8 text-center" data-testid="text-brochure-title">
+        Download Brochure
+      </h2>
+      <p className="text-muted-foreground text-center mb-12">
+        Receive our detailed property brochure and floor plans via email
+      </p>
 
-        <form onSubmit={handleSubmit} className="space-y-6 bg-card p-8 rounded-lg border border-card-border">
+      <form onSubmit={handleSubmit} className="space-y-6 bg-card p-8 rounded-lg border border-card-border">
           <div className="space-y-2">
             <Label htmlFor="name">Name</Label>
             <Input
@@ -113,7 +112,6 @@ export default function BrochureGate() {
             Protected by reCAPTCHA. See our Privacy Policy.
           </p>
         </form>
-      </div>
-    </section>
+    </div>
   );
 }
