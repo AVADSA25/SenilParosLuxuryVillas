@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import architectImage from "@assets/02-senil-villas-paros-estate2_1761137107185.jpg";
+import architectImage from "@assets/02-senil-villas-paros-estate_1761137532426.jpg";
 
 export default function DesignTeamSection() {
   return (
