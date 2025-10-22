@@ -24,7 +24,7 @@ export default function DesignTeamSection() {
               }}
             />
             
-            <h2 className="font-serif text-4xl md:text-5xl font-medium mb-6" data-testid="text-design-team-title">
+            <h2 className="font-serif text-3xl md:text-4xl font-medium mb-4" data-testid="text-design-team-title">
               Design Team
             </h2>
             
