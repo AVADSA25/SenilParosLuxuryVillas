@@ -61,7 +61,7 @@ export default function WhyGreeceSection() {
   return (
     <section 
       id="why-greece" 
-      className="bg-accent"
+      className="bg-graphite"
       data-testid="section-why-greece"
     >
       <div 
@@ -98,10 +98,10 @@ export default function WhyGreeceSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6" data-testid="text-why-greece-title">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6 text-accent" data-testid="text-why-greece-title">
             Why Greece
           </h2>
-          <p className="text-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-accent/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             Enduring lifestyle value in the Aegean—sun, stability, and world-class demand.
           </p>
         </motion.div>
