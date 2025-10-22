@@ -33,7 +33,7 @@ export default function DesignTeamSection() {
             </h3>
             
             <p className="text-muted-foreground leading-relaxed text-lg" data-testid="text-architect-description">
-              An award-winning Greek studio known for contemporary Cycladic architecture—landscape-first compositions, measured minimalism, and horizon-led interiors. Their work has been recognized internationally (incl. Architizer A+ Awards) and widely published.
+              An award-winning Greek studio known for contemporary Cycladic architecture. Landscape-first compositions, measured minimalism, and horizon-led interiors. Their work has been recognized internationally (incl. Architizer A+ Awards) and widely published.
             </p>
           </motion.div>
 
