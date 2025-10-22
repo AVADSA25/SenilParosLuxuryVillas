@@ -5,9 +5,213 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <title>SENIL - Luxurious Villas in Isterni, Paros | Price on Request</title>
     <meta name="description" content="Discover SENIL - three exclusive luxury villas in Isterni, Paros. 1,032.82m² of refined living space, 19 bedrooms, completion 2026. Viewings by appointment." />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="SENIL - Luxurious Villas in Isterni, Paros" />
+    <meta property="og:description" content="Three exclusive luxury villas designed by Aristides Dallas Architects. 1,032.82m² total living space, 19 bedrooms, opening Summer 2026." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "RealEstateListing",
+          "@id": "#senil-estate",
+          "name": "SENIL Luxury Villas",
+          "description": "Three exclusive luxury villas designed by award-winning Aristides Dallas Architects on a quiet hillside in Isterni, Paros. Linear roofs trace the horizon; stone, light and shade define the architecture.",
+          "url": "https://senilluxuriousparosvillas.com",
+          "datePosted": "2025-10-22",
+          "availabilityStarts": "2026-06-01",
+          "price": "Price on Request",
+          "priceCurrency": "EUR",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Isterni",
+            "addressRegion": "Paros",
+            "addressCountry": "GR"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 37.092984,
+            "longitude": 25.2640791
+          },
+          "containsPlace": [
+            { "@id": "#villa-top" },
+            { "@id": "#villa-middle" },
+            { "@id": "#villa-bottom" }
+          ],
+          "numberOfRooms": 19,
+          "floorSize": {
+            "@type": "QuantitativeValue",
+            "value": 1032.82,
+            "unitCode": "MTK"
+          },
+          "amenityFeature": [
+            { "@type": "LocationFeatureSpecification", "name": "Sea View" },
+            { "@type": "LocationFeatureSpecification", "name": "Infinity Pool" },
+            { "@type": "LocationFeatureSpecification", "name": "Outdoor Terraces" },
+            { "@type": "LocationFeatureSpecification", "name": "Modern Architecture" },
+            { "@type": "LocationFeatureSpecification", "name": "Quiet Location" }
+          ],
+          "category": "Luxury Villa"
+        },
+        {
+          "@type": "Residence",
+          "@id": "#villa-top",
+          "name": "SENIL Top Villa",
+          "description": "Top villa featuring 355.69m² of living space with 6 bedrooms",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Isterni",
+            "addressRegion": "Paros",
+            "addressCountry": "GR"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 37.092984,
+            "longitude": 25.2640791
+          },
+          "numberOfRooms": 6,
+          "floorSize": {
+            "@type": "QuantitativeValue",
+            "value": 355.69,
+            "unitCode": "MTK"
+          }
+        },
+        {
+          "@type": "Residence",
+          "@id": "#villa-middle",
+          "name": "SENIL Middle Villa",
+          "description": "Middle villa featuring 401.34m² of living space with 9 bedrooms",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Isterni",
+            "addressRegion": "Paros",
+            "addressCountry": "GR"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 37.092984,
+            "longitude": 25.2640791
+          },
+          "numberOfRooms": 9,
+          "floorSize": {
+            "@type": "QuantitativeValue",
+            "value": 401.34,
+            "unitCode": "MTK"
+          }
+        },
+        {
+          "@type": "Residence",
+          "@id": "#villa-bottom",
+          "name": "SENIL Bottom Villa",
+          "description": "Bottom villa featuring 275.79m² of living space with 5 bedrooms",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Isterni",
+            "addressRegion": "Paros",
+            "addressCountry": "GR"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 37.092984,
+            "longitude": 25.2640791
+          },
+          "numberOfRooms": 5,
+          "floorSize": {
+            "@type": "QuantitativeValue",
+            "value": 275.79,
+            "unitCode": "MTK"
+          }
+        },
+        {
+          "@type": "Place",
+          "@id": "#isterni-location",
+          "name": "Isterni, Paros",
+          "description": "Quiet hillside location in Isterni, close to Naoussa and Ampelas",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 37.092984,
+            "longitude": 25.2640791
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Isterni",
+            "addressRegion": "Paros",
+            "addressCountry": "GR"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "#senil-organization",
+          "name": "SENIL",
+          "description": "Luxury real estate development in Paros, Greece",
+          "url": "https://senilluxuriousparosvillas.com",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+30 695 783 1717",
+            "email": "georgios.dritsanos@se.com",
+            "contactType": "Sales"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Isterni",
+            "addressRegion": "Paros",
+            "addressCountry": "GR"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "#architect",
+          "name": "Aristides Dallas Architects",
+          "description": "Award-winning architectural firm specializing in contemporary Greek design",
+          "url": "https://aristidesdallas.com"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://senilluxuriousparosvillas.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Design",
+              "item": "https://senilluxuriousparosvillas.com#design"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Villas",
+              "item": "https://senilluxuriousparosvillas.com#villas"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "Location",
+              "item": "https://senilluxuriousparosvillas.com#location"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "name": "Contact",
+              "item": "https://senilluxuriousparosvillas.com#contact"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body style="margin: 0; padding: 0; background: transparent;">
     <div id="root" style="background: transparent;"></div>
