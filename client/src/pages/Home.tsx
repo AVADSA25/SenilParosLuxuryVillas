@@ -9,6 +9,7 @@ import VillaCard from "@/components/VillaCard";
 import DesignSection from "@/components/DesignSection";
 import LifestyleSection from "@/components/LifestyleSection";
 import SustainabilitySection from "@/components/SustainabilitySection";
+import FilmSection from "@/components/FilmSection";
 import LocationSection from "@/components/LocationSection";
 import OwnershipTimeline from "@/components/OwnershipTimeline";
 import BrochureGate from "@/components/BrochureGate";
@@ -88,6 +89,7 @@ export default function Home() {
           </section>
           <LifestyleSection />
           <SustainabilitySection />
+          <FilmSection />
           <LocationSection />
           <OwnershipTimeline />
           <BrochureGate />
