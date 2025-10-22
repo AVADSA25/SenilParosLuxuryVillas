@@ -84,8 +84,8 @@ export default function Hero() {
                     data-testid={`nav-${item.label.toLowerCase()}`}
                     style={{ color: "var(--ash)" }}
                   >
-                    <span className="text-sm">{item.label}</span>
                     <span className="text-xs opacity-40 group-hover:opacity-60">•</span>
+                    <span className="text-sm">{item.label}</span>
                   </button>
                 ))}
               </div>
