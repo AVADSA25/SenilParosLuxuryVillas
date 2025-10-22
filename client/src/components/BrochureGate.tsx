@@ -25,7 +25,25 @@ export default function BrochureGate() {
 
     setIsSubmitting(true);
 
-    setTimeout(() => {
+    try {
+      // Send email notification
+      const response = await fetch('/api/brochure-request', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send request');
+      }
+
       // Trigger PDF download from Google Drive
       const pdfUrl = "https://drive.google.com/uc?export=download&id=1ujB2Q6fVnPpPMfXD26Cs3HmFLssyom7J";
       const link = document.createElement('a');
@@ -41,8 +59,15 @@ export default function BrochureGate() {
         description: "Your download should begin automatically.",
       });
       setFormData({ name: "", email: "", phone: "", message: "", honeypot: "" });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send request. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
