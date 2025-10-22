@@ -13,6 +13,7 @@ import FilmSection from "@/components/FilmSection";
 import WhyGreeceSection from "@/components/WhyGreeceSection";
 import LocationSection from "@/components/LocationSection";
 import OwnershipTimeline from "@/components/OwnershipTimeline";
+import DesignTeamSection from "@/components/DesignTeamSection";
 import BrochureGate from "@/components/BrochureGate";
 import ContactFooter from "@/components/ContactFooter";
 import villa1Floorplan from "@assets/07-senil-villas1-floorplan_1761078324008.png";
@@ -94,6 +95,7 @@ export default function Home() {
           <WhyGreeceSection />
           <LocationSection />
           <OwnershipTimeline />
+          <DesignTeamSection />
           <BrochureGate />
           <ContactFooter />
         </div>
