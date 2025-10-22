@@ -4,8 +4,22 @@ import parosImage from "@assets/09-paros-island-mix-picture8_1761073561584.png";
 export default function ParallaxSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [offsetY, setOffsetY] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return; // Disable parallax on mobile
+    
     const handleScroll = () => {
       if (containerRef.current) {
         const rect = containerRef.current.getBoundingClientRect();
@@ -18,7 +32,7 @@ export default function ParallaxSection() {
     handleScroll();
     
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isMobile]);
 
   return (
     <section 
@@ -33,12 +47,16 @@ export default function ParallaxSection() {
         <img
           src={parosImage}
           alt="Paros Island"
-          className="absolute w-full h-full object-cover md:object-cover"
-          style={{
+          className="absolute w-full h-full object-cover"
+          style={isMobile ? {
+            // Mobile: no parallax, perfect fit
+            objectPosition: 'center'
+          } : {
+            // Desktop: parallax effect
             transform: `translateY(${offsetY - 150}px)`,
             transition: 'transform 0.1s linear',
-            minHeight: window.innerWidth < 768 ? '100%' : '120%',
-            top: window.innerWidth < 768 ? '0' : '-10%',
+            minHeight: '120%',
+            top: '-10%',
             objectPosition: 'center'
           }}
           data-testid="image-parallax"
