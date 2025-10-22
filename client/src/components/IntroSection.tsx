@@ -13,8 +13,8 @@ export default function IntroSection() {
       id="intro"
       className="relative border-y w-full py-6 md:py-8" 
       style={{ 
-        backgroundColor: 'var(--ash)',
-        borderColor: '#CFCBC3'
+        backgroundColor: 'var(--graphite)',
+        borderColor: 'rgba(255, 255, 255, 0.1)'
       }}
       data-testid="section-intro"
     >
