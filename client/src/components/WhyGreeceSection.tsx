@@ -5,6 +5,7 @@ import beach from "@assets/09-paros-island-mix-picture4_1761128760341.png";
 import harbor from "@assets/09-paros-island-mix-picture7_1761128768990.png";
 import church from "@assets/09-paros-island-mix-picture9_1761128776857.png";
 import sunset from "@assets/09-paros-island-mix-picture_1761135186874.png";
+import rocks from "@assets/09-paros-island-mix-picture5_1761138280595.png";
 
 const benefits = [
   {
@@ -41,7 +42,9 @@ const benefits = [
 
 export default function WhyGreeceSection() {
   const parallaxRef = useRef<HTMLDivElement>(null);
+  const parallaxRef2 = useRef<HTMLDivElement>(null);
   const [offsetY, setOffsetY] = useState(0);
+  const [offsetY2, setOffsetY2] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,6 +52,11 @@ export default function WhyGreeceSection() {
         const rect = parallaxRef.current.getBoundingClientRect();
         const scrollPercent = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
         setOffsetY(scrollPercent * 150);
+      }
+      if (parallaxRef2.current) {
+        const rect2 = parallaxRef2.current.getBoundingClientRect();
+        const scrollPercent2 = (window.innerHeight - rect2.top) / (window.innerHeight + rect2.height);
+        setOffsetY2(scrollPercent2 * 150);
       }
     };
 
@@ -233,6 +241,31 @@ export default function WhyGreeceSection() {
           </motion.div>
         </div>
         </div>
+      </div>
+
+      <div 
+        ref={parallaxRef2}
+        className="relative h-[40vh] md:h-[50vh] overflow-hidden"
+      >
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 overflow-hidden"
+        >
+          <img 
+            src={rocks} 
+            alt="Paros rock formations" 
+            className="absolute w-full h-full object-cover"
+            style={{
+              transform: `translateY(${offsetY2 - 75}px)`,
+              transition: 'transform 0.1s linear',
+              minHeight: '120%',
+              top: '-10%'
+            }}
+          />
+        </motion.div>
       </div>
     </section>
   );
