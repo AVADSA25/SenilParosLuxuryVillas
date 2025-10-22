@@ -2,6 +2,13 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import BrochureGate from "./BrochureGate";
 
 interface VillaCardProps {
   name: string;
@@ -17,6 +24,7 @@ interface VillaCardProps {
 
 export default function VillaCard({ name, area, bedrooms, images, floorplan }: VillaCardProps) {
   const [showFloorplan, setShowFloorplan] = useState(false);
+  const [showBrochure, setShowBrochure] = useState(false);
 
   const scrollToContact = () => {
     const element = document.querySelector("#contact");
@@ -69,6 +77,13 @@ export default function VillaCard({ name, area, bedrooms, images, floorplan }: V
               Expand Picture
             </Button>
             <Button
+              variant="outline"
+              onClick={() => setShowBrochure(true)}
+              data-testid={`button-brochure-${name.toLowerCase()}`}
+            >
+              Download Brochure
+            </Button>
+            <Button
               onClick={scrollToContact}
               data-testid={`button-request-${name.toLowerCase()}`}
             >
@@ -99,6 +114,15 @@ export default function VillaCard({ name, area, bedrooms, images, floorplan }: V
           />
         </div>
       )}
+
+      <Dialog open={showBrochure} onOpenChange={setShowBrochure}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="sr-only">Download Brochure</DialogTitle>
+          </DialogHeader>
+          <BrochureGate />
+        </DialogContent>
+      </Dialog>
     </>
   );
 }
