@@ -54,7 +54,7 @@ export default function ContactFooter() {
                 </a>
               </div>
               <p className="text-xs text-secondary-foreground/40">
-                Marketed in collaboration with Engel &amp; Völkers Paros
+                All rights reserved to @senilparos
               </p>
             </div>
             <div className="flex-shrink-0">
