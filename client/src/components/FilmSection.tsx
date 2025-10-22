@@ -53,7 +53,7 @@ export default function FilmSection() {
     <section 
       id="film" 
       ref={sectionRef}
-      className="py-24 bg-background" 
+      className="pt-12 pb-24 bg-background" 
       data-testid="section-film"
     >
       <div className="max-w-[1200px] mx-auto px-8">
@@ -67,7 +67,8 @@ export default function FilmSection() {
             <img 
               src={waveIcon} 
               alt="Wave icon" 
-              className="w-24 h-24"
+              className="w-40 h-40 opacity-70"
+              style={{ filter: 'brightness(0.7)' }}
               data-testid="icon-wave-film"
             />
           </div>
