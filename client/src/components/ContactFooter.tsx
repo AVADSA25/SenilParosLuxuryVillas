@@ -48,13 +48,8 @@ export default function ContactFooter() {
               <p className="text-sm text-secondary-foreground/60" data-testid="text-legal">
                 Renders and areas are indicative. All areas approximate and subject to final permits.
               </p>
-              <div className="flex flex-wrap gap-6 text-sm">
-                <a href="#" className="text-secondary-foreground/60 hover:text-secondary-foreground transition-colors whitespace-nowrap">
-                  Privacy Policy
-                </a>
-              </div>
               <p className="text-xs text-secondary-foreground/40">
-                All rights reserved to @senilparos
+                Marketed in collaboration with Engel &amp; Völkers Paros
               </p>
             </div>
             <div className="flex-shrink-0">
