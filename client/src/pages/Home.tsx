@@ -77,9 +77,12 @@ export default function Home() {
 
           <section className="py-24 bg-background" id="villas" data-testid="section-villas">
             <div className="max-w-[1200px] mx-auto px-8">
-              <h2 className="font-serif text-4xl md:text-5xl font-medium mb-16 text-center" data-testid="text-villas-title">
+              <h2 className="font-serif text-4xl md:text-5xl font-medium mb-6 text-center" data-testid="text-villas-title">
                 The Villas
               </h2>
+              <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-center mb-16" data-testid="text-villas-intro">
+                Three independent villas: Top, Middle, Bottom. One horizon. Private pools, deep terraces and indoor-outdoor living; 6, 9 and 5 bedrooms respectively.
+              </p>
               <div className="space-y-12">
                 {villas.map((villa) => (
                   <VillaCard key={villa.name} {...villa} />

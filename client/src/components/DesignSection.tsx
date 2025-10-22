@@ -36,11 +36,22 @@ export default function DesignSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-serif text-4xl md:text-5xl font-medium mb-20 text-center" 
+          className="font-serif text-4xl md:text-5xl font-medium mb-6 text-center" 
           data-testid="text-design-title"
         >
           Design & Architecture
         </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-center mb-20"
+          data-testid="text-design-intro"
+        >
+          Architecture moves with the land. Limestone, timber and hand-finished plaster hold a quiet geometry; clean lines lead the gaze outward: to the sea, the sky, and the horizon beyond.
+        </motion.p>
 
         <div className="space-y-32">
           {blocks.map((block, index) => (

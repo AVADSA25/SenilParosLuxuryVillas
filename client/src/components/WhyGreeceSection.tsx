@@ -110,7 +110,7 @@ export default function WhyGreeceSection() {
             Why Greece
           </h2>
           <p className="text-accent/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            Enduring lifestyle value in the Aegean: sun, stability, and world-class demand.
+            Aegean clarity combined with European stability: long sun seasons, strong summer demand, Schengen access and enduring value on a scarce island like Paros.
           </p>
         </motion.div>
 
