@@ -6,15 +6,15 @@ import logoImage from "@assets/ChatGPT Image Oct 21, 2025, 02_42_29 PM (1)-3_176
 import heroVideo from "@assets/860497b9-de9a-444e-a6a6-861649914c40_1761070130520.mp4";
 
 const navItems = [
-  { label: "Design & Architecture", href: "#design" },
-  { label: "The Villas", href: "#villas" },
-  { label: "Lifestyle & Amenities", href: "#lifestyle" },
+  { label: "Design", href: "#design" },
+  { label: "Villas", href: "#villas" },
+  { label: "Lifestyle", href: "#lifestyle" },
   { label: "Sustainability", href: "#sustainability" },
-  { label: "Film Presentation", href: "#film" },
-  { label: "Why Greece", href: "#why-greece" },
+  { label: "Film", href: "#film" },
+  { label: "Greece", href: "#why-greece" },
   { label: "Location", href: "#location" },
-  { label: "Ownership Timeline", href: "#timeline" },
-  { label: "Contact Us", href: "#forms" },
+  { label: "Ownership", href: "#timeline" },
+  { label: "Contact", href: "#forms" },
 ];
 
 export default function Hero() {
@@ -75,16 +75,17 @@ export default function Hero() {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               data-testid="dropdown-menu"
             >
-              <div className="py-3 px-4">
-                {navItems.map((item) => (
+              <div className="py-4 px-5">
+                {navItems.map((item, index) => (
                   <button
                     key={item.href}
                     onClick={() => scrollToSection(item.href)}
-                    className="block w-full text-right py-2 text-ash hover:text-white transition-colors"
+                    className="flex items-center justify-between w-full py-2.5 text-ash hover:text-white transition-colors group"
                     data-testid={`nav-${item.label.toLowerCase()}`}
                     style={{ color: "var(--ash)" }}
                   >
-                    {item.label}
+                    <span className="text-sm">{item.label}</span>
+                    <span className="text-xs opacity-40 group-hover:opacity-60">•</span>
                   </button>
                 ))}
               </div>
