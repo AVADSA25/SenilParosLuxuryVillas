@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { Home, TrendingUp, Sun, Shield, Sparkles } from "lucide-react";
 import beach from "@assets/09-paros-island-mix-picture4_1761128760341.png";
 import harbor from "@assets/09-paros-island-mix-picture7_1761128768990.png";
@@ -39,24 +40,51 @@ const benefits = [
 ];
 
 export default function WhyGreeceSection() {
+  const parallaxRef = useRef<HTMLDivElement>(null);
+  const [offsetY, setOffsetY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (parallaxRef.current) {
+        const rect = parallaxRef.current.getBoundingClientRect();
+        const scrollPercent = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+        setOffsetY(scrollPercent * 150);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section 
       id="why-greece" 
       className="bg-accent"
       data-testid="section-why-greece"
     >
-      <div className="relative h-[40vh] md:h-[50vh] overflow-hidden">
+      <div 
+        ref={parallaxRef}
+        className="relative h-[40vh] md:h-[50vh] overflow-hidden"
+      >
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="absolute inset-0"
+          className="absolute inset-0 overflow-hidden"
         >
           <img 
             src={sunset} 
             alt="Paros harbor at sunset" 
-            className="w-full h-full object-cover"
+            className="absolute w-full h-full object-cover"
+            style={{
+              transform: `translateY(${offsetY - 75}px)`,
+              transition: 'transform 0.1s linear',
+              minHeight: '120%',
+              top: '-10%'
+            }}
           />
         </motion.div>
       </div>
