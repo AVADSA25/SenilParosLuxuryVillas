@@ -1,11 +1,14 @@
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { Home, TrendingUp, Sun, MapPin, Shield, Sparkles } from "lucide-react";
+import { Home, TrendingUp, Sun, Shield, Sparkles } from "lucide-react";
+import beach from "@assets/09-paros-island-mix-picture4_1761128760341.png";
+import harbor from "@assets/09-paros-island-mix-picture7_1761128768990.png";
+import church from "@assets/09-paros-island-mix-picture9_1761128776857.png";
+import flowers from "@assets/09-paros-island-mix-picture2_1761128784882.png";
 
 const stats = [
-  { value: 250, suffix: "+ sunny days / yr", icon: Sun },
-  { value: 25, suffix: " min from PAS airport", prefix: "≤", icon: MapPin },
-  { label: "Schengen residency path", icon: Home }
+  { value: 250, suffix: "+ sunny days / yr" },
+  { label: "Schengen residency path" }
 ];
 
 const benefits = [
@@ -37,56 +40,61 @@ const benefits = [
   {
     icon: Shield,
     title: "Easy Access & Safety",
-    description: "25-min drive from PAS airport; fast ferries; Greece rates among the safest EU destinations—ideal for families and discreet owners."
+    description: "Fast ferries and excellent connectivity; Greece rates among the safest EU destinations—ideal for families and discreet owners."
   }
 ];
 
-function AnimatedCounter({ end, duration = 2, prefix = "", suffix = "" }: { end: number; duration?: number; prefix?: string; suffix?: string }) {
+function AnimatedCounter({ end, duration = 2, suffix = "" }: { end: number; duration?: number; suffix?: string }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true });
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    if (!isInView) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          let startTime: number | null = null;
+          
+          const animate = (currentTime: number) => {
+            if (!startTime) startTime = currentTime;
+            const progress = Math.min((currentTime - startTime) / (duration * 1000), 1);
+            
+            setCount(Math.floor(progress * end));
 
-    let startTime: number | null = null;
-    const animate = (currentTime: number) => {
-      if (!startTime) startTime = currentTime;
-      const progress = Math.min((currentTime - startTime) / (duration * 1000), 1);
-      
-      setCount(Math.floor(progress * end));
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            }
+          };
 
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
-    };
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.5 }
+    );
 
-    requestAnimationFrame(animate);
-  }, [isInView, end, duration]);
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasAnimated, end, duration]);
 
   return (
-    <div ref={ref} className="text-2xl font-medium">
-      {prefix}{count}{suffix}
+    <div ref={ref} className="text-xl font-medium">
+      {count}{suffix}
     </div>
   );
 }
 
 export default function WhyGreeceSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
   return (
     <section 
       id="why-greece" 
-      ref={sectionRef}
-      className="py-20 md:py-28 bg-accent relative overflow-hidden"
+      className="py-20 md:py-28 bg-accent"
       data-testid="section-why-greece"
     >
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-olive rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-olive rounded-full blur-3xl" />
-      </div>
-
-      <div className="max-w-6xl mx-auto px-4 relative">
+      <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +115,7 @@ export default function WhyGreeceSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12 max-w-3xl mx-auto"
         >
           {stats.map((stat, index) => (
             <div
@@ -119,122 +127,151 @@ export default function WhyGreeceSection() {
                 {stat.label ? (
                   <div className="text-base font-medium">{stat.label}</div>
                 ) : (
-                  <div className="flex items-baseline justify-center gap-1">
-                    <AnimatedCounter 
-                      end={stat.value!} 
-                      prefix={stat.prefix}
-                      suffix=""
-                    />
-                    <span className="text-sm text-muted-foreground">{stat.suffix}</span>
-                  </div>
+                  <AnimatedCounter 
+                    end={stat.value!} 
+                    suffix={stat.suffix}
+                  />
                 )}
               </div>
             </div>
           ))}
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="lg:col-span-5 rounded-2xl overflow-hidden bg-card/50 backdrop-blur-sm ring-1 ring-card-border"
+            transition={{ duration: 0.4, delay: 0.3 }}
+            className="rounded-2xl overflow-hidden ring-1 ring-card-border"
+            data-testid="image-beach"
           >
-            <div className="aspect-[9/16] bg-gradient-to-br from-olive/10 to-graphite/5 flex items-center justify-center text-muted-foreground text-sm">
-              Portrait Image 1 (9:16)
-            </div>
+            <img src={beach} alt="Paros beach with turquoise waters" className="w-full h-full object-cover aspect-[4/5]" />
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.35 }}
-            className="lg:col-span-7 space-y-6"
+            transition={{ duration: 0.4, delay: 0.36 }}
+            className="group rounded-2xl bg-card ring-1 ring-card-border p-6 shadow-sm hover-elevate active-elevate-2 will-change-transform"
+            data-testid="benefit-card-0"
           >
-            <div className="rounded-2xl overflow-hidden bg-card/50 backdrop-blur-sm ring-1 ring-card-border">
-              <div className="aspect-video bg-gradient-to-br from-ash/20 to-olive/10 flex items-center justify-center text-muted-foreground text-sm">
-                Landscape Image 1 (16:9)
-              </div>
+            <div className="w-10 h-10 rounded-full bg-olive/8 flex items-center justify-center mb-4">
+              <Home className="w-5 h-5 text-olive" strokeWidth={1.5} />
             </div>
-            <div className="rounded-2xl overflow-hidden bg-card/50 backdrop-blur-sm ring-1 ring-card-border">
-              <div className="aspect-video bg-gradient-to-br from-olive/10 to-ash/20 flex items-center justify-center text-muted-foreground text-sm">
-                Landscape Image 2 (16:9)
-              </div>
+            <h3 className="text-[15px] font-medium mb-1">{benefits[0].title}</h3>
+            <p className="text-sm leading-relaxed text-muted-foreground">{benefits[0].description}</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.42 }}
+            className="rounded-2xl overflow-hidden ring-1 ring-card-border"
+            data-testid="image-harbor"
+          >
+            <img src={harbor} alt="Greek harbor with traditional boats" className="w-full h-full object-cover aspect-[4/5]" />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.48 }}
+            className="group rounded-2xl bg-card ring-1 ring-card-border p-6 shadow-sm hover-elevate active-elevate-2 will-change-transform"
+            data-testid="benefit-card-1"
+          >
+            <div className="w-10 h-10 rounded-full bg-olive/8 flex items-center justify-center mb-4">
+              <TrendingUp className="w-5 h-5 text-olive" strokeWidth={1.5} />
             </div>
+            <h3 className="text-[15px] font-medium mb-1">{benefits[1].title}</h3>
+            <p className="text-sm leading-relaxed text-muted-foreground">{benefits[1].description}</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.54 }}
+            className="group rounded-2xl bg-card ring-1 ring-card-border p-6 shadow-sm hover-elevate active-elevate-2 will-change-transform"
+            data-testid="benefit-card-2"
+          >
+            <div className="w-10 h-10 rounded-full bg-olive/8 flex items-center justify-center mb-4">
+              <Sparkles className="w-5 h-5 text-olive" strokeWidth={1.5} />
+            </div>
+            <h3 className="text-[15px] font-medium mb-1">{benefits[2].title}</h3>
+            <p className="text-sm leading-relaxed text-muted-foreground">{benefits[2].description}</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.6 }}
+            className="rounded-2xl overflow-hidden ring-1 ring-card-border"
+            data-testid="image-church"
+          >
+            <img src={church} alt="Traditional Greek church" className="w-full h-full object-cover aspect-[4/5]" />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.66 }}
+            className="group rounded-2xl bg-card ring-1 ring-card-border p-6 shadow-sm hover-elevate active-elevate-2 will-change-transform"
+            data-testid="benefit-card-3"
+          >
+            <div className="w-10 h-10 rounded-full bg-olive/8 flex items-center justify-center mb-4">
+              <Sun className="w-5 h-5 text-olive" strokeWidth={1.5} />
+            </div>
+            <h3 className="text-[15px] font-medium mb-1">{benefits[3].title}</h3>
+            <p className="text-sm leading-relaxed text-muted-foreground">{benefits[3].description}</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.72 }}
+            className="rounded-2xl overflow-hidden ring-1 ring-card-border"
+            data-testid="image-flowers"
+          >
+            <img src={flowers} alt="Bougainvillea flowers and Greek architecture" className="w-full h-full object-cover aspect-[4/5]" />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.78 }}
+            className="group rounded-2xl bg-card ring-1 ring-card-border p-6 shadow-sm hover-elevate active-elevate-2 will-change-transform"
+            data-testid="benefit-card-4"
+          >
+            <div className="w-10 h-10 rounded-full bg-olive/8 flex items-center justify-center mb-4">
+              <TrendingUp className="w-5 h-5 text-olive" strokeWidth={1.5} />
+            </div>
+            <h3 className="text-[15px] font-medium mb-1">{benefits[4].title}</h3>
+            <p className="text-sm leading-relaxed text-muted-foreground">{benefits[4].description}</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.84 }}
+            className="group rounded-2xl bg-card ring-1 ring-card-border p-6 shadow-sm hover-elevate active-elevate-2 will-change-transform"
+            data-testid="benefit-card-5"
+          >
+            <div className="w-10 h-10 rounded-full bg-olive/8 flex items-center justify-center mb-4">
+              <Shield className="w-5 h-5 text-olive" strokeWidth={1.5} />
+            </div>
+            <h3 className="text-[15px] font-medium mb-1">{benefits[5].title}</h3>
+            <p className="text-sm leading-relaxed text-muted-foreground">{benefits[5].description}</p>
           </motion.div>
         </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="lg:col-span-7 space-y-6"
-          >
-            {benefits.slice(0, 3).map((benefit, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.45 + index * 0.06 }}
-                className="group rounded-2xl bg-card ring-1 ring-card-border p-6 shadow-sm hover-elevate active-elevate-2 will-change-transform"
-                data-testid={`benefit-card-${index}`}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-olive/8 flex items-center justify-center">
-                    <benefit.icon className="w-5 h-5 text-olive" strokeWidth={1.5} />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-[15px] font-medium mb-1">{benefit.title}</h3>
-                    <p className="text-sm leading-relaxed text-muted-foreground">{benefit.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="lg:col-span-5 rounded-2xl overflow-hidden bg-card/50 backdrop-blur-sm ring-1 ring-card-border"
-          >
-            <div className="aspect-[9/16] bg-gradient-to-br from-graphite/5 to-olive/10 flex items-center justify-center text-muted-foreground text-sm">
-              Portrait Image 2 (9:16)
-            </div>
-          </motion.div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
-        >
-          {benefits.slice(3).map((benefit, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.65 + index * 0.06 }}
-              className="group rounded-2xl bg-card ring-1 ring-card-border p-6 shadow-sm hover-elevate active-elevate-2 will-change-transform"
-              data-testid={`benefit-card-${index + 3}`}
-            >
-              <div className="w-10 h-10 rounded-full bg-olive/8 flex items-center justify-center mb-4">
-                <benefit.icon className="w-5 h-5 text-olive" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-[15px] font-medium mb-1">{benefit.title}</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">{benefit.description}</p>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );
