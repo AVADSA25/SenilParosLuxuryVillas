@@ -72,7 +72,7 @@ export default function VillaCard({ name, area, bedrooms, images, floorplan }: V
               onClick={scrollToContact}
               data-testid={`button-request-${name.toLowerCase()}`}
             >
-              Request Viewing ({name})
+              Request Viewing
             </Button>
           </div>
         </div>
