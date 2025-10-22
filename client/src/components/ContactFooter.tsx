@@ -61,8 +61,8 @@ export default function ContactFooter() {
               />
             </div>
           </div>
-          <div className="mt-6 pt-4 border-t border-secondary-foreground/10">
-            <p className="text-xs text-center text-secondary-foreground/40">
+          <div className="mt-6 pt-2 border-t border-secondary-foreground/10">
+            <p className="text-[10px] text-center text-secondary-foreground/30">
               All rights reserved to @senilluxuriousparosvillas
             </p>
           </div>
