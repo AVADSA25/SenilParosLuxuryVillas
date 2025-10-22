@@ -31,12 +31,12 @@ const benefits = [
   {
     icon: TrendingUp,
     title: "Scarcity & Appreciation",
-    description: "Tight building rules + rising global attention have pushed prime Paros values into Greece's top tier—strong long-term fundamentals."
+    description: "Tight building rules + rising global attention have pushed prime Paros values into Greece's top tier with strong long-term fundamentals."
   },
   {
     icon: Shield,
     title: "Easy Access & Safety",
-    description: "Fast ferries and excellent connectivity; Greece rates among the safest EU destinations—ideal for families and discreet owners."
+    description: "Fast ferries and excellent connectivity; Greece rates among the safest EU destinations, ideal for families and discreet owners."
   }
 ];
 
@@ -110,7 +110,7 @@ export default function WhyGreeceSection() {
             Why Greece
           </h2>
           <p className="text-accent/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            Enduring lifestyle value in the Aegean—sun, stability, and world-class demand.
+            Enduring lifestyle value in the Aegean: sun, stability, and world-class demand.
           </p>
         </motion.div>
 
