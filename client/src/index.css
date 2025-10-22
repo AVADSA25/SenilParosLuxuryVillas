@@ -139,4 +139,17 @@ a:hover {
       height: 100% !important;
     }
   }
+  
+  /* Zoom in for large/ultrawide screens */
+  @media (min-width: 1920px) {
+    .video-background {
+      transform: translate(-50%, -50%) scale(1.15) !important;
+    }
+  }
+  
+  @media (min-width: 2560px) {
+    .video-background {
+      transform: translate(-50%, -50%) scale(1.25) !important;
+    }
+  }
 }
