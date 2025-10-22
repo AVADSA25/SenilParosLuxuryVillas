@@ -1,12 +1,5 @@
 import { motion } from "framer-motion";
 
-const pillItems = [
-  "Isterni, Paros",
-  "19 bedrooms total",
-  "Completion 2026",
-  "Price on request",
-];
-
 export default function IntroSection() {
   return (
     <section 
@@ -77,37 +70,6 @@ export default function IntroSection() {
             Linear roofs trace the horizon; stone, light and shade do the rest. Close to Naoussa and Ampelas; discreet viewings by appointment.
           </motion.p>
 
-          <div 
-            className="my-4 h-px"
-            style={{ backgroundColor: 'rgba(0,0,0,0.1)' }}
-          />
-
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={{ show: { transition: { staggerChildren: 0.06 } } }}
-            className="flex flex-wrap gap-2"
-          >
-            {pillItems.map((text) => (
-              <motion.span
-                key={text}
-                variants={{ 
-                  hidden: { opacity: 0, y: 6 }, 
-                  show: { opacity: 1, y: 0 } 
-                }}
-                className="px-3 py-1 rounded-full text-xs"
-                style={{
-                  backgroundColor: 'var(--graphite)',
-                  color: 'var(--ash)'
-                }}
-                data-testid={`pill-${text.toLowerCase().replace(/\s+/g, '-')}`}
-              >
-                {text}
-              </motion.span>
-            ))}
-          </motion.div>
-
           <motion.p
             initial={{ opacity: 0, y: 6 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -116,7 +78,7 @@ export default function IntroSection() {
             style={{ color: '#545454' }}
             data-testid="text-intro-distance"
           >
-            Paros Airport (PAS) ≈ 25 min • Parikia Port ≈ 25–30 min • Naoussa ≈ 10 min • Ampelas ≈ 6–8 min
+            Paros Airport 25 min
           </motion.p>
         </motion.div>
       </div>
