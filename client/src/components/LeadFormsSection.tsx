@@ -17,7 +17,7 @@ export default function LeadFormsSection() {
           <img 
             src={senilLogo} 
             alt="SENIL" 
-            className="w-[600px] max-w-full mb-8"
+            className="w-[600px] max-w-full mb-16"
             data-testid="logo-contact"
           />
           <h2 
