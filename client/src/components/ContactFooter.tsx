@@ -13,11 +13,11 @@ export default function ContactFooter() {
               <p data-testid="text-phone">+30 695 783 1717</p>
               <p>
                 <a
-                  href="mailto:georgios.dritsanos@se.com"
+                  href="mailto:info@senilluxuriousparosvillas.com"
                   className="hover:text-secondary-foreground transition-colors"
                   data-testid="link-email"
                 >
-                  georgios.dritsanos@se.com
+                  info@senilluxuriousparosvillas.com
                 </a>
               </p>
             </div>
