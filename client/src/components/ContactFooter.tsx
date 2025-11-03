@@ -1,5 +1,5 @@
 import senilLogo from "@assets/SENIL_WHITE_1761080366041.png";
-import { Instagram } from "lucide-react";
+import { Instagram, Youtube } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 
 export default function ContactFooter() {
@@ -43,6 +43,16 @@ export default function ContactFooter() {
                 data-testid="link-tiktok"
               >
                 <SiTiktok className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.youtube.com/@senilluxuriousparosvilla"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary-foreground/60 hover:text-secondary-foreground transition-colors"
+                aria-label="YouTube"
+                data-testid="link-youtube"
+              >
+                <Youtube className="w-5 h-5" />
               </a>
             </div>
           </div>
