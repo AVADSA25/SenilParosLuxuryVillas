@@ -59,7 +59,7 @@ export default function KeyFeaturesSection() {
       <section className="py-24 bg-background" id="features" data-testid="section-features">
         <div className="max-w-[1200px] mx-auto px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            <div className="space-y-6">
+            <div className="space-y-6 md:pt-16">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
