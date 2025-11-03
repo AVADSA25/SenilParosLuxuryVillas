@@ -74,6 +74,12 @@ export default function Home() {
           <h2 className="font-serif text-4xl md:text-5xl font-medium mb-6 text-center" data-testid="text-villas-title">
             The Villas
           </h2>
+          <p className="text-muted-foreground text-base md:text-lg max-w-3xl mx-auto leading-relaxed text-center mb-8" data-testid="text-villas-description">
+            Senil is a luxury villa complex in Isterni, Paros, blending Cycladic heritage with refined modern design. Sculpted into the natural slope, each villa frames the Aegean horizon, offering uninterrupted sea views and an atmosphere of elemental calm.
+          </p>
+          <p className="text-muted-foreground text-base md:text-lg max-w-3xl mx-auto leading-relaxed text-center mb-12" data-testid="text-villas-details">
+            Located 4.8 km from Naoussa and 200 m from the sea, the estate covers 8,295 m² with two villas of 322.78 m² and 347.75 m², plus auxiliary spaces and an approved extension of 249.85 m². Landscaped Mediterranean gardens complete the setting.
+          </p>
           <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-center mb-16" data-testid="text-villas-intro">
             Three independent villas: Top, Middle, Bottom. One horizon. Private pools, deep terraces and indoor-outdoor living; 6, 9 and 5 bedrooms respectively.
           </p>
