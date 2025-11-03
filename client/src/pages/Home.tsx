@@ -120,8 +120,8 @@ export default function Home() {
       <PartnersSection />
       <WhyGreeceSection />
       <LocationSection />
-      <OwnershipTimeline />
       <LeadFormsSection />
+      <OwnershipTimeline />
       <ContactFooter />
     </div>
   );
