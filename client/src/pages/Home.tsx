@@ -6,6 +6,7 @@ import KeyFactsBand from "@/components/KeyFactsBand";
 import VillaCard from "@/components/VillaCard";
 import DesignSection from "@/components/DesignSection";
 import LifestyleSection from "@/components/LifestyleSection";
+import KeyFeaturesSection from "@/components/KeyFeaturesSection";
 import SustainabilitySection from "@/components/SustainabilitySection";
 import FilmSection from "@/components/FilmSection";
 import PartnersSection from "@/components/PartnersSection";
@@ -94,6 +95,7 @@ export default function Home() {
         </div>
       </section>
       <LifestyleSection />
+      <KeyFeaturesSection />
       <SustainabilitySection />
       <FilmSection />
       <PartnersSection />
