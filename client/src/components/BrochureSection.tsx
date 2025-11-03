@@ -19,15 +19,6 @@ export default function BrochureSection() {
             className="w-[500px] max-w-full mb-16"
             data-testid="logo-brochure"
           />
-          <h2 
-            className="font-serif text-4xl md:text-5xl font-medium text-center mb-4" 
-            data-testid="text-brochure-title"
-          >
-            Download Brochure
-          </h2>
-          <p className="text-muted-foreground text-center max-w-2xl">
-            Get the complete property brochure with detailed specifications, floor plans, and imagery
-          </p>
         </motion.div>
         <div className="max-w-xl mx-auto">
           <BrochureGate />
