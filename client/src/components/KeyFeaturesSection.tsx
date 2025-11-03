@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
-import interiorImage from "@assets/05-senil-villa-interior-6_1762185017342.jpg";
+import interiorBathroom from "@assets/05-senil-villa-interior-6_1762185017342.jpg";
+import interiorKitchen from "@assets/06-senil-villa-indoor-rooms_1762185226595.jpg";
 
 const features = [
   {
@@ -51,27 +52,44 @@ const features = [
 ];
 
 export default function KeyFeaturesSection() {
-  const [expandedImage, setExpandedImage] = useState(false);
+  const [expandedImage, setExpandedImage] = useState<string | null>(null);
 
   return (
     <>
       <section className="py-24 bg-background" id="features" data-testid="section-features">
         <div className="max-w-[1200px] mx-auto px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer hover-elevate transition-transform duration-300 hover:scale-[1.01]"
-              onClick={() => setExpandedImage(true)}
-            >
-              <img
-                src={interiorImage}
-                alt="SENIL villa interior bathroom"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
+            <div className="space-y-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer hover-elevate transition-transform duration-300 hover:scale-[1.01]"
+                onClick={() => setExpandedImage(interiorBathroom)}
+              >
+                <img
+                  src={interiorBathroom}
+                  alt="SENIL villa interior bathroom"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.15 }}
+                className="relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer hover-elevate transition-transform duration-300 hover:scale-[1.01]"
+                onClick={() => setExpandedImage(interiorKitchen)}
+              >
+                <img
+                  src={interiorKitchen}
+                  alt="SENIL villa interior kitchen and dining area"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+            </div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -102,19 +120,19 @@ export default function KeyFeaturesSection() {
       {expandedImage && (
         <div 
           className="fixed inset-0 z-50 bg-background flex items-center justify-center p-4"
-          onClick={() => setExpandedImage(false)}
+          onClick={() => setExpandedImage(null)}
           data-testid="fullscreen-features-image"
         >
           <button
-            onClick={() => setExpandedImage(false)}
+            onClick={() => setExpandedImage(null)}
             className="absolute top-4 right-4 z-50 rounded-full bg-card border border-card-border p-2 hover-elevate active-elevate-2"
             data-testid="button-close-features-image"
           >
             <X className="w-6 h-6" />
           </button>
           <img 
-            src={interiorImage} 
-            alt="SENIL villa interior bathroom" 
+            src={expandedImage} 
+            alt="SENIL villa interior" 
             className="max-w-full max-h-full object-contain"
             onClick={(e) => e.stopPropagation()}
           />
