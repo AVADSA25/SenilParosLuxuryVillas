@@ -14,7 +14,8 @@ import WhyGreeceSection from "@/components/WhyGreeceSection";
 import LocationSection from "@/components/LocationSection";
 import OwnershipTimeline from "@/components/OwnershipTimeline";
 import DesignTeamSection from "@/components/DesignTeamSection";
-import LeadFormsSection from "@/components/LeadFormsSection";
+import BrochureSection from "@/components/BrochureSection";
+import ViewingSection from "@/components/ViewingSection";
 import ContactFooter from "@/components/ContactFooter";
 import villa1Floorplan from "@assets/07-senil-villas1-floorplan_1761078324008.png";
 import villa2Floorplan from "@assets/07-senil-villas2-floorplan_1761078385180.png";
@@ -120,8 +121,9 @@ export default function Home() {
       <PartnersSection />
       <WhyGreeceSection />
       <LocationSection />
-      <LeadFormsSection />
+      <BrochureSection />
       <OwnershipTimeline />
+      <ViewingSection />
       <ContactFooter />
     </div>
   );
