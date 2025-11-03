@@ -8,6 +8,7 @@ import DesignSection from "@/components/DesignSection";
 import LifestyleSection from "@/components/LifestyleSection";
 import SustainabilitySection from "@/components/SustainabilitySection";
 import FilmSection from "@/components/FilmSection";
+import PartnersSection from "@/components/PartnersSection";
 import WhyGreeceSection from "@/components/WhyGreeceSection";
 import LocationSection from "@/components/LocationSection";
 import OwnershipTimeline from "@/components/OwnershipTimeline";
@@ -89,6 +90,7 @@ export default function Home() {
       <LifestyleSection />
       <SustainabilitySection />
       <FilmSection />
+      <PartnersSection />
       <WhyGreeceSection />
       <LocationSection />
       <OwnershipTimeline />
