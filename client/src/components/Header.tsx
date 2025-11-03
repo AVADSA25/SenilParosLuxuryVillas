@@ -4,8 +4,16 @@ import waveIcon from "@assets/ChatGPT Image Oct 21, 2025, 12_56_10 PM (1)_176104
 
 const navItems = [
   { label: "Villas", href: "#villas" },
-  { label: "Design", href: "#design" },
+  { label: "Lifestyle", href: "#lifestyle" },
+  { label: "Key Features", href: "#features" },
+  { label: "Sustainability", href: "#sustainability" },
+  { label: "Film", href: "#film" },
+  { label: "Partners", href: "#partners" },
+  { label: "Why Greece", href: "#greece" },
   { label: "Location", href: "#location" },
+  { label: "Brochure", href: "#brochure" },
+  { label: "Ownership", href: "#timeline" },
+  { label: "Viewing", href: "#viewing" },
   { label: "Contact", href: "#contact" },
 ];
 
