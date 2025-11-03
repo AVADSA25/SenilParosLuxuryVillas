@@ -73,8 +73,19 @@ export default function IntroSection() {
           <motion.p
             initial={{ opacity: 0, y: 6 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.22, duration: 0.22 }}
-            className="mt-4 text-sm font-medium"
+            transition={{ delay: 0.20, duration: 0.22 }}
+            className="mt-4 text-sm font-semibold"
+            style={{ color: 'var(--olive)' }}
+            data-testid="text-intro-availability"
+          >
+            Now available for exclusive viewing and purchase
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.24, duration: 0.22 }}
+            className="mt-2.5 text-sm font-medium"
             style={{ color: 'var(--olive)' }}
             data-testid="text-intro-price"
           >
