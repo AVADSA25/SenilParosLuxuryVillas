@@ -1,4 +1,6 @@
 import senilLogo from "@assets/SENIL_WHITE_1761080366041.png";
+import { Instagram } from "lucide-react";
+import { SiTiktok } from "react-icons/si";
 
 export default function ContactFooter() {
   return (
@@ -20,6 +22,28 @@ export default function ContactFooter() {
                   info@senilluxuriousparosvillas.com
                 </a>
               </p>
+            </div>
+            <div className="flex gap-4 mt-6">
+              <a
+                href="https://www.instagram.com/senilluxuriousparosvilla/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary-foreground/60 hover:text-secondary-foreground transition-colors"
+                aria-label="Instagram"
+                data-testid="link-instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.tiktok.com/@senilluxuriousparosvilla"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary-foreground/60 hover:text-secondary-foreground transition-colors"
+                aria-label="TikTok"
+                data-testid="link-tiktok"
+              >
+                <SiTiktok className="w-5 h-5" />
+              </a>
             </div>
           </div>
 
