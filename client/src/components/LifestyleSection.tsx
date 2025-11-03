@@ -5,8 +5,6 @@ import exterior from "@assets/02-senil-villas-paros-estate3_1761078697987.png";
 import interior1 from "@assets/05-senil-villa-interior-_1761078737080.jpg";
 import interior2 from "@assets/05-senil-villa-interior-3_1761078744243.png";
 import interior3 from "@assets/05-senil-villa-interior-5_1761078752661.jpg";
-import interior4 from "@assets/05-senil-villa-interior-6_1761078764987.jpg";
-import rooms1 from "@assets/06-senil-villa-indoor-rooms_1761078776908.jpg";
 import rooms2 from "@assets/06-senil-villa-indoor-rooms2_1761078787639.jpg";
 import rooms3 from "@assets/06-senil-villa-indoor-rooms3_1761078842923.jpg";
 import rooms5 from "@assets/06-senil-villa-indoor-rooms5_1761078806733.jpg";
@@ -17,8 +15,6 @@ const lifestyleImages = [
   interior1,
   interior2,
   interior3,
-  interior4,
-  rooms1,
   rooms2,
   rooms5,
   rooms6,
