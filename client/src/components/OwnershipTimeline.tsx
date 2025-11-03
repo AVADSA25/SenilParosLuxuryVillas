@@ -13,23 +13,24 @@ const stages = [
 export default function OwnershipTimeline() {
   return (
     <section className="bg-background" id="timeline" data-testid="section-ownership">
-      <div className="bg-black text-white py-3">
-        <div className="max-w-[1200px] mx-auto px-8 flex flex-wrap items-center justify-center gap-4 md:gap-8 text-sm">
+      <div className="w-full bg-primary text-primary-foreground" style={{ minHeight: "48px" }}>
+        <div className="flex items-center justify-center gap-8 px-8 py-3">
           <a 
             href="tel:+306957831717" 
-            className="flex items-center gap-2 hover:text-white/70 transition-colors"
+            className="flex items-center gap-2 hover:opacity-70 transition-opacity"
             data-testid="link-phone-top"
           >
             <Phone className="w-4 h-4" />
-            <span>Call us at +30 695 783 1717</span>
+            <span className="text-sm font-medium whitespace-nowrap">Call us at +30 695 783 1717</span>
           </a>
+          <span className="text-primary-foreground/40">•</span>
           <a 
             href="mailto:info@senilluxuriousparosvillas.com" 
-            className="flex items-center gap-2 hover:text-white/70 transition-colors"
+            className="flex items-center gap-2 hover:opacity-70 transition-opacity"
             data-testid="link-email-top"
           >
             <Mail className="w-4 h-4" />
-            <span>Email us at info@senilluxuriousparosvillas.com</span>
+            <span className="text-sm font-medium whitespace-nowrap">Email us at info@senilluxuriousparosvillas.com</span>
           </a>
         </div>
       </div>
