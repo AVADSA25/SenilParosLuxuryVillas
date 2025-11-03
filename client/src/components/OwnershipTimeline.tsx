@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Share2, Phone, Mail } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 
 const stages = [
   { title: "Enquiry", description: "Initial consultation and property presentation" },
@@ -11,42 +11,17 @@ const stages = [
 ];
 
 export default function OwnershipTimeline() {
-  const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: 'SENIL Luxurious Paros Villas',
-          text: 'Discover luxury living in Paros, Greece',
-          url: window.location.href
-        });
-      } catch (err) {
-        console.log('Share canceled');
-      }
-    } else {
-      navigator.clipboard.writeText(window.location.href);
-      alert('Link copied to clipboard!');
-    }
-  };
-
   return (
     <section className="bg-background" id="timeline" data-testid="section-ownership">
       <div className="bg-black text-white py-3">
         <div className="max-w-[1200px] mx-auto px-8 flex flex-wrap items-center justify-center gap-4 md:gap-8 text-sm">
-          <button 
-            onClick={handleShare}
-            className="flex items-center gap-2 hover:text-white/70 transition-colors"
-            data-testid="button-share"
-          >
-            <Share2 className="w-4 h-4" />
-            <span>Share</span>
-          </button>
           <a 
             href="tel:+306957831717" 
             className="flex items-center gap-2 hover:text-white/70 transition-colors"
             data-testid="link-phone-top"
           >
             <Phone className="w-4 h-4" />
-            <span>+30 695 783 1717</span>
+            <span>Call us at +30 695 783 1717</span>
           </a>
           <a 
             href="mailto:info@senilluxuriousparosvillas.com" 
@@ -54,7 +29,7 @@ export default function OwnershipTimeline() {
             data-testid="link-email-top"
           >
             <Mail className="w-4 h-4" />
-            <span>info@senilluxuriousparosvillas.com</span>
+            <span>Email us at info@senilluxuriousparosvillas.com</span>
           </a>
         </div>
       </div>
