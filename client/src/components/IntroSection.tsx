@@ -73,7 +73,29 @@ export default function IntroSection() {
           <motion.p
             initial={{ opacity: 0, y: 6 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.28, duration: 0.22 }}
+            transition={{ delay: 0.22, duration: 0.22 }}
+            className="mt-4 text-sm font-medium"
+            style={{ color: 'var(--olive)' }}
+            data-testid="text-intro-price"
+          >
+            Estate: €12,400,000
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.26, duration: 0.22 }}
+            className="mt-1.5 text-xs leading-relaxed"
+            style={{ color: '#545454' }}
+            data-testid="text-intro-options"
+          >
+            Individual villas available for purchase. Long-term rental arrangements by arrangement. Please contact us for details.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.32, duration: 0.22 }}
             className="mt-3 text-xs"
             style={{ color: '#545454' }}
             data-testid="text-intro-distance"
