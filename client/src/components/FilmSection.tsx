@@ -53,7 +53,7 @@ export default function FilmSection() {
     <section 
       id="film" 
       ref={sectionRef}
-      className="pt-4 pb-24 bg-background" 
+      className="pt-4 pb-24 bg-black" 
       data-testid="section-film"
     >
       <div className="max-w-[1200px] mx-auto px-8">
@@ -67,15 +67,15 @@ export default function FilmSection() {
             <img 
               src={waveIcon} 
               alt="Wave icon" 
-              className="w-40 h-40 opacity-70"
-              style={{ filter: 'brightness(0.7)' }}
+              className="w-40 h-40 opacity-40"
+              style={{ filter: 'brightness(1.5)' }}
               data-testid="icon-wave-film"
             />
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl font-medium mb-6 text-center" data-testid="text-film-title">
+          <h2 className="font-serif text-4xl md:text-5xl font-medium mb-6 text-center text-white" data-testid="text-film-title">
             Presentation Film
           </h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-[800px] mx-auto">
+          <p className="text-center text-white/70 mb-12 max-w-[800px] mx-auto">
             A quiet look at SENIL's architecture and the landscape of Paros, shot for stillness, light, and horizon.
           </p>
 
@@ -112,7 +112,7 @@ export default function FilmSection() {
             )}
           </div>
 
-          <p className="text-sm text-muted-foreground text-center mt-6">
+          <p className="text-sm text-white/60 text-center mt-6">
             Footage includes architectural renders and scenes of Paros: Naoussa harbor, beaches, and hillside context.
           </p>
         </motion.div>
