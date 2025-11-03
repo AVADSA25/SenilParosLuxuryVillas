@@ -20,6 +20,7 @@ import villa1Floorplan from "@assets/07-senil-villas1-floorplan_1761078324008.pn
 import villa2Floorplan from "@assets/07-senil-villas2-floorplan_1761078385180.png";
 import villa3Floorplan from "@assets/07-senil-villas3-floorplan_1761078407561.png";
 import locationMap from "@assets/08-senil-villas-location-map_1762185262067.png";
+import waveIcon from "@assets/awUhJhY - Imgur (1)_1761160541990.png";
 
 const villas = [
   {
@@ -90,6 +91,15 @@ export default function Home() {
           <p className="text-muted-foreground text-base md:text-lg max-w-3xl mx-auto leading-relaxed text-center mb-12" data-testid="text-villas-details">
             Located 4.8 km from Naoussa and 200 m from the sea, the estate covers 8,295 m² with two villas of 322.78 m² and 347.75 m², plus auxiliary spaces and an approved extension of 249.85 m². Landscaped Mediterranean gardens complete the setting.
           </p>
+          <div className="flex justify-center mb-8">
+            <img 
+              src={waveIcon} 
+              alt="Wave icon" 
+              className="w-40 h-40 opacity-70"
+              style={{ filter: 'brightness(0.7)' }}
+              data-testid="icon-wave-villas"
+            />
+          </div>
           <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-center mb-16" data-testid="text-villas-intro">
             Three independent villas: Top, Middle, Bottom. One horizon. Private pools, deep terraces and indoor-outdoor living; 6, 9 and 5 bedrooms respectively.
           </p>
