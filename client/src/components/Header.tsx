@@ -56,14 +56,14 @@ export default function Header() {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.nav
-              className={`overflow-hidden bg-graphite`}
+              className={`bg-graphite`}
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               data-testid="mobile-menu-dropdown"
             >
-              <div className="py-4 border-t border-white/30">
+              <div className="py-4 border-t border-white/30 max-h-[70vh] overflow-y-auto">
                 {navItems.map((item) => (
                   <button
                     key={item.href}
