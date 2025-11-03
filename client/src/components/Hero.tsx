@@ -6,15 +6,18 @@ import logoImage from "@assets/ChatGPT Image Oct 21, 2025, 02_42_29 PM (1)-3_176
 import heroVideo from "@assets/860497b9-de9a-444e-a6a6-861649914c40_1761070130520.mp4";
 
 const navItems = [
-  { label: "Design", href: "#design" },
   { label: "Villas", href: "#villas" },
   { label: "Lifestyle", href: "#lifestyle" },
+  { label: "Key Features", href: "#features" },
   { label: "Sustainability", href: "#sustainability" },
   { label: "Film", href: "#film" },
-  { label: "Greece", href: "#why-greece" },
+  { label: "Partners", href: "#partners" },
+  { label: "Why Greece", href: "#greece" },
   { label: "Location", href: "#location" },
+  { label: "Brochure", href: "#brochure" },
   { label: "Ownership", href: "#timeline" },
-  { label: "Contact", href: "#forms" },
+  { label: "Viewing", href: "#viewing" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Hero() {
@@ -67,7 +70,7 @@ export default function Hero() {
               data-testid="menu-icon-background"
             />
             <motion.nav
-              className="fixed top-16 right-0 z-50 bg-graphite border border-ash/20 overflow-hidden"
+              className="fixed top-16 right-0 z-50 bg-graphite border border-ash/20"
               style={{ width: "160px" }}
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
@@ -75,7 +78,7 @@ export default function Hero() {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               data-testid="dropdown-menu"
             >
-              <div className="py-4 px-5">
+              <div className="py-4 px-5 max-h-[70vh] overflow-y-auto">
                 {navItems.map((item, index) => (
                   <button
                     key={item.href}
