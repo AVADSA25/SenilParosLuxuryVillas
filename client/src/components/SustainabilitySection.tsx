@@ -4,7 +4,6 @@ import { X } from "lucide-react";
 import parosBeach from "@assets/09-paros-island-mix-picture6_1761080091981.png";
 
 const features = [
-  "Solar PV with battery storage for resilient, low-carbon operation",
   "Rainwater harvesting with greywater reuse",
   "High-performance envelope and shading strategy",
   "Energy-efficient HVAC with zoned control",
