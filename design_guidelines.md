@@ -165,7 +165,7 @@ All images should convey quiet luxury: muted tones, clean composition, emphasizi
 ## Truth Set (Non-Negotiable Data)
 - Location: Isterni, Paros, Greece
 - Villa sizes: Top 355.69m² (6BR), Middle 401.34m² (9BR), Bottom 275.79m² (5BR)
-- Total: 1,032.82m² living area, 19 bedrooms
+- Total: 1,032.82m² living area, 20 bedrooms
 - Completion: 2026
 - Price display: "Price on Request" / "POA"
 - Contacts: 2 phone numbers + sales@senilparos.com

@@ -21,7 +21,7 @@ const benefits = [
   {
     icon: Sparkles,
     title: "Rental Yield Potential",
-    description: "Three-villa, 19-bed estate can operate as a boutique compound or per-villa rentals."
+    description: "Three-villa, 20-bed estate can operate as a boutique compound or per-villa rentals."
   },
   {
     icon: Sun,

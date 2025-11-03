@@ -1,6 +1,6 @@
 const facts = [
   "Isterni, Paros",
-  "19 Bedrooms",
+  "20 Bedrooms",
   "1,032.82 m² Living",
   "Architect: Aristides Dallas",
   "Completion 2026",

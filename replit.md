@@ -5,7 +5,7 @@
 SENIL is a single-page, conversion-focused luxury real estate website showcasing three exclusive villas in Isterni, Paros, Greece. The project emphasizes "quiet luxury" aesthetics with minimal design, fast performance, and lead generation through appointment requests and brochure downloads.
 
 **Key Details:**
-- 3 luxury villas totaling 1,032.82 m² living space, 19 bedrooms
+- 3 luxury villas totaling 1,032.82 m² living space, 20 bedrooms
 - Completion: 2026
 - Price: On request (€12,400,000 internally)
 - Target: High-net-worth individuals seeking premium Greek island properties
