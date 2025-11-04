@@ -10,6 +10,22 @@ SENIL is a single-page, conversion-focused luxury real estate website showcasing
 - Price: On request (€12,400,000 internally)
 - Target: High-net-worth individuals seeking premium Greek island properties
 
+## Recent Changes (November 4, 2025)
+
+**Google Search Console Optimization:**
+- Fixed video structured data in FilmSection.tsx - uploadDate now includes full ISO 8601 format with timezone (2025-10-22T12:00:00+00:00) instead of just date
+- Added HTML meta tag verification for Google Search Console: OaaRogiSg-4vhhuqWU7nZoILc6onG35PIhFdw2NvloM
+- HTML verification file created at client/public/googled5f00ee42fcc3b7b.html
+
+**Partners Section Update:**
+- Removed Engel & Völkers (Exclusive Marketing partner) per client request
+- Updated layout to 5 partners: 3 in first row (full width), 2 in second row (centered)
+- Partners now: Aristides Dallas (Architect), LDK Consultants (Electrical & Mechanical), Stones & Walls (Interior & Exterior), IFI (Lighting), Ecoscapes (Landscape)
+
+**Lifestyle Section:**
+- Removed duplicate interior images (bathroom and kitchen) from carousel since they're featured in Key Features section
+- Carousel now has 8 unique images
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.

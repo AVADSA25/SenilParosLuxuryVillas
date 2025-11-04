@@ -127,7 +127,7 @@ export default function FilmSection() {
             "name": "SENIL Presentation Film",
             "description": "A quiet look at SENIL's architecture and the landscape of Paros, shot for stillness, light, and horizon.",
             "thumbnailUrl": posterUrl,
-            "uploadDate": new Date().toISOString().split('T')[0],
+            "uploadDate": "2025-10-22T12:00:00+00:00",
             "duration": "PT1M23S",
             "embedUrl": "https://www.youtube.com/embed/luA0dkO0-tI",
             "contentUrl": "https://www.youtube.com/watch?v=luA0dkO0-tI"
