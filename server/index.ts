@@ -1,6 +1,8 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import fs from "fs";
+import path from "path";
 
 const app = express();
 app.use(express.json());
@@ -48,6 +50,28 @@ app.use((req, res, next) => {
 
 (async () => {
   const server = await registerRoutes(app);
+
+  app.get("/sitemap.xml", async (req, res) => {
+    const sitemapPath = path.resolve(import.meta.dirname, "..", "client", "public", "sitemap.xml");
+    if (fs.existsSync(sitemapPath)) {
+      const content = await fs.promises.readFile(sitemapPath, "utf-8");
+      res.setHeader("Content-Type", "application/xml");
+      res.send(content);
+    } else {
+      res.status(404).send("Sitemap not found");
+    }
+  });
+
+  app.get("/robots.txt", async (req, res) => {
+    const robotsPath = path.resolve(import.meta.dirname, "..", "client", "public", "robots.txt");
+    if (fs.existsSync(robotsPath)) {
+      const content = await fs.promises.readFile(robotsPath, "utf-8");
+      res.setHeader("Content-Type", "text/plain");
+      res.send(content);
+    } else {
+      res.status(404).send("Robots.txt not found");
+    }
+  });
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
     const status = err.status || err.statusCode || 500;
