@@ -1,0 +1,14 @@
+# robots.txt for senilluxuriousparosvillas.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://senilluxuriousparosvillas.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Disallow sensitive or unnecessary paths
+Disallow: /api/
+Disallow: *.json$

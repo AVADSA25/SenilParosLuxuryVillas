@@ -12,6 +12,22 @@ SENIL is a single-page, conversion-focused luxury real estate website showcasing
 
 ## Recent Changes (November 4, 2025)
 
+**Security & SEO Enhancements:**
+- Added comprehensive security headers to Express server (server/index.ts):
+  - X-Content-Type-Options: nosniff
+  - X-Frame-Options: SAMEORIGIN
+  - X-XSS-Protection: 1; mode=block
+  - Referrer-Policy: strict-origin-when-cross-origin
+  - Permissions-Policy: geolocation=(), microphone=(), camera=()
+  - Strict-Transport-Security: max-age=31536000; includeSubDomains
+- Created robots.txt in client/public/ for search engine crawling instructions
+- Created comprehensive sitemap.xml with all sections and video metadata for better SEO indexing
+
+**Content Updates:**
+- Updated villa naming from "Villa A/B/C" to "Top Villa, Middle Villa, Bottom Villa" across entire site
+- Added second phone number: +30 693 2314314 (appears in contact band and footer)
+- Updated YouTube video link to: youtube.com/watch?v=uBpzio6DmEU
+
 **Google Search Console Optimization:**
 - Fixed video structured data in FilmSection.tsx - uploadDate now includes full ISO 8601 format with timezone (2025-10-22T12:00:00+00:00) instead of just date
 - Added HTML meta tag verification for Google Search Console: OaaRogiSg-4vhhuqWU7nZoILc6onG35PIhFdw2NvloM
@@ -72,11 +88,17 @@ Preferred communication style: Simple, everyday language.
 - Express.js with TypeScript
 - HTTP server creation via Node's native `http` module
 - Custom logging middleware for API routes
+- Security headers middleware (X-Frame-Options, CSP, HSTS, etc.)
 
 **Development Setup:**
 - Vite middleware mode for HMR during development
 - Custom error handling middleware
 - Static file serving in production
+
+**SEO & Security:**
+- robots.txt for search engine crawling directives
+- sitemap.xml with all sections and video metadata
+- Comprehensive security headers for production deployment
 
 **Storage Interface:**
 - Abstract `IStorage` interface for data operations
