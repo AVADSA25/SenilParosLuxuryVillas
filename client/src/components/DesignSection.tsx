@@ -10,7 +10,7 @@ const blocks = [
     image: villaAerial,
     title: "Architectural Excellence",
     description:
-      "Each villa embodies contemporary Cycladic architecture, seamlessly blending traditional stone masonry with modern minimalist design. Clean lines frame the infinite Aegean horizon.",
+      "Each villa is individually independent, embodying contemporary Cycladic architecture and seamlessly blending traditional stone masonry with modern minimalist design. Clean lines frame the infinite Aegean horizon.",
     reverse: false,
   },
   {
