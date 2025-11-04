@@ -4,7 +4,6 @@ const facts = [
   "1,032.82 m² Living",
   "Architect: Aristides Dallas",
   "Completion 2026",
-  "Price on Request",
   "Viewings by Appointment",
 ];
 
