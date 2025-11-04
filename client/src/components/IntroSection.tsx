@@ -68,7 +68,7 @@ export default function IntroSection() {
             style={{ color: '#363636' }}
             data-testid="text-intro-main"
           >
-            A total of 1,032.82 m² of living space on 8,295 m² of land unfolds across Villa A (355.69 m²), Villa B (401.34 m²), and Villa C (275.79 m²), each complemented by 20 m² of storage and 72 m² of technical areas. Every residence enjoys its own horizon, its own rhythm, its own entrance — three sanctuaries bound by harmony rather than proximity.
+            A total of 1,032.82 m² of living space on 8,295 m² of land unfolds across Top Villa (355.69 m²), Middle Villa (401.34 m²), and Bottom Villa (275.79 m²), each complemented by 20 m² of storage and 72 m² of technical areas. Every residence enjoys its own horizon, its own rhythm, its own entrance — three sanctuaries bound by harmony rather than proximity.
           </motion.p>
 
           <motion.p
