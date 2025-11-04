@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Square } from "lucide-react";
 
 export default function IntroSection() {
   return (
@@ -67,7 +68,7 @@ export default function IntroSection() {
             style={{ color: '#363636' }}
             data-testid="text-intro-main"
           >
-            Carved into Isterni's slope in rhythm with nature: roofs trace the horizon, verandas dissolve into light, water carries the eye to sea. Private viewings on request.
+            A total of 1,032.82 m² of living space on 8,295 m² of land unfolds across Villa A (355.69 m²), Villa B (401.34 m²), and Villa C (275.79 m²), each complemented by 20 m² of storage and 72 m² of technical areas. Every residence enjoys its own horizon, its own rhythm, its own entrance — three sanctuaries bound by harmony rather than proximity.
           </motion.p>
 
           <motion.p
@@ -81,26 +82,37 @@ export default function IntroSection() {
             Now available for exclusive viewing and purchase
           </motion.p>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 6 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.24, duration: 0.22 }}
-            className="mt-2.5 text-sm font-medium"
-            style={{ color: 'var(--olive)' }}
-            data-testid="text-intro-price"
+            className="mt-3"
           >
-            Estate: €12,400,000
-          </motion.p>
+            <p 
+              className="text-xs font-medium mb-1"
+              style={{ color: '#545454' }}
+              data-testid="text-intro-price-label"
+            >
+              Estate listing price:
+            </p>
+            <p 
+              className="text-2xl md:text-3xl font-semibold"
+              style={{ color: 'var(--graphite)' }}
+              data-testid="text-intro-price"
+            >
+              €12,400,000
+            </p>
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 6 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.26, duration: 0.22 }}
-            className="mt-1.5 text-xs leading-relaxed"
+            className="mt-3 text-xs leading-relaxed"
             style={{ color: '#545454' }}
             data-testid="text-intro-options"
           >
-            Individual villas available for purchase. Long-term rental arrangements by arrangement. Please contact us for details.
+            Individual villas available for purchase. Long-term rental arrangements available. Please contact us for details.
           </motion.p>
 
           <motion.p
@@ -113,6 +125,33 @@ export default function IntroSection() {
           >
             Access: 45 minutes by air from Athens (or ~3-4 hours by ferry), then ~35 minutes by car from Paros Airport to Isterni.
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.38, duration: 0.22 }}
+            className="mt-6 pt-4 border-t grid grid-cols-1 md:grid-cols-3 gap-3"
+            style={{ borderColor: 'rgba(0,0,0,0.08)' }}
+          >
+            <div className="flex items-center gap-2" data-testid="stat-total-surface">
+              <Square className="w-4 h-4" style={{ color: 'var(--olive)', opacity: 0.7 }} />
+              <span className="text-xs md:text-sm" style={{ color: '#666' }}>
+                ~1,316.12 m² Total surface
+              </span>
+            </div>
+            <div className="flex items-center gap-2" data-testid="stat-living-area">
+              <Square className="w-4 h-4" style={{ color: 'var(--olive)', opacity: 0.7 }} />
+              <span className="text-xs md:text-sm" style={{ color: '#666' }}>
+                ~1,032.82 m² Living area
+              </span>
+            </div>
+            <div className="flex items-center gap-2" data-testid="stat-plot-surface">
+              <Square className="w-4 h-4" style={{ color: 'var(--olive)', opacity: 0.7 }} />
+              <span className="text-xs md:text-sm" style={{ color: '#666' }}>
+                ~8,295 m² Plot surface
+              </span>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
