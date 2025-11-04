@@ -4,13 +4,34 @@ import { X } from "lucide-react";
 import parosBeach from "@assets/09-paros-island-mix-picture6_1761080091981.png";
 
 const features = [
-  "Rainwater harvesting with greywater reuse",
-  "High-performance envelope and shading strategy",
-  "Energy-efficient HVAC with zoned control",
-  "LED lighting throughout with warm, low-glare scenes",
-  "Locally sourced natural materials, low-VOC finishes",
-  "Smart home (KNX / equivalent), CAT6a data backbone",
-  "CCTV and discreet perimeter intrusion detection",
+  {
+    title: "Water Conservation",
+    description: "Rainwater harvesting with greywater reuse for sustainable water management."
+  },
+  {
+    title: "Building Envelope",
+    description: "High-performance envelope and shading strategy for optimal thermal efficiency."
+  },
+  {
+    title: "Climate Control",
+    description: "Energy-efficient HVAC with zoned control for personalized comfort."
+  },
+  {
+    title: "Lighting Design",
+    description: "LED lighting throughout with warm, low-glare scenes for ambiance and efficiency."
+  },
+  {
+    title: "Materials & Finishes",
+    description: "Locally sourced natural materials with low-VOC finishes for healthier living."
+  },
+  {
+    title: "Smart Integration",
+    description: "Smart home (KNX / equivalent) with CAT6a data backbone for seamless connectivity."
+  },
+  {
+    title: "Security Systems",
+    description: "CCTV and discreet perimeter intrusion detection for peace of mind."
+  },
 ];
 
 export default function SustainabilitySection() {
@@ -20,7 +41,7 @@ export default function SustainabilitySection() {
     <>
     <section className="py-24 bg-background" id="sustainability" data-testid="section-sustainability">
       <div className="max-w-[1200px] mx-auto px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -31,14 +52,18 @@ export default function SustainabilitySection() {
             <h2 className="font-serif text-4xl md:text-5xl font-medium mb-8" data-testid="text-sustainability-title">
               Sustainability & Systems
             </h2>
-            <ul className="space-y-3">
+            <div className="space-y-4">
               {features.map((feature, index) => (
-                <li key={index} className="flex items-start gap-3" data-testid={`sustainability-feature-${index}`}>
-                  <span className="text-primary mt-1">•</span>
-                  <span className="text-muted-foreground">{feature}</span>
-                </li>
+                <div key={index} data-testid={`sustainability-feature-${index}`}>
+                  <h3 className="text-sm font-semibold mb-1" style={{ color: 'var(--olive)' }}>
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
               ))}
-            </ul>
+            </div>
           </motion.div>
 
           <motion.div
@@ -46,7 +71,7 @@ export default function SustainabilitySection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer hover-elevate transition-transform duration-300 hover:scale-[1.01] order-1 md:order-2"
+            className="relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer hover-elevate transition-transform duration-300 hover:scale-[1.01] order-1 md:order-2 md:pt-16"
             onClick={() => setExpandedImage(true)}
           >
             <img
