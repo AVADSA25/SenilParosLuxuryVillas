@@ -12,7 +12,16 @@ export default function ContactFooter() {
               Contact
             </h3>
             <div className="space-y-2 text-secondary-foreground/80">
-              <p data-testid="text-phone">+30 695 783 1717</p>
+              <p data-testid="text-phone">
+                <a href="tel:+306957831717" className="hover:text-secondary-foreground transition-colors">
+                  +30 695 783 1717
+                </a>
+              </p>
+              <p data-testid="text-phone-2">
+                <a href="tel:+306932314314" className="hover:text-secondary-foreground transition-colors">
+                  +30 693 2314314
+                </a>
+              </p>
               <p>
                 <a
                   href="mailto:info@senilluxuriousparosvillas.com"
