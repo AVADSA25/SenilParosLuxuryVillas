@@ -44,20 +44,34 @@ export default function BrochureGate() {
         throw new Error('Failed to send request');
       }
 
-      // Trigger PDF download from Google Drive
+      // Trigger PDF download - iOS-compatible method
       const pdfUrl = "https://drive.google.com/uc?export=download&id=1ujB2Q6fVnPpPMfXD26Cs3HmFLssyom7J";
-      const link = document.createElement('a');
-      link.href = pdfUrl;
-      link.setAttribute('download', 'SENIL_Paros_Villas_Brochure.pdf');
-      link.setAttribute('target', '_blank');
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-
-      toast({
-        title: "Brochure download started!",
-        description: "Your download should begin automatically.",
-      });
+      
+      // Detect if user is on iOS
+      const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      
+      if (isIOS) {
+        // On iOS, open in new tab - user can then save from browser
+        window.open(pdfUrl, '_blank');
+        toast({
+          title: "Brochure opened!",
+          description: "Tap the share icon and select 'Save to Files' to download.",
+        });
+      } else {
+        // On other devices, try download attribute
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.setAttribute('download', 'SENIL_Paros_Villas_Brochure.pdf');
+        link.setAttribute('target', '_blank');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        toast({
+          title: "Brochure download started!",
+          description: "Your download should begin automatically.",
+        });
+      }
       setFormData({ name: "", email: "", phone: "", message: "", honeypot: "" });
     } catch (error) {
       toast({
