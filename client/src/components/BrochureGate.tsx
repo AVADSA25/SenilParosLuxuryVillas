@@ -45,22 +45,28 @@ export default function BrochureGate() {
       }
 
       // Trigger PDF download - iOS-compatible method
-      const pdfUrl = "https://drive.google.com/uc?export=download&id=1ujB2Q6fVnPpPMfXD26Cs3HmFLssyom7J";
+      // Use direct Google Drive file view link that works better on mobile
+      const fileId = "1ujB2Q6fVnPpPMfXD26Cs3HmFLssyom7J";
       
-      // Detect if user is on iOS
+      // Detect if user is on iOS/mobile
       const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
       
-      if (isIOS) {
-        // On iOS, open in new tab - user can then save from browser
-        window.open(pdfUrl, '_blank');
+      if (isIOS || isMobile) {
+        // On mobile devices, use the direct file link that opens in Google Drive viewer
+        // This allows users to download from Google Drive's interface
+        const viewUrl = `https://drive.google.com/file/d/${fileId}/view`;
+        window.open(viewUrl, '_blank', 'noopener,noreferrer');
+        
         toast({
           title: "Brochure opened!",
-          description: "Tap the share icon and select 'Save to Files' to download.",
+          description: "Tap the download icon (⬇) in the top right to save the PDF.",
         });
       } else {
-        // On other devices, try download attribute
+        // On desktop, try direct download
+        const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
         const link = document.createElement('a');
-        link.href = pdfUrl;
+        link.href = downloadUrl;
         link.setAttribute('download', 'SENIL_Paros_Villas_Brochure.pdf');
         link.setAttribute('target', '_blank');
         document.body.appendChild(link);

@@ -22,10 +22,13 @@ export default function Header() {
 
   const scrollToSection = (href: string) => {
     setIsMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
   };
 
   return (
