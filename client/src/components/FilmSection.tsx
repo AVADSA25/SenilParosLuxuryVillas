@@ -7,8 +7,8 @@ export default function FilmSection() {
   const [isIframeLoaded, setIsIframeLoaded] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const posterUrl = "https://i.ytimg.com/vi/uBpzio6DmEU/maxresdefault.jpg";
-  const videoUrl = "https://www.youtube-nocookie.com/embed/uBpzio6DmEU?modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&enablejsapi=1";
+  const posterUrl = "https://i.ytimg.com/vi/o96BqDku1_g/maxresdefault.jpg";
+  const videoUrl = "https://www.youtube-nocookie.com/embed/o96BqDku1_g?modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&enablejsapi=1";
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -129,8 +129,8 @@ export default function FilmSection() {
             "thumbnailUrl": posterUrl,
             "uploadDate": "2025-10-22T12:00:00+00:00",
             "duration": "PT1M23S",
-            "embedUrl": "https://www.youtube.com/embed/uBpzio6DmEU",
-            "contentUrl": "https://www.youtube.com/watch?v=uBpzio6DmEU"
+            "embedUrl": "https://www.youtube.com/embed/o96BqDku1_g",
+            "contentUrl": "https://www.youtube.com/watch?v=o96BqDku1_g"
           })
         }}
       />
