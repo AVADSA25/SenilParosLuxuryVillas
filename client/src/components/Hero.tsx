@@ -1,13 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import BrochureGate from "./BrochureGate";
 import waveIcon from "@assets/ChatGPT Image Oct 21, 2025, 12_56_10 PM (1)_1761049770147.png";
 import logoImage from "@assets/ChatGPT Image Oct 21, 2025, 02_42_29 PM (1)-3_1761052593840.png";
 import heroVideo from "@assets/860497b9-de9a-444e-a6a6-861649914c40_1761070130520.mp4";
@@ -29,7 +22,6 @@ const navItems = [
 
 export default function Hero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showBrochure, setShowBrochure] = useState(false);
 
   const scrollToSection = (id: string) => {
     console.log('Scrolling to:', id);
@@ -145,22 +137,13 @@ export default function Hero() {
             size="lg"
             variant="outline"
             className="rounded-full px-8 bg-white/10 backdrop-blur-md text-white border-white/30 hover:bg-white/20"
-            onClick={() => setShowBrochure(true)}
+            onClick={() => scrollToSection("#brochure")}
             data-testid="button-download-brochure"
           >
             Download Brochure
           </Button>
         </div>
       </div>
-
-      <Dialog open={showBrochure} onOpenChange={setShowBrochure}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="sr-only">Download Brochure</DialogTitle>
-          </DialogHeader>
-          <BrochureGate />
-        </DialogContent>
-      </Dialog>
     </section>
   );
 }
