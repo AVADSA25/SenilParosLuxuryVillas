@@ -68,7 +68,7 @@ export default function IntroSection() {
             style={{ color: '#363636' }}
             data-testid="text-intro-main"
           >
-            A total of 1,032.82 m² of living space on 8,295 m² of land unfolds across Top Villa (355.69 m²), Middle Villa (401.34 m²), and Bottom Villa (275.79 m²), each complemented by 20 m² of storage and 72 m² of technical areas. Every residence enjoys its own horizon, its own rhythm, its own entrance — three sanctuaries bound by harmony rather than proximity.
+            A total of 1,032.82 m² of living space on 8,295 m² of land unfolds across Top Villa (A, 355.69 m²), Middle Villa (B, 401.34 m²), and Bottom Villa (C, 275.79 m²), each complemented by 20 m² of storage and 72 m² of technical areas. Every residence enjoys its own horizon, its own rhythm, its own entrance — three sanctuaries bound by harmony rather than proximity.
           </motion.p>
 
           <motion.div
@@ -86,15 +86,15 @@ export default function IntroSection() {
             </p>
             <div className="mt-3 space-y-1">
               <div className="flex items-center justify-between">
-                <span className="text-sm" style={{ color: '#545454' }}>Top Villa (355.69 m²)</span>
+                <span className="text-sm" style={{ color: '#545454' }}>Top Villa (A, 355.69 m²)</span>
                 <span className="text-lg font-semibold" style={{ color: 'var(--graphite)' }} data-testid="text-intro-price-top">€4,260,000</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm" style={{ color: '#545454' }}>Middle Villa (401.34 m²)</span>
+                <span className="text-sm" style={{ color: '#545454' }}>Middle Villa (B, 401.34 m²)</span>
                 <span className="text-lg font-semibold" style={{ color: 'var(--graphite)' }} data-testid="text-intro-price-middle">€4,820,000</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm" style={{ color: '#545454' }}>Bottom Villa (275.79 m²)</span>
+                <span className="text-sm" style={{ color: '#545454' }}>Bottom Villa (C, 275.79 m²)</span>
                 <span className="text-lg font-semibold" style={{ color: 'var(--graphite)' }} data-testid="text-intro-price-bottom">€3,320,000</span>
               </div>
             </div>

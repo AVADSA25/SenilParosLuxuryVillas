@@ -61,9 +61,16 @@ export default function VillaCard({ name, area, bedrooms, price, images, floorpl
 
         <div className="px-6 pb-6">
           <div className="flex items-start justify-between mb-3">
-            <h3 className="font-serif text-2xl font-medium" data-testid={`text-villa-name-${name.toLowerCase()}`}>
-              {name} Villa
-            </h3>
+            <div>
+              <h3 className="font-serif text-2xl font-medium" data-testid={`text-villa-name-${name.toLowerCase()}`}>
+                {name} Villa
+              </h3>
+              <p className="text-sm text-muted-foreground mt-1">
+                {name === "Top" && "(A, 355.69 m²)"}
+                {name === "Middle" && "(B, 401.34 m²)"}
+                {name === "Bottom" && "(C, 275.79 m²)"}
+              </p>
+            </div>
             <div className="text-right">
               <p className="text-2xl font-semibold" style={{ color: 'var(--graphite)' }} data-testid={`text-price-${name.toLowerCase()}`}>
                 {price}

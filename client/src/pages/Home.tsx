@@ -105,7 +105,7 @@ export default function Home() {
             />
           </div>
           <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-center mb-16" data-testid="text-villas-intro">
-            Three independent villas: Top, Middle, Bottom. One horizon. Private pools, deep terraces and indoor-outdoor living; 6, 9 and 5 bedrooms respectively.
+            Three independent villas: Top (A), Middle (B), Bottom (C). One horizon. Private pools, deep terraces and indoor-outdoor living; 6, 9 and 5 bedrooms respectively.
           </p>
           <div className="space-y-12">
             {villas.map((villa) => (
