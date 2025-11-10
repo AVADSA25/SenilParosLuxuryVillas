@@ -26,7 +26,13 @@ export default function Header() {
     setTimeout(() => {
       const element = document.querySelector(href);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - 64;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
       }
     }, 100);
   };

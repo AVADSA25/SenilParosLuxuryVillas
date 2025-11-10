@@ -24,16 +24,18 @@ export default function Hero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
-    console.log('Scrolling to:', id);
     setIsMenuOpen(false);
     
     setTimeout(() => {
       const element = document.querySelector(id);
-      console.log('Found element:', element);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-      } else {
-        console.error('Element not found:', id);
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - 64;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
       }
     }, 100);
   };
