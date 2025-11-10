@@ -14,6 +14,7 @@ interface VillaCardProps {
   name: string;
   area: string;
   bedrooms: number;
+  price: string;
   images: {
     exterior: string;
     interior: string;
@@ -22,7 +23,7 @@ interface VillaCardProps {
   floorplan: string;
 }
 
-export default function VillaCard({ name, area, bedrooms, images, floorplan }: VillaCardProps) {
+export default function VillaCard({ name, area, bedrooms, price, images, floorplan }: VillaCardProps) {
   const [showFloorplan, setShowFloorplan] = useState(false);
   const [showBrochure, setShowBrochure] = useState(false);
 
@@ -59,9 +60,16 @@ export default function VillaCard({ name, area, bedrooms, images, floorplan }: V
         </div>
 
         <div className="px-6 pb-6">
-          <h3 className="font-serif text-2xl font-medium mb-3" data-testid={`text-villa-name-${name.toLowerCase()}`}>
-            {name} Villa
-          </h3>
+          <div className="flex items-start justify-between mb-3">
+            <h3 className="font-serif text-2xl font-medium" data-testid={`text-villa-name-${name.toLowerCase()}`}>
+              {name} Villa
+            </h3>
+            <div className="text-right">
+              <p className="text-2xl font-semibold" style={{ color: 'var(--graphite)' }} data-testid={`text-price-${name.toLowerCase()}`}>
+                {price}
+              </p>
+            </div>
+          </div>
           <div className="flex items-center gap-6 mb-6 text-muted-foreground font-tabular">
             <span data-testid={`text-area-${name.toLowerCase()}`}>{area} m²</span>
             <span>•</span>

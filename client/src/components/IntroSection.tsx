@@ -71,48 +71,44 @@ export default function IntroSection() {
             A total of 1,032.82 m² of living space on 8,295 m² of land unfolds across Top Villa (355.69 m²), Middle Villa (401.34 m²), and Bottom Villa (275.79 m²), each complemented by 20 m² of storage and 72 m² of technical areas. Every residence enjoys its own horizon, its own rhythm, its own entrance — three sanctuaries bound by harmony rather than proximity.
           </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 6 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.20, duration: 0.22 }}
-            className="mt-4 text-sm font-semibold"
-            style={{ color: 'var(--olive)' }}
-            data-testid="text-intro-availability"
-          >
-            Now available for exclusive viewing and purchase
-          </motion.p>
-
           <motion.div
             initial={{ opacity: 0, y: 6 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.24, duration: 0.22 }}
-            className="mt-3"
+            transition={{ delay: 0.20, duration: 0.22 }}
+            className="mt-4"
           >
             <p 
-              className="text-xs font-medium mb-1"
-              style={{ color: '#545454' }}
-              data-testid="text-intro-price-label"
+              className="text-sm font-semibold"
+              style={{ color: 'var(--olive)' }}
+              data-testid="text-intro-availability"
             >
-              Estate listing price:
+              Available for individual purchase
             </p>
-            <p 
-              className="text-2xl md:text-3xl font-semibold"
-              style={{ color: 'var(--graphite)' }}
-              data-testid="text-intro-price"
-            >
-              €12,400,000
-            </p>
+            <div className="mt-3 space-y-1">
+              <div className="flex items-center justify-between">
+                <span className="text-sm" style={{ color: '#545454' }}>Top Villa (355.69 m²)</span>
+                <span className="text-lg font-semibold" style={{ color: 'var(--graphite)' }} data-testid="text-intro-price-top">€4,260,000</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm" style={{ color: '#545454' }}>Middle Villa (401.34 m²)</span>
+                <span className="text-lg font-semibold" style={{ color: 'var(--graphite)' }} data-testid="text-intro-price-middle">€4,820,000</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm" style={{ color: '#545454' }}>Bottom Villa (275.79 m²)</span>
+                <span className="text-lg font-semibold" style={{ color: 'var(--graphite)' }} data-testid="text-intro-price-bottom">€3,320,000</span>
+              </div>
+            </div>
           </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 6 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.26, duration: 0.22 }}
-            className="mt-3 text-xs leading-relaxed"
+            className="mt-4 text-xs leading-relaxed"
             style={{ color: '#545454' }}
             data-testid="text-intro-options"
           >
-            Individual villas available for purchase. Long-term rental arrangements available. Please contact us for details.
+            Each villa can be purchased independently. Long-term rental arrangements available. Please contact us for details.
           </motion.p>
 
           <motion.p
