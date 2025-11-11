@@ -44,40 +44,17 @@ export default function BrochureGate() {
         throw new Error('Failed to send request');
       }
 
-      // Trigger PDF download - iOS-compatible method
-      // Use direct Google Drive file view link that works better on mobile
+      // Open Google Drive PDF link directly on all devices
       const fileId = "1ujB2Q6fVnPpPMfXD26Cs3HmFLssyom7J";
+      const pdfUrl = `https://drive.google.com/file/d/${fileId}/view`;
       
-      // Detect if user is on iOS/mobile
-      const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      // Open in new tab - works on all devices including iOS
+      window.open(pdfUrl, '_blank', 'noopener,noreferrer');
       
-      if (isIOS || isMobile) {
-        // On mobile devices, use the direct file link that opens in Google Drive viewer
-        // This allows users to download from Google Drive's interface
-        const viewUrl = `https://drive.google.com/file/d/${fileId}/view`;
-        window.open(viewUrl, '_blank', 'noopener,noreferrer');
-        
-        toast({
-          title: "Brochure opened!",
-          description: "Tap the download icon (⬇) in the top right to save the PDF.",
-        });
-      } else {
-        // On desktop, try direct download
-        const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
-        const link = document.createElement('a');
-        link.href = downloadUrl;
-        link.setAttribute('download', 'SENIL_Paros_Villas_Brochure.pdf');
-        link.setAttribute('target', '_blank');
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        
-        toast({
-          title: "Brochure download started!",
-          description: "Your download should begin automatically.",
-        });
-      }
+      toast({
+        title: "Brochure opened!",
+        description: "The PDF has been opened in a new tab. You can download or view it from there.",
+      });
       setFormData({ name: "", email: "", phone: "", message: "", honeypot: "" });
     } catch (error) {
       toast({
