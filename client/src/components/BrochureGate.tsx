@@ -25,8 +25,13 @@ export default function BrochureGate() {
 
     setIsSubmitting(true);
 
+    // Open PDF IMMEDIATELY (before async operations) to avoid popup blockers
+    const fileId = "1ujB2Q6fVnPpPMfXD26Cs3HmFLssyom7J";
+    const pdfUrl = `https://drive.google.com/file/d/${fileId}/view`;
+    window.open(pdfUrl, '_blank', 'noopener,noreferrer');
+
     try {
-      // Send email notification
+      // Send email notification (after opening PDF)
       const response = await fetch('/api/brochure-request', {
         method: 'POST',
         headers: {
@@ -44,23 +49,16 @@ export default function BrochureGate() {
         throw new Error('Failed to send request');
       }
 
-      // Open Google Drive PDF link directly on all devices
-      const fileId = "1ujB2Q6fVnPpPMfXD26Cs3HmFLssyom7J";
-      const pdfUrl = `https://drive.google.com/file/d/${fileId}/view`;
-      
-      // Open in new tab - works on all devices including iOS
-      window.open(pdfUrl, '_blank', 'noopener,noreferrer');
-      
       toast({
         title: "Brochure opened!",
-        description: "The PDF has been opened in a new tab. You can download or view it from there.",
+        description: "The PDF has been opened in a new tab.",
       });
       setFormData({ name: "", email: "", phone: "", message: "", honeypot: "" });
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to send request. Please try again.",
-        variant: "destructive",
+        title: "Note",
+        description: "The brochure has been opened, but we couldn't send the notification.",
+        variant: "default",
       });
     } finally {
       setIsSubmitting(false);
