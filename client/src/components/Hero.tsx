@@ -30,7 +30,7 @@ export default function Hero() {
       const element = document.querySelector(id);
       if (element) {
         const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - 130;
+        const offsetPosition = elementPosition + window.pageYOffset - 180;
         
         window.scrollTo({
           top: offsetPosition,
