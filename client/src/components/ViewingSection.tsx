@@ -11,7 +11,7 @@ export default function ViewingSection() {
           <span className="text-sm font-medium">Follow us</span>
           <span className="text-primary-foreground/40">•</span>
           <a 
-            href="https://www.instagram.com/senilluxuriousparosvilla/"
+            href="https://www.instagram.com/seniluxuriousparosvillas/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 hover:opacity-70 transition-opacity"
@@ -23,7 +23,7 @@ export default function ViewingSection() {
           </a>
           <span className="text-primary-foreground/40">•</span>
           <a 
-            href="https://www.tiktok.com/@senilluxuriousparosvilla"
+            href="https://www.tiktok.com/@seniluxuriousparosvillas"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 hover:opacity-70 transition-opacity"
@@ -35,7 +35,7 @@ export default function ViewingSection() {
           </a>
           <span className="text-primary-foreground/40">•</span>
           <a 
-            href="https://www.youtube.com/@senilluxuriousparosvilla"
+            href="https://www.youtube.com/@seniluxuriousparosvillas"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 hover:opacity-70 transition-opacity"

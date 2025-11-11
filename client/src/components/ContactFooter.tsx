@@ -34,7 +34,7 @@ export default function ContactFooter() {
             </div>
             <div className="flex gap-4 mt-6">
               <a
-                href="https://www.instagram.com/senilluxuriousparosvilla/"
+                href="https://www.instagram.com/seniluxuriousparosvillas/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-secondary-foreground/60 hover:text-secondary-foreground transition-colors"
@@ -44,7 +44,7 @@ export default function ContactFooter() {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="https://www.tiktok.com/@senilluxuriousparosvilla"
+                href="https://www.tiktok.com/@seniluxuriousparosvillas"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-secondary-foreground/60 hover:text-secondary-foreground transition-colors"
@@ -54,7 +54,7 @@ export default function ContactFooter() {
                 <SiTiktok className="w-5 h-5" />
               </a>
               <a
-                href="https://www.youtube.com/@senilluxuriousparosvilla"
+                href="https://www.youtube.com/@seniluxuriousparosvillas"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-secondary-foreground/60 hover:text-secondary-foreground transition-colors"
