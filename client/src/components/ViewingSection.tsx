@@ -5,8 +5,8 @@ import { SiTiktok } from "react-icons/si";
 
 export default function ViewingSection() {
   return (
-    <section className="bg-accent" id="viewing" data-testid="section-viewing">
-      <div className="w-full bg-primary text-primary-foreground" style={{ minHeight: "48px" }}>
+    <section className="bg-accent" data-testid="section-viewing">
+      <div className="w-full bg-primary text-primary-foreground" style={{ minHeight: "48px" }} id="viewing">
         <div className="flex items-center justify-center gap-8 px-8 py-3">
           <span className="text-sm font-medium">Follow us</span>
           <span className="text-primary-foreground/40">•</span>
