@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { useLocation } from "wouter";
 
 export default function ViewingRequestForm() {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ export default function ViewingRequestForm() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const [, setLocation] = useLocation();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,11 +42,8 @@ export default function ViewingRequestForm() {
       });
 
       if (response.ok) {
-        toast({
-          title: "Request sent!",
-          description: "We'll contact you shortly to arrange a viewing.",
-        });
         setFormData({ name: "", email: "", phone: "", message: "", honeypot: "" });
+        setLocation("/thank-you");
       } else {
         throw new Error('Failed to send request');
       }

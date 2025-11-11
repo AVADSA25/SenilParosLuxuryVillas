@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { useLocation } from "wouter";
 
 export default function BrochureGate() {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ export default function BrochureGate() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const [, setLocation] = useLocation();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,17 +51,11 @@ export default function BrochureGate() {
         throw new Error('Failed to send request');
       }
 
-      toast({
-        title: "Brochure opened!",
-        description: "The PDF has been opened in a new tab.",
-      });
       setFormData({ name: "", email: "", phone: "", message: "", honeypot: "" });
+      setLocation("/thank-you");
     } catch (error) {
-      toast({
-        title: "Note",
-        description: "The brochure has been opened, but we couldn't send the notification.",
-        variant: "default",
-      });
+      setFormData({ name: "", email: "", phone: "", message: "", honeypot: "" });
+      setLocation("/thank-you");
     } finally {
       setIsSubmitting(false);
     }
