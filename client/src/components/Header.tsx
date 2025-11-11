@@ -27,7 +27,7 @@ export default function Header() {
       const element = document.querySelector(href);
       if (element) {
         const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - 64;
+        const offsetPosition = elementPosition + window.pageYOffset - 100;
         
         window.scrollTo({
           top: offsetPosition,
