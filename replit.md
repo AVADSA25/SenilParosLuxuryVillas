@@ -10,7 +10,19 @@ SENIL is a single-page, conversion-focused luxury real estate website showcasing
 - Price: On request (€12,400,000 internally)
 - Target: High-net-worth individuals seeking premium Greek island properties
 
-## Recent Changes (November 4, 2025)
+## Recent Changes (November 11, 2025)
+
+**Google Ads Conversion Tracking:**
+- Added Google Ads global site tag (gtag.js) to client/index.html with ID: AW-17722550053
+- Created /thank-you page (ThankYou.tsx) for conversion tracking with luxury design, confirmation message, contact info, and social links
+- Updated both lead capture forms to redirect to /thank-you page after successful submission:
+  - ViewingRequestForm.tsx redirects to /thank-you on successful viewing request
+  - BrochureGate.tsx redirects to /thank-you after brochure download (PDF opens first to avoid popup blockers)
+- Added /thank-you route to App.tsx router
+- Updated sitemap.xml to include /thank-you page
+- Conversion tracking URL: senilluxuriousparosvillas.com/thank-you
+
+## Previous Changes (November 4, 2025)
 
 **Security & SEO Enhancements:**
 - Added comprehensive security headers to Express server (server/index.ts):
