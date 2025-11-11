@@ -124,7 +124,7 @@ export default function Hero() {
           <Button
             size="lg"
             className="rounded-full px-8 bg-primary text-primary-foreground border border-primary-border"
-            onClick={() => scrollToSection("#contact")}
+            onClick={() => scrollToSection("#viewing")}
             data-testid="button-request-viewing"
           >
             Request Viewing
