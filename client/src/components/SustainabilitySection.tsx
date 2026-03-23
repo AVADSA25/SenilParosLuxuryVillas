@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
-import parosBeach from "@assets/09-paros-island-mix-picture6_1761080091981.png";
+const parosBeach = "https://i.imgur.com/JEIxBir.jpeg";
 
 const features = [
   {
