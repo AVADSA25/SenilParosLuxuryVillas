@@ -63,7 +63,7 @@ export default function PartnersSection() {
           className="text-center mb-12 md:mb-16"
         >
           <h2 
-            className="font-serif text-4xl md:text-5xl font-medium mb-4"
+            className="font-serif text-4xl md:text-5xl font-semibold mb-4"
             style={{ color: 'var(--graphite)' }}
             data-testid="text-partners-title"
           >

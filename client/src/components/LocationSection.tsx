@@ -11,7 +11,7 @@ export default function LocationSection() {
   return (
     <section className="py-24 bg-accent" id="location" data-testid="section-location">
       <div className="max-w-[1200px] mx-auto px-8">
-        <h2 className="font-serif text-4xl md:text-5xl font-medium mb-16 text-center" data-testid="text-location-title">
+        <h2 className="font-serif text-4xl md:text-5xl font-semibold mb-16 text-center" data-testid="text-location-title">
           Location & Access
         </h2>
 

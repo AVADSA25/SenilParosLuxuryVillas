@@ -65,7 +65,7 @@ export default function BrochureGate() {
     <div className="flex-1">
       <form onSubmit={handleSubmit} className="space-y-6 bg-card p-8 rounded-lg border border-card-border">
         <div className="mb-6">
-          <h2 className="font-serif text-4xl md:text-5xl font-medium mb-4 text-center text-olive" data-testid="text-brochure-title">
+          <h2 className="font-serif text-4xl md:text-5xl font-semibold mb-4 text-center text-olive" data-testid="text-brochure-title">
             Download Brochure
           </h2>
           <p className="text-muted-foreground text-center">

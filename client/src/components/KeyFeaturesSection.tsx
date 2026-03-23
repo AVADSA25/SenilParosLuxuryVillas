@@ -97,7 +97,7 @@ export default function KeyFeaturesSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h2 className="font-serif text-4xl md:text-5xl font-medium mb-8" data-testid="text-features-title">
+              <h2 className="font-serif text-4xl md:text-5xl font-semibold mb-8" data-testid="text-features-title">
                 Key Features
               </h2>
               <div className="space-y-4">

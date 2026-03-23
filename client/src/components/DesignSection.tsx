@@ -41,7 +41,7 @@ export default function DesignSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-serif text-4xl md:text-5xl font-medium mb-6 text-center" 
+          className="font-serif text-4xl md:text-5xl font-semibold mb-6 text-center" 
           data-testid="text-design-title"
         >
           Design & Architecture

@@ -44,7 +44,7 @@ export default function OwnershipTimeline() {
         </div>
       </div>
       <div className="max-w-[1200px] mx-auto px-8 py-24">
-        <h2 className="font-serif text-4xl md:text-5xl font-medium mb-16 text-center" data-testid="text-ownership-title">
+        <h2 className="font-serif text-4xl md:text-5xl font-semibold mb-16 text-center" data-testid="text-ownership-title">
           Ownership & Process
         </h2>
 

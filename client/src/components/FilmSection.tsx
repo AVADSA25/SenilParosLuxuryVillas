@@ -72,7 +72,7 @@ export default function FilmSection() {
               data-testid="icon-wave-film"
             />
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl font-medium mb-6 text-center text-white" data-testid="text-film-title">
+          <h2 className="font-serif text-4xl md:text-5xl font-semibold mb-6 text-center text-white" data-testid="text-film-title">
             Presentation Film
           </h2>
           <p className="text-center text-white/70 mb-12 max-w-[800px] mx-auto">

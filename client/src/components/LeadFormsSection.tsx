@@ -21,7 +21,7 @@ export default function LeadFormsSection() {
             data-testid="logo-contact"
           />
           <h2 
-            className="font-serif text-4xl md:text-5xl font-medium text-center" 
+            className="font-serif text-4xl md:text-5xl font-semibold text-center" 
             data-testid="text-contact-title"
           >
             Contact Us

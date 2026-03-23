@@ -49,7 +49,7 @@ export default function SustainabilitySection() {
             transition={{ duration: 0.6 }}
             className="order-2 md:order-1"
           >
-            <h2 className="font-serif text-4xl md:text-5xl font-medium mb-8" data-testid="text-sustainability-title">
+            <h2 className="font-serif text-4xl md:text-5xl font-semibold mb-8" data-testid="text-sustainability-title">
               Sustainability & Systems
             </h2>
             <div className="space-y-4">
