@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Home, TrendingUp, Sun, Shield, Sparkles, X } from "lucide-react";
-import beach from "@assets/09-paros-island-mix-picture4_1761128760341.png";
 import harbor from "@assets/09-paros-island-mix-picture7_1761128768990.png";
 import church from "@assets/09-paros-island-mix-picture9_1761128776857.png";
 import sunset from "@assets/09-paros-island-mix-picture_1761135186874.png";
 import rocks from "@assets/09-paros-island-mix-picture5_1761138280595.png";
+
+const beach = "https://i.imgur.com/IdNDuHn.jpeg";
 
 const benefits = [
   {
