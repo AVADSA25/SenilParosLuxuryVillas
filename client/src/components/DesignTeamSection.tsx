@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
-import architectImage from "@assets/02-senil-villas-paros-estate_1761137532426.jpg";
+const architectImage = "https://i.imgur.com/oFeCP6x.jpeg";
 
 export default function DesignTeamSection() {
   const [expandedImage, setExpandedImage] = useState(false);
