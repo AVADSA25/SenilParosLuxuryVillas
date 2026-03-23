@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import parosImage from "@assets/09-paros-island-mix-picture8_1761073561584.png";
+
+const parosImage = "https://i.imgur.com/4WnZUCv.jpeg";
 
 export default function ParallaxSection() {
   const containerRef = useRef<HTMLDivElement>(null);
