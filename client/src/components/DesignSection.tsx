@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
-import villaAerial from "@assets/02-senil-villas-paros-estate2_1761075580986.jpg";
+import villaAerial from "@assets/image_1774260222893.png";
 import villaNight from "@assets/03b-senil-villa-night4_1761075658399.jpg";
 import villaOutdoor from "@assets/04-senil-villa-outdoor_1761076245245.jpg";
 
