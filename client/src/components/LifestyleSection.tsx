@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { X } from "lucide-react";
 import exterior from "@assets/02-senil-villas-paros-estate3_1761078697987.png";
 import interior1 from "@assets/05-senil-villa-interior-_1761078737080.jpg";
 import interior2 from "@assets/05-senil-villa-interior-3_1761078744243.png";
@@ -22,244 +22,71 @@ const lifestyleImages = [
 ];
 
 export default function LifestyleSection() {
-  const duplicatedImages = [...lifestyleImages, ...lifestyleImages, ...lifestyleImages];
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-  const animationRef = useRef<number | null>(null);
-  const velocityRef = useRef(0);
-  const lastXRef = useRef(0);
-  const lastTimeRef = useRef(0);
-  const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const isAutoScrollingRef = useRef(true);
-
-  // Auto-scroll effect
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    const speed = 0.67; // 33% faster than base speed
-
-    const animate = () => {
-      if (!container || !isAutoScrollingRef.current) return;
-      
-      container.scrollLeft += speed;
-      
-      // Loop back when reaching 1/3 of the scroll width
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      if (container.scrollLeft >= maxScroll / 3) {
-        container.scrollLeft = 0;
-      }
-      
-      animationRef.current = requestAnimationFrame(animate);
-    };
-
-    animationRef.current = requestAnimationFrame(animate);
-
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
-  }, []);
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (!scrollRef.current) return;
-    
-    // Stop auto-scrolling
-    isAutoScrollingRef.current = false;
-    if (animationRef.current) {
-      cancelAnimationFrame(animationRef.current);
-    }
-    if (pauseTimeoutRef.current) {
-      clearTimeout(pauseTimeoutRef.current);
-    }
-    
-    setIsDragging(true);
-    setStartX(e.pageX - scrollRef.current.offsetLeft);
-    setScrollLeft(scrollRef.current.scrollLeft);
-    velocityRef.current = 0;
-    lastXRef.current = e.pageX;
-    lastTimeRef.current = Date.now();
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !scrollRef.current) return;
-    
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
-    scrollRef.current.scrollLeft = scrollLeft - walk;
-
-    const now = Date.now();
-    const dt = now - lastTimeRef.current;
-    if (dt > 0) {
-      velocityRef.current = (e.pageX - lastXRef.current) / dt;
-    }
-    lastXRef.current = e.pageX;
-    lastTimeRef.current = now;
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-    
-    if (Math.abs(velocityRef.current) > 0.1) {
-      applyMomentum();
-    }
-    
-    // Resume auto-scrolling after 3 seconds
-    pauseTimeoutRef.current = setTimeout(() => {
-      isAutoScrollingRef.current = true;
-      
-      const container = scrollRef.current;
-      if (!container) return;
-
-      const speed = 0.67;
-
-      const animate = () => {
-        if (!container || !isAutoScrollingRef.current) return;
-        
-        container.scrollLeft += speed;
-        
-        const maxScroll = container.scrollWidth - container.clientWidth;
-        if (container.scrollLeft >= maxScroll / 3) {
-          container.scrollLeft = 0;
-        }
-        
-        animationRef.current = requestAnimationFrame(animate);
-      };
-
-      animationRef.current = requestAnimationFrame(animate);
-    }, 3000);
-  };
-
-  const applyMomentum = () => {
-    if (!scrollRef.current) return;
-    
-    const friction = 0.95;
-    let velocity = velocityRef.current * 10;
-    
-    const momentum = () => {
-      velocity *= friction;
-      
-      if (scrollRef.current) {
-        scrollRef.current.scrollLeft -= velocity;
-      }
-      
-      if (Math.abs(velocity) > 0.1) {
-        requestAnimationFrame(momentum);
-      }
-    };
-    
-    requestAnimationFrame(momentum);
-  };
-
-  const handleMouseLeave = () => {
-    if (isDragging) {
-      setIsDragging(false);
-      applyMomentum();
-      
-      // Resume auto-scrolling after 3 seconds
-      pauseTimeoutRef.current = setTimeout(() => {
-        isAutoScrollingRef.current = true;
-        
-        const container = scrollRef.current;
-        if (!container) return;
-
-        const speed = 0.67;
-
-        const animate = () => {
-          if (!container || !isAutoScrollingRef.current) return;
-          
-          container.scrollLeft += speed;
-          
-          const maxScroll = container.scrollWidth - container.clientWidth;
-          if (container.scrollLeft >= maxScroll / 3) {
-            container.scrollLeft = 0;
-          }
-          
-          animationRef.current = requestAnimationFrame(animate);
-        };
-
-        animationRef.current = requestAnimationFrame(animate);
-      }, 3000);
-    }
-  };
+  const [expandedImage, setExpandedImage] = useState<string | null>(null);
 
   return (
-    <section className="py-24 bg-graphite overflow-hidden" id="lifestyle" data-testid="section-lifestyle">
-      <div className="max-w-[1400px] mx-auto px-8">
-        <motion.h2 
+    <>
+    <section className="py-24 bg-graphite" id="lifestyle" data-testid="section-lifestyle">
+      <div className="max-w-[1200px] mx-auto px-8">
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-serif text-4xl md:text-5xl font-semibold mb-16 text-center text-accent" 
+          className="font-serif text-4xl md:text-5xl font-semibold mb-16 text-center text-accent"
           data-testid="text-lifestyle-title"
         >
           Lifestyle & Amenities
         </motion.h2>
 
-        <div className="relative">
-          <div 
-            ref={scrollRef}
-            className="overflow-x-scroll scrollbar-hide select-none"
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseLeave}
-            style={{
-              cursor: isDragging ? 'grabbing' : 'grab',
-              scrollBehavior: isDragging ? 'auto' : 'smooth',
-            }}
-          >
-            <div className="flex gap-6 w-max">
-              {duplicatedImages.map((img, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 rounded-lg overflow-hidden"
-                  style={{ 
-                    width: window.innerWidth < 768 
-                      ? 'calc((100vw - 64px) / 1.3 - 12px)'
-                      : 'calc((100vw - 64px) / 2.5 - 14.4px)',
-                    maxWidth: '520px',
-                  }}
-                  data-testid={`image-lifestyle-${index % lifestyleImages.length}`}
-                >
-                  <div 
-                    className="relative w-full overflow-hidden"
-                    style={{ paddingTop: '112.5%' }}
-                  >
-                    <img
-                      src={img}
-                      alt={`Villa lifestyle ${(index % lifestyleImages.length) + 1}`}
-                      className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-                      draggable={false}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex items-center justify-center gap-2 mt-6 text-accent/60 text-sm">
-            <ChevronLeft className="w-4 h-4" />
-            <span className="font-light">Drag to explore</span>
-            <ChevronRight className="w-4 h-4" />
-          </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+          {lifestyleImages.map((img, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.07 }}
+              className={`relative overflow-hidden rounded-lg cursor-pointer group ${
+                index === 0 ? "col-span-2 row-span-2" : ""
+              }`}
+              style={{ paddingTop: index === 0 ? "100%" : "75%" }}
+              onClick={() => setExpandedImage(img)}
+              data-testid={`image-lifestyle-${index}`}
+            >
+              <img
+                src={img}
+                alt={`Villa lifestyle ${index + 1}`}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-graphite/0 group-hover:bg-graphite/15 transition-colors duration-300" />
+            </motion.div>
+          ))}
         </div>
       </div>
-
-      <style>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
     </section>
+
+    {expandedImage && (
+      <div
+        className="fixed inset-0 z-50 bg-background flex items-center justify-center p-4"
+        onClick={() => setExpandedImage(null)}
+        data-testid="fullscreen-lifestyle-image"
+      >
+        <button
+          onClick={() => setExpandedImage(null)}
+          className="absolute top-4 right-4 z-50 rounded-full bg-card border border-card-border p-2 hover-elevate active-elevate-2"
+          data-testid="button-close-lifestyle-image"
+        >
+          <X className="w-6 h-6" />
+        </button>
+        <img
+          src={expandedImage}
+          alt="Lifestyle detail"
+          className="max-w-full max-h-full object-contain"
+          onClick={(e) => e.stopPropagation()}
+        />
+      </div>
+    )}
+    </>
   );
 }
