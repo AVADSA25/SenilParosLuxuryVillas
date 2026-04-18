@@ -1,0 +1,77 @@
+"Please completely rewrite the 'Awards & Recognition' section of my website. Delete the current data and use ONLY the following exact, corrected data. Do not hallucinate, duplicate, or generate any other entries.
+
+Top Stats Section (Display these numbers clearly):
+
+29 GLOBAL SELECTIONS
+
+12x AWARD WINNER (Across 9 Int. Festivals)
+
+2x HONORABLE MENTION
+
+2x NOMINEE (Double Nomination)
+
+4x FINALIST
+
+Main Winner Carousel / Highlight Cards (12 Wins):
+
+Lightning Awards | Bronze Award (Best Use of AI Generative Video) | Artificial Ascension
+
+Indian Independent Film Festival | Winner (Best Music Video) | Maë-Mèa — Someone Else
+
+Bangkok Movie Awards | Bangkok Society of Film Critics' Award | Artificial Ascension
+
+Bangkok Movie Awards | Winner (Music Video) | Maë-Mèa — Someone Else
+
+Florence Film Awards | Gold Award (Best Music Video) | Maë-Mèa — Someone Else
+
+East Village NY Film Festival | Winner (Best Experimental) | Artificial Ascension
+
+Korea AI Cinema Festival | Bronze Award (Trophy) | Nova Sidus
+
+Mei International Film Festival | Winner | Maë-Mèa — Someone Else
+
+Caravan International Film Festival | Award Winner | Maë-Mèa — Someone Else
+
+Tamizhagam International Film Fest | Award Winner | Nova Sidus
+
+Tamizhagam International Film Fest | Award Winner | Artificial Ascension
+
+Tamizhagam International Film Fest | Award Winner | Maë-Mèa — Someone Else
+
+Honorable Mention, Nominees & Finalists List:
+
+Athens Int. Monthly Art Film Fest | Honorable Mention (Top 3) | Artificial Ascension
+
+AI Film Festival Japan | Honorable Mention | Nova Sidus
+
+Levadia Int. Film Fest (L.I.F.F.) | Nominee (Best AI Film) | Artificial Ascension
+
+Levadia Int. Film Fest (L.I.F.F.) | Nominee | Maë-Mèa — Someone Else
+
+Korea AI Cinema Festival | Finalist | VIDA-T
+
+Korea AI Cinema Festival | Finalist | Maë-Mèa — Someone Else
+
+Critics Society Film Festival | Finalist | Maë-Mèa — Someone Else
+
+Athens Int. Monthly Art Film Fest | Finalist | Maë-Mèa — Someone Else
+
+Reel Senior Moments Film Festival | Semi-Finalist | Artificial Ascension
+
+Official Selections List (Only include these 8 hard-earned selections):
+
+Crown Wood International Film Festival | Maë-Mèa — Someone Else
+
+New York Istanbul Short Film Fest | Maë-Mèa — Someone Else
+
+CINEFAB Int. Independent Film Fest (Argentina) | Maë-Mèa — Someone Else
+
+Northwood Film Festival (Florida) | Maë-Mèa — Someone Else
+
+Ideal International Film Festival | Artificial Ascension
+
+Ideal International Film Festival | Maë-Mèa — Someone Else
+
+Korea AI Cinema Festival | Artificial Ascension
+
+South West Film Fest | Maë-Mèa — Someone Else"
