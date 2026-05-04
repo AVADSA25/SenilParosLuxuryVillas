@@ -6,6 +6,10 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/Home";
 import ThankYou from "@/pages/ThankYou";
 import NotFound from "@/pages/not-found";
+import MaintenancePage from "@/components/MaintenancePage";
+
+// Set to true to show the offline/maintenance page
+const OFFLINE_MODE = true;
 
 function Router() {
   return (
@@ -22,7 +26,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        <Router />
+        {OFFLINE_MODE ? <MaintenancePage /> : <Router />}
       </TooltipProvider>
     </QueryClientProvider>
   );
