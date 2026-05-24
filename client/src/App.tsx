@@ -9,7 +9,7 @@ import NotFound from "@/pages/not-found";
 import MaintenancePage from "@/components/MaintenancePage";
 
 // Set to true to show the offline/maintenance page
-const OFFLINE_MODE = true;
+const OFFLINE_MODE = false;
 
 function Router() {
   return (
