@@ -87,15 +87,12 @@ export default function IntroSection() {
             <div className="mt-3 space-y-1">
               <div className="flex items-center justify-between">
                 <span className="text-sm" style={{ color: '#545454' }}>Top Villa (A, 355.69 m²)</span>
-                <span className="text-lg font-semibold" style={{ color: 'var(--graphite)' }} data-testid="text-intro-price-top">€4,260,000</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm" style={{ color: '#545454' }}>Middle Villa (B, 401.34 m²)</span>
-                <span className="text-lg font-semibold" style={{ color: 'var(--graphite)' }} data-testid="text-intro-price-middle">€4,820,000</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm" style={{ color: '#545454' }}>Bottom Villa (C, 275.79 m²)</span>
-                <span className="text-lg font-semibold" style={{ color: 'var(--graphite)' }} data-testid="text-intro-price-bottom">€3,320,000</span>
               </div>
             </div>
           </motion.div>
