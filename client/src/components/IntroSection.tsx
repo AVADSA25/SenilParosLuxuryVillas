@@ -82,17 +82,20 @@ export default function IntroSection() {
               style={{ color: 'var(--olive)' }}
               data-testid="text-intro-availability"
             >
-              Available for individual purchase
+              Available for individual purchase — Price on request
             </p>
             <div className="mt-3 space-y-1">
               <div className="flex items-center justify-between">
                 <span className="text-sm" style={{ color: '#545454' }}>Top Villa (A, 355.69 m²)</span>
+                <span className="text-sm font-medium" style={{ color: 'var(--graphite)' }} data-testid="text-intro-price-top">Price on request</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm" style={{ color: '#545454' }}>Middle Villa (B, 401.34 m²)</span>
+                <span className="text-sm font-medium" style={{ color: 'var(--graphite)' }} data-testid="text-intro-price-middle">Price on request</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm" style={{ color: '#545454' }}>Bottom Villa (C, 275.79 m²)</span>
+                <span className="text-sm font-medium" style={{ color: 'var(--graphite)' }} data-testid="text-intro-price-bottom">Price on request</span>
               </div>
             </div>
           </motion.div>
