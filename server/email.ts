@@ -48,7 +48,7 @@ export async function sendViewingRequestEmail(data: {
   
   await client.emails.send({
     from: fromEmail,
-    to: 'info@senilluxuriousparosvillas.com',
+    to: 'drits74@hotmail.com',
     subject: `SENIL Villas - Viewing Request from ${data.name}`,
     html: `
       <h2>New Viewing Request</h2>
@@ -72,7 +72,7 @@ export async function sendBrochureRequestEmail(data: {
   
   await client.emails.send({
     from: fromEmail,
-    to: 'info@senilluxuriousparosvillas.com',
+    to: 'drits74@hotmail.com',
     subject: `SENIL Villas - Brochure Request from ${data.name}`,
     html: `
       <h2>New Brochure Download Request</h2>

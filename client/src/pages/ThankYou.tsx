@@ -61,12 +61,12 @@ export default function ThankYou() {
           </div>
 
           <a 
-            href="mailto:info@senilluxuriousparosvillas.com"
+            href="mailto:drits74@hotmail.com"
             className="flex items-center justify-center gap-2 text-secondary-foreground/80 hover:text-secondary-foreground transition-colors mb-8"
             data-testid="link-email"
           >
             <Mail className="w-4 h-4" />
-            <span className="font-medium">info@senilluxuriousparosvillas.com</span>
+            <span className="font-medium">drits74@hotmail.com</span>
           </a>
 
           <div className="flex gap-4 justify-center mb-8">
