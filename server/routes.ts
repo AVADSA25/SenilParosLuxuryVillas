@@ -17,7 +17,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Send email via Resend
       await sendViewingRequestEmail({ name, email, phone, message });
       
-      console.log("Viewing request sent to drits74@hotmail.com:", {
+      console.log("Viewing request sent to info@senilluxuriousparosvillas.com:", {
         name,
         email,
         phone,
@@ -44,7 +44,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Send email via Resend
       await sendBrochureRequestEmail({ name, email, phone, message });
       
-      console.log("Brochure request sent to drits74@hotmail.com:", {
+      console.log("Brochure request sent to info@senilluxuriousparosvillas.com:", {
         name,
         email,
         phone,

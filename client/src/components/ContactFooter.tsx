@@ -24,11 +24,11 @@ export default function ContactFooter() {
               </p>
               <p>
                 <a
-                  href="mailto:drits74@hotmail.com"
+                  href="mailto:info@senilluxuriousparosvillas.com"
                   className="hover:text-secondary-foreground transition-colors"
                   data-testid="link-email"
                 >
-                  drits74@hotmail.com
+                  info@senilluxuriousparosvillas.com
                 </a>
               </p>
             </div>

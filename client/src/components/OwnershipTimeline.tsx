@@ -34,12 +34,12 @@ export default function OwnershipTimeline() {
           </a>
           <span className="text-primary-foreground/40">•</span>
           <a 
-            href="mailto:drits74@hotmail.com" 
+            href="mailto:info@senilluxuriousparosvillas.com" 
             className="flex items-center gap-2 hover:opacity-70 transition-opacity"
             data-testid="link-email-top"
           >
             <Mail className="w-4 h-4" />
-            <span className="text-sm font-medium whitespace-nowrap">drits74@hotmail.com</span>
+            <span className="text-sm font-medium whitespace-nowrap">info@senilluxuriousparosvillas.com</span>
           </a>
         </div>
       </div>
