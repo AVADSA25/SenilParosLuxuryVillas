@@ -101,10 +101,18 @@ export default function ContactFooter() {
               />
             </div>
           </div>
-          <div className="mt-6 pt-2 border-t border-secondary-foreground/10">
+          <div className="mt-6 pt-2 border-t border-secondary-foreground/10 flex flex-col items-center gap-1">
             <p className="text-[10px] text-center text-secondary-foreground/30">
               All rights reserved to @senilluxuriousparosvillas
             </p>
+            <a
+              href="https://avadigital.ai"
+              target="_blank"
+              className="text-[10px] text-secondary-foreground/25 hover:text-secondary-foreground/40 transition-colors"
+              data-testid="link-site-credit"
+            >
+              Site by AVA Digital
+            </a>
           </div>
         </div>
       </div>
