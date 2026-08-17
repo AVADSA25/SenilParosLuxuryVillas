@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
-const parosBeach = "https://i.imgur.com/JEIxBir.jpeg";
+const parosBeach = "https://i.imgur.com/EKHRkDF.png";
 
 const features = [
   {
@@ -41,13 +41,15 @@ export default function SustainabilitySection() {
     <>
     <section className="py-24 bg-background" id="sustainability" data-testid="section-sustainability">
       <div className="max-w-[1200px] mx-auto px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 items-start">
+
+          {/* Text — narrower column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="order-2 md:order-1"
+            className="order-2 md:order-1 md:col-span-2"
           >
             <h2 className="font-serif text-4xl md:text-5xl font-semibold mb-8" data-testid="text-sustainability-title">
               Sustainability & Systems
@@ -66,20 +68,23 @@ export default function SustainabilitySection() {
             </div>
           </motion.div>
 
+          {/* Image — wider column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer hover-elevate transition-transform duration-300 hover:scale-[1.01] order-1 md:order-2 md:pt-16"
+            className="relative overflow-hidden rounded-lg cursor-pointer hover-elevate transition-transform duration-300 hover:scale-[1.01] order-1 md:order-2 md:col-span-3"
+            style={{ aspectRatio: '4/3' }}
             onClick={() => setExpandedImage(true)}
           >
             <img
               src={parosBeach}
-              alt="Paros beach with turquoise waters"
+              alt="Sustainability visual"
               className="w-full h-full object-cover"
             />
           </motion.div>
+
         </div>
       </div>
     </section>
@@ -99,7 +104,7 @@ export default function SustainabilitySection() {
         </button>
         <img 
           src={parosBeach} 
-          alt="Paros beach with turquoise waters" 
+          alt="Sustainability visual" 
           className="max-w-full max-h-full object-contain"
           onClick={(e) => e.stopPropagation()}
         />
