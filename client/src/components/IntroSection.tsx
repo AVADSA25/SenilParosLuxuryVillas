@@ -82,20 +82,29 @@ export default function IntroSection() {
               style={{ color: 'var(--olive)' }}
               data-testid="text-intro-availability"
             >
-              Available for individual purchase — Price on request
+              Available for individual purchase
             </p>
-            <div className="mt-3 space-y-1">
-              <div className="flex items-center justify-between">
+            <div className="mt-3 space-y-2">
+              <div className="flex items-start justify-between gap-4">
                 <span className="text-sm" style={{ color: '#545454' }}>Top Villa (A, 355.69 m²)</span>
-                <span className="text-sm font-medium" style={{ color: 'var(--graphite)' }} data-testid="text-intro-price-top">Price on request</span>
+                <div className="text-right shrink-0">
+                  <span className="text-sm font-medium" style={{ color: 'var(--graphite)' }} data-testid="text-intro-price-top">€3.9m</span>
+                  <span className="block text-xs" style={{ color: '#888' }}>Delivery: End of 2026</span>
+                </div>
               </div>
-              <div className="flex items-center justify-between">
+              <div className="flex items-start justify-between gap-4">
                 <span className="text-sm" style={{ color: '#545454' }}>Middle Villa (B, 401.34 m²)</span>
-                <span className="text-sm font-medium" style={{ color: 'var(--graphite)' }} data-testid="text-intro-price-middle">Price on request</span>
+                <div className="text-right shrink-0">
+                  <span className="text-sm font-medium" style={{ color: 'var(--graphite)' }} data-testid="text-intro-price-middle">€4.4m</span>
+                  <span className="block text-xs" style={{ color: '#888' }}>Delivery: End of 2026</span>
+                </div>
               </div>
-              <div className="flex items-center justify-between">
+              <div className="flex items-start justify-between gap-4">
                 <span className="text-sm" style={{ color: '#545454' }}>Bottom Villa (C, 275.79 m²)</span>
-                <span className="text-sm font-medium" style={{ color: 'var(--graphite)' }} data-testid="text-intro-price-bottom">Price on request</span>
+                <div className="text-right shrink-0">
+                  <span className="text-sm font-medium" style={{ color: 'var(--graphite)' }} data-testid="text-intro-price-bottom">€3.1m</span>
+                  <span className="block text-xs" style={{ color: '#888' }}>Delivery: 18–24 months post signing</span>
+                </div>
               </div>
             </div>
           </motion.div>

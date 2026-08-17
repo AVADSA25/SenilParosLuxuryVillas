@@ -28,6 +28,9 @@ const villas = [
     name: "Top",
     area: "355.69",
     bedrooms: 6,
+    price: "€3.9m",
+    delivery: "Delivery: End of 2026",
+    brochureUrl: "/brochures/villa-a-top.pdf",
     images: {
       exterior: villa1Floorplan,
       interior: "https://i.imgur.com/xjYZK8L.jpg",
@@ -39,6 +42,9 @@ const villas = [
     name: "Middle",
     area: "401.34",
     bedrooms: 9,
+    price: "€4.4m",
+    delivery: "Delivery: End of 2026",
+    brochureUrl: "/brochures/villa-b-middle.pdf",
     images: {
       exterior: villa2Floorplan,
       interior: "https://i.imgur.com/8KfZN9R.jpg",
@@ -50,6 +56,9 @@ const villas = [
     name: "Bottom",
     area: "275.79",
     bedrooms: 5,
+    price: "€3.1m",
+    delivery: "Delivery: 18–24 months post signing",
+    brochureUrl: "/brochures/villa-c-bottom.pdf",
     images: {
       exterior: villa3Floorplan,
       interior: "https://i.imgur.com/TpH7Zmq.jpg",

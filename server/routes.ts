@@ -34,15 +34,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Brochure request endpoint
   app.post("/api/brochure-request", async (req, res) => {
     try {
-      const { name, email, phone, message } = req.body;
+      const { email, villaName, name, phone, message } = req.body;
 
-      // Validate input
-      if (!name || !email || !phone) {
+      // Validate input — only email is required now
+      if (!email) {
         return res.status(400).json({ error: "Missing required fields" });
       }
 
       // Send email via Resend
-      await sendBrochureRequestEmail({ name, email, phone, message });
+      await sendBrochureRequestEmail({ name: name || email, email, phone: phone || "", message: message || `Brochure downloaded: ${villaName || "unknown"} Villa` });
       
       console.log("Brochure request sent to info@senilluxuriousparosvillas.com:", {
         name,

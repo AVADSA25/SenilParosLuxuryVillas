@@ -8,12 +8,15 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import BrochureGate from "./BrochureGate";
+import VillaBrochureGate from "./VillaBrochureGate";
 
 interface VillaCardProps {
   name: string;
   area: string;
   bedrooms: number;
+  price: string;
+  delivery: string;
+  brochureUrl: string;
   images: {
     exterior: string;
     interior: string;
@@ -22,7 +25,7 @@ interface VillaCardProps {
   floorplan: string;
 }
 
-export default function VillaCard({ name, area, bedrooms, images, floorplan }: VillaCardProps) {
+export default function VillaCard({ name, area, bedrooms, price, delivery, brochureUrl, images, floorplan }: VillaCardProps) {
   const [showFloorplan, setShowFloorplan] = useState(false);
   const [showBrochure, setShowBrochure] = useState(false);
 
@@ -72,7 +75,10 @@ export default function VillaCard({ name, area, bedrooms, images, floorplan }: V
             </div>
             <div className="text-right">
               <p className="text-lg font-semibold" style={{ color: 'var(--graphite)' }} data-testid={`text-price-${name.toLowerCase()}`}>
-                Price on request
+                {price}
+              </p>
+              <p className="text-xs mt-0.5" style={{ color: '#888' }}>
+                {delivery}
               </p>
             </div>
           </div>
@@ -130,11 +136,15 @@ export default function VillaCard({ name, area, bedrooms, images, floorplan }: V
       )}
 
       <Dialog open={showBrochure} onOpenChange={setShowBrochure}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-md">
           <DialogHeader>
-            <DialogTitle className="sr-only">Download Brochure</DialogTitle>
+            <DialogTitle className="sr-only">Download {name} Villa Brochure</DialogTitle>
           </DialogHeader>
-          <BrochureGate />
+          <VillaBrochureGate
+            villaName={name}
+            brochureUrl={brochureUrl}
+            onClose={() => setShowBrochure(false)}
+          />
         </DialogContent>
       </Dialog>
     </>
