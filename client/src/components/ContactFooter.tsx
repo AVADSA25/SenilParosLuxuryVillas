@@ -86,6 +86,56 @@ export default function ContactFooter() {
         </div>
 
         <div className="border-t border-secondary-foreground/20 pt-8">
+          <div
+            className="mb-10 rounded-lg bg-white px-6 py-7 text-[#144e8c]"
+            data-testid="funding-notice"
+          >
+            <div className="flex flex-col gap-7 md:flex-row md:items-center md:justify-between">
+              <div className="flex flex-wrap items-center justify-center gap-6 md:justify-start">
+                <img
+                  src="/funding/ministry-of-rural-development.png"
+                  alt="Hellenic Republic Ministry of Rural Development and Food"
+                  className="h-auto w-[min(100%,420px)] max-w-[420px]"
+                  data-testid="funding-logo-ministry"
+                />
+                <div className="flex items-center gap-3" aria-label="NextGenerationEU">
+                  <span
+                    className="text-3xl leading-none text-[#f6c900]"
+                    aria-hidden="true"
+                  >
+                    ★ ★ ★
+                  </span>
+                  <span className="text-lg font-semibold leading-tight text-[#595a5c]">
+                    NextGenerationEU
+                  </span>
+                </div>
+                <img
+                  src="/funding/recovery-resilience-plan.png"
+                  alt="National Recovery and Resilience Plan"
+                  className="h-auto w-[min(100%,250px)] max-w-[250px]"
+                  data-testid="funding-logo-recovery"
+                />
+              </div>
+
+              <div className="max-w-sm text-center text-sm leading-relaxed md:text-right">
+                <p className="font-semibold uppercase tracking-wide">
+                  Establishment of a New Tourism Unit
+                </p>
+                <p className="mt-2">
+                  The investment was implemented under the action{" "}
+                  <strong>“Green Agrotourism”</strong> of the Recovery and
+                  Resilience Facility.
+                </p>
+                <div className="mt-3 grid grid-cols-2 gap-x-5 gap-y-1 text-left md:text-right">
+                  <span>Investment budget:</span>
+                  <strong>€3,015,095.73</strong>
+                  <span>EU Funding:</span>
+                  <strong>€1,507,547.87</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="flex flex-col md:flex-row md:items-start gap-8">
             <div className="flex-1">
               <p className="text-sm text-secondary-foreground/60" data-testid="text-legal">
