@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useLocation } from "wouter";
+import TurnstileWidget from "./TurnstileWidget";
 
 export default function ViewingRequestForm() {
   const [formData, setFormData] = useState({
@@ -15,13 +16,30 @@ export default function ViewingRequestForm() {
     honeypot: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [captchaReset, setCaptchaReset] = useState(0);
   const { toast } = useToast();
   const [, setLocation] = useLocation();
+  const handleCaptchaVerify = useCallback((token: string) => {
+    setTurnstileToken(token);
+  }, []);
+  const handleCaptchaExpire = useCallback(() => {
+    setTurnstileToken("");
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (formData.honeypot) {
+      return;
+    }
+
+    if (!turnstileToken) {
+      toast({
+        title: "Verification required",
+        description: "Please complete the security check.",
+        variant: "destructive",
+      });
       return;
     }
 
@@ -38,6 +56,7 @@ export default function ViewingRequestForm() {
           email: formData.email,
           phone: formData.phone,
           message: formData.message,
+          turnstileToken,
         }),
       });
 
@@ -45,12 +64,18 @@ export default function ViewingRequestForm() {
         setFormData({ name: "", email: "", phone: "", message: "", honeypot: "" });
         setLocation("/thank-you");
       } else {
-        throw new Error('Failed to send request');
+        const result = await response.json().catch(() => ({}));
+        throw new Error(result.error || 'Failed to send request');
       }
     } catch (error) {
+      setTurnstileToken("");
+      setCaptchaReset((value) => value + 1);
       toast({
         title: "Error",
-        description: "Failed to send request. Please try again.",
+        description:
+          error instanceof Error
+            ? error.message
+            : "Failed to send request. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -127,10 +152,16 @@ export default function ViewingRequestForm() {
           autoComplete="off"
         />
 
+        <TurnstileWidget
+          onVerify={handleCaptchaVerify}
+          onExpire={handleCaptchaExpire}
+          resetSignal={captchaReset}
+        />
+
         <Button
           type="submit"
           className="w-full"
-          disabled={isSubmitting}
+          disabled={isSubmitting || !turnstileToken}
           data-testid="button-submit-viewing"
         >
           {isSubmitting ? "Sending..." : "Request Viewing"}

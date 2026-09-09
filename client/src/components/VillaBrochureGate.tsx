@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import TurnstileWidget from "./TurnstileWidget";
 
 interface VillaBrochureGateProps {
   villaName: string;
@@ -14,6 +15,14 @@ export default function VillaBrochureGate({ villaName, brochureUrl, onClose }: V
   const [honeypot, setHoneypot] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [captchaReset, setCaptchaReset] = useState(0);
+  const handleCaptchaVerify = useCallback((token: string) => {
+    setTurnstileToken(token);
+  }, []);
+  const handleCaptchaExpire = useCallback(() => {
+    setTurnstileToken("");
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,23 +32,46 @@ export default function VillaBrochureGate({ villaName, brochureUrl, onClose }: V
       setError("Please enter your email.");
       return;
     }
+    if (!turnstileToken) {
+      setError("Please complete the security check.");
+      return;
+    }
 
     setIsSubmitting(true);
 
-    // Open PDF immediately to avoid popup blockers
-    window.open(brochureUrl, "_blank", "noopener,noreferrer");
+    // Open an empty tab during the click event to avoid popup blockers.
+    const brochureWindow = window.open("", "_blank");
 
     try {
-      await fetch("/api/brochure-request", {
+      const response = await fetch("/api/brochure-request", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, villaName }),
+        body: JSON.stringify({ email, villaName, turnstileToken }),
       });
-    } catch {
-      // Silent — PDF already opened, lead capture is best-effort
+
+      if (!response.ok) {
+        const result = await response.json().catch(() => ({}));
+        throw new Error(result.error || "Unable to verify your request.");
+      }
+
+      if (brochureWindow) {
+        brochureWindow.opener = null;
+        brochureWindow.location.href = brochureUrl;
+      } else {
+        window.location.href = brochureUrl;
+      }
+      onClose();
+    } catch (requestError) {
+      brochureWindow?.close();
+      setTurnstileToken("");
+      setCaptchaReset((value) => value + 1);
+      setError(
+        requestError instanceof Error
+          ? requestError.message
+          : "Unable to download the brochure. Please try again.",
+      );
     } finally {
       setIsSubmitting(false);
-      onClose();
     }
   };
 
@@ -77,7 +109,17 @@ export default function VillaBrochureGate({ villaName, brochureUrl, onClose }: V
           autoComplete="off"
         />
 
-        <Button type="submit" className="w-full" disabled={isSubmitting}>
+        <TurnstileWidget
+          onVerify={handleCaptchaVerify}
+          onExpire={handleCaptchaExpire}
+          resetSignal={captchaReset}
+        />
+
+        <Button
+          type="submit"
+          className="w-full"
+          disabled={isSubmitting || !turnstileToken}
+        >
           {isSubmitting ? "Opening…" : "Download Brochure"}
         </Button>
       </form>
