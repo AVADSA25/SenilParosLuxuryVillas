@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import waveIcon from "@assets/ChatGPT Image Oct 21, 2025, 12_56_10 PM (1)_1761049770147.png";
 import logoImage from "@assets/ChatGPT Image Oct 21, 2025, 02_42_29 PM (1)-3_1761052593840.png";
 import heroVideo from "@assets/860497b9-de9a-444e-a6a6-861649914c40_1761070130520.mp4";
+import heroPoster from "@assets/02-senil-villas-paros-estate2_1761075580986.jpg";
 
 const navItems = [
   { label: "Villas", href: "#villas" },
@@ -92,12 +93,16 @@ export default function Hero() {
           </>
         )}
       </AnimatePresence>
-      <div className="absolute inset-0 w-full h-full overflow-hidden">
+      <div
+        className="absolute inset-0 w-full h-full overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroPoster})` }}
+      >
         <video
           autoPlay
           loop
           muted={true}
           playsInline
+          poster={heroPoster}
           className="video-background"
           data-testid="hero-video"
         >

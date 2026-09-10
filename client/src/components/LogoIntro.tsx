@@ -21,6 +21,15 @@ export default function LogoIntro({ onComplete }: { onComplete: () => void }) {
     }
 
     setShow(true);
+
+    // Never leave the site hidden if the intro video is blocked or slow.
+    const fallbackTimer = window.setTimeout(() => {
+      localStorage.setItem(FLAG, "1");
+      setShow(false);
+      onComplete();
+    }, 8000);
+
+    return () => window.clearTimeout(fallbackTimer);
   }, [onComplete]);
 
   const handleVideoLoaded = () => {
@@ -73,8 +82,10 @@ export default function LogoIntro({ onComplete }: { onComplete: () => void }) {
             autoPlay
             muted
             playsInline
+            preload="auto"
             onLoadedData={handleVideoLoaded}
             onEnded={handleVideoEnd}
+            onError={handleSkip}
             data-testid="intro-video"
           >
             <source src={introVideo} type="video/mp4" />
